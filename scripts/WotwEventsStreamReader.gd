@@ -55,7 +55,7 @@ func append_events(data: PackedByteArray) -> void:
 				var _label := reader.read_string_with_length()
 				var _icon := reader.read_string_with_length()
 	
-	# If theres still a segment active, add it
+	# If there's still a segment active, add it
 	if !current_segment_finalized && !current_segment.points.is_empty():
 		stream.segments.push_back(current_segment)
 	

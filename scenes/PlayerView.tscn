@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://0lkoypiindf6"]
+
+[ext_resource type="Script" uid="uid://7n08jlq0lr0i" path="res://scenes/PlayerView.gd" id="1_88nkq"]
+[ext_resource type="Texture2D" uid="uid://dbtwtgv8xxccu" path="res://assets/Ori.png" id="1_vtsk7"]
+
+[sub_resource type="Animation" id="Animation_vtsk7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ori:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_88nkq"]
+resource_name = "pulsate"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ori:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.11, 0.11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6n86l"]
+_data = {
+&"RESET": SubResource("Animation_vtsk7"),
+&"pulsate": SubResource("Animation_88nkq")
+}
+
+[node name="PlayerView" type="Node2D" unique_id=943348386]
+script = ExtResource("1_88nkq")
+
+[node name="Ori" type="Sprite2D" parent="." unique_id=712438218]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_vtsk7")
+offset = Vector2(0, -36)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=505895285]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_6n86l")
+autoplay = &"pulsate"

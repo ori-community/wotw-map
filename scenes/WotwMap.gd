@@ -7,6 +7,7 @@ signal map_dragged
 
 
 @export var in_game_map_bounds: Rect2 = Rect2(Vector2(-2023, -4656), Vector2(4405, 1233))
+@export var zoom_to_cursor: bool = true
 
 
 @onready var origin: Node2D = %Origin
@@ -79,17 +80,31 @@ func _zoom_around_screen_position(screen_position: Vector2, factor: float) -> vo
 	map_in_game_center_changed.emit(map_in_game_center_position)
 
 
+func _zoom(factor: float) -> void:
+	var screen_center := get_global_rect().get_center()
+	var local_position := origin.to_local(screen_center)
+	origin.scale *= factor
+	var global_position_after := origin.to_global(local_position)
+	origin.position += screen_center - global_position_after
+
+
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		match event.button_index:
 			MouseButton.MOUSE_BUTTON_LEFT:
 				_is_dragging = event.pressed
 			MouseButton.MOUSE_BUTTON_WHEEL_DOWN:
-				_zoom_around_screen_position(get_global_mouse_position(), 1.0 - SCROLL_ZOOM_SPEED)
-				map_dragged.emit()
+				if zoom_to_cursor:
+					_zoom_around_screen_position(get_global_mouse_position(), 1.0 - SCROLL_ZOOM_SPEED)
+					map_dragged.emit()
+				else:
+					_zoom(1.0 - SCROLL_ZOOM_SPEED)
 			MouseButton.MOUSE_BUTTON_WHEEL_UP:
-				_zoom_around_screen_position(get_global_mouse_position(), 1.0 + SCROLL_ZOOM_SPEED)
-				map_dragged.emit()
+				if zoom_to_cursor:
+					_zoom_around_screen_position(get_global_mouse_position(), 1.0 + SCROLL_ZOOM_SPEED)
+					map_dragged.emit()
+				else:
+					_zoom(1.0 + SCROLL_ZOOM_SPEED)
 
 	elif event is InputEventMouseMotion:
 		if _is_dragging:
@@ -143,8 +158,8 @@ func _on_child_entered_tree(node: Node) -> void:
 
 
 func transition_view(in_game_center: Vector2, target_map_scale: float = map_scale) -> void:
-	create_tween().tween_property(self, "map_in_game_center_position", in_game_center, 0.6).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	create_tween().tween_property(self, "map_scale", target_map_scale, 0.6).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	create_tween().tween_property(self, "map_in_game_center_position", in_game_center, 0.6).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	create_tween().tween_property(self, "map_scale", target_map_scale, 0.6).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 
 func zoom_to_bounds(in_game_bounds: Rect2) -> void:

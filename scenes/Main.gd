@@ -17,17 +17,57 @@ var _is_playing = false:
 		else:
 			play_button.texture_normal = preload("res://assets/ui/Play.svg")
 var _is_dragging_any_slider = false
+var _javascript_call_object: JavaScriptObject = null
+
+
+func _on_javascript_call(args: Array) -> void:
+	if args.size() < 1:
+		push_error("At least one argument required")
+		return
+	
+	match args[0]:
+		"echo":
+			print(args.slice(1))
+		"set_window_scale":
+			get_window().content_scale_factor = args[1]
+		"load_save_files":
+			var save_files = args[1]
+			print("Loading %d save file(s)" % save_files.length)
+			
+			for index in range(save_files.length):
+				var save_file_name: String = save_files[index].name
+				var save_file_data := JavaScriptBridge.js_buffer_to_packed_byte_array(save_files[index].data)
+				print("Loading save file: ", save_file_name)
+				
+				var save_file_reader := WotwSaveFileReader.new(save_file_data)
+				var slot_data := save_file_reader.read_events_stream()
+				var events_stream_reader := WotwEventsStreamReader.new()
+				events_stream_reader.append_events(slot_data)
+				events_view.stream = events_stream_reader.stream
+				time_slider.max_value = events_stream_reader.stream.in_game_time_end
+		_:
+			push_error("Unknown IPC command: %s" % args[0])
+
 
 func _ready() -> void:
+	if OS.has_feature("web"):
+		_javascript_call_object = JavaScriptBridge.create_callback(_on_javascript_call)
+		var window = JavaScriptBridge.get_interface("window")
+		window.__godotBridge.call = _javascript_call_object
+		window.__godotBridge.onGodotReady()
+		print("Godot JavaScript bridge ready")
+	else:
+		# Dev mode: Load file from filesystem directly
+		# In production, the "load_save_file" IPC call is used
+		var save_file_reader := WotwSaveFileReader.new(FileAccess.get_file_as_bytes("/home/timo/Downloads/saveFile9.uberstate"))
+		var slot_data := save_file_reader.read_events_stream()
+		var events_stream_reader := WotwEventsStreamReader.new()
+		events_stream_reader.append_events(slot_data)
+		
+		events_view.stream = events_stream_reader.stream
+		time_slider.max_value = events_stream_reader.stream.in_game_time_end
+	
 	speed_label.text = str(speed_slider.value, "x")
-	
-	var save_file_reader := WotwSaveFileReader.new(FileAccess.get_file_as_bytes("C:/Users/Mawe/AppData/Local/Ori and the Will of The Wisps/saveFile0.uberstate"))
-	var slot_data := save_file_reader.read_events_stream()
-	var events_stream_reader := WotwEventsStreamReader.new()
-	events_stream_reader.append_events(slot_data)
-	
-	events_view.stream = events_stream_reader.stream
-	time_slider.max_value = events_stream_reader.stream.in_game_time_end
 	update_time_label()
 
 
@@ -60,7 +100,8 @@ func _on_time_slider_value_changed(value: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	wotw_map.zoom_to_fit()
+	follow_player_button.button_pressed = false
+	wotw_map.zoom_to_map_bounds()
 
 
 func _on_time_slider_drag_started() -> void:
@@ -73,10 +114,6 @@ func _on_time_slider_drag_ended(_value_changed: bool) -> void:
 
 func _on_speed_slider_value_changed(value: float) -> void:
 	speed_label.text = str(value, "x")
-
-
-func _on_fade_out_button_toggled(toggled_on: bool) -> void:
-	events_view.fade_out = toggled_on
 
 
 func _on_button_beginning_pressed() -> void:
@@ -93,3 +130,11 @@ func _on_button_play_pressed() -> void:
 
 func _on_wotw_map_map_dragged() -> void:
 	follow_player_button.button_pressed = false
+
+
+func _on_follow_player_button_toggled(toggled_on: bool) -> void:
+	wotw_map.zoom_to_cursor = !toggled_on
+
+
+func _on_short_trails_button_toggled(toggled_on: bool) -> void:
+	events_view.fade_out = toggled_on

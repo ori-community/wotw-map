@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://fndd7f35yuum"]
 
 [ext_resource type="Script" uid="uid://0ljwsadyskc7" path="res://scenes/EventsView.gd" id="1_4egpj"]
+[ext_resource type="PackedScene" uid="uid://0lkoypiindf6" path="res://scenes/PlayerView.tscn" id="2_d4qnu"]
 
 [node name="EventsView" type="Node2D" unique_id=110558812]
 script = ExtResource("1_4egpj")
 
 [node name="SegmentLinesContainer" type="Node2D" parent="." unique_id=1873742227]
 unique_name_in_owner = true
+
+[node name="PlayerView" parent="." unique_id=943348386 instance=ExtResource("2_d4qnu")]
+unique_name_in_owner = true
+scale = Vector2(1, -1)

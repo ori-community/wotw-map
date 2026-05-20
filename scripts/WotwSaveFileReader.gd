@@ -4,7 +4,7 @@ class_name WotwSaveFileReader
 
 const SAVE_META_FILE_MAGIC := 1
 const SAVE_META_FILE_VERSION := 2
-const SLOT_ID_SAVE_FILE_GAME_STATS_EVENTS := 7
+const SLOT_ID_SAVE_FILE_GAME_STATS_EVENTS := 6
 
 
 var _data: PackedByteArray

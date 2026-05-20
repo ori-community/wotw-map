@@ -35,6 +35,7 @@ color = Color(0, 0, 0, 1)
 [node name="WotwMap" parent="." unique_id=324143865 instance=ExtResource("1_elqb8")]
 unique_name_in_owner = true
 layout_mode = 1
+zoom_to_cursor = false
 
 [node name="EventsView" parent="WotwMap" unique_id=110558812 instance=ExtResource("3_0bbpv")]
 unique_name_in_owner = true
@@ -93,16 +94,16 @@ unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 
-[node name="HContainerFadeOut" type="HBoxContainer" parent="MarginContainer/VContainerBottom/HContainerControls/VContainerRight" unique_id=335419853]
+[node name="HContainerShortTrails" type="HBoxContainer" parent="MarginContainer/VContainerBottom/HContainerControls/VContainerRight" unique_id=335419853]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="FadeOutLabel" type="Label" parent="MarginContainer/VContainerBottom/HContainerControls/VContainerRight/HContainerFadeOut" unique_id=1025074201]
+[node name="ShortTrailsLabel" type="Label" parent="MarginContainer/VContainerBottom/HContainerControls/VContainerRight/HContainerShortTrails" unique_id=1025074201]
 layout_mode = 2
-text = "Fade Out "
+text = "Short Trails"
 horizontal_alignment = 2
 
-[node name="FadeOutButton" type="CheckButton" parent="MarginContainer/VContainerBottom/HContainerControls/VContainerRight/HContainerFadeOut" unique_id=360782043]
+[node name="ShortTrailsButton" type="CheckButton" parent="MarginContainer/VContainerBottom/HContainerControls/VContainerRight/HContainerShortTrails" unique_id=360782043]
 layout_mode = 2
 button_pressed = true
 
@@ -206,7 +207,8 @@ horizontal_alignment = 2
 
 [connection signal="map_dragged" from="WotwMap" to="." method="_on_wotw_map_map_dragged"]
 [connection signal="pressed" from="MarginContainer/VContainerBottom/HContainerControls/VContainerLeft/ButtonZoomToFit" to="." method="_on_button_pressed"]
-[connection signal="toggled" from="MarginContainer/VContainerBottom/HContainerControls/VContainerRight/HContainerFadeOut/FadeOutButton" to="." method="_on_fade_out_button_toggled"]
+[connection signal="toggled" from="MarginContainer/VContainerBottom/HContainerControls/VContainerRight/HContainerFollowPlayer/FollowPlayerButton" to="." method="_on_follow_player_button_toggled"]
+[connection signal="toggled" from="MarginContainer/VContainerBottom/HContainerControls/VContainerRight/HContainerShortTrails/ShortTrailsButton" to="." method="_on_short_trails_button_toggled"]
 [connection signal="drag_ended" from="MarginContainer/VContainerBottom/Container/MContainer/VBoxContainer/TimeSlider" to="." method="_on_time_slider_drag_ended"]
 [connection signal="drag_started" from="MarginContainer/VContainerBottom/Container/MContainer/VBoxContainer/TimeSlider" to="." method="_on_time_slider_drag_started"]
 [connection signal="value_changed" from="MarginContainer/VContainerBottom/Container/MContainer/VBoxContainer/TimeSlider" to="." method="_on_time_slider_value_changed"]
