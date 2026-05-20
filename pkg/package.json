@@ -1,0 +1,16 @@
+{
+  "name": "@ori-community/wotw-map",
+  "version": "0.1.2",
+  "description": "",
+  "homepage": "https://github.com/ori-community/wotw-map#readme",
+  "bugs": {
+    "url": "https://github.com/ori-community/wotw-map/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ori-community/wotw-map.git"
+  },
+  "license": "MIT",
+  "author": "Timo Schwarzer",
+  "type": "module"
+}
