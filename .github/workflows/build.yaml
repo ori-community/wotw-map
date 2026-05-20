@@ -1,4 +1,4 @@
-name: publish-package
+name: build-and-publish
 
 on:
   push:
@@ -11,12 +11,14 @@ permissions:
   contents: read
 
 jobs:
-  publish-crate:
+  build-and-publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v6
+        with:
+          lfs: true
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -68,14 +70,16 @@ jobs:
         run: scons progress=no platform=web target=template_release threads=no optimize=size_extra build_profile="$(realpath ../../compilation-profile.gdbuild)"
 
       - name: Copy WASM
-        run: cp ./.build/godot/bin/*.wasm pkg/dist/wotw-map.wasm
+        run: cp -v ./.build/godot/bin/*.wasm pkg/dist/wotw-map.wasm
 
       - name: Compile Godot Editor
         working-directory: ./.build/godot
         run: scons progress=no platform=linuxbsd target=editor production=yes lto=none
 
       - name: Export PCK
-        run: ./.build/godot/bin/godot.linuxbsd.editor.x86_64 --headless --export-pack Web pkg/dist/wotw-map.pck
+        run: |
+          ./.build/godot/bin/godot.linuxbsd.editor.x86_64 --headless --export-pack Web pkg/dist/wotw-map.pck
+          test -e pkg/dist/wotw-map.pck
 
       - run: npm publish
         working-directory: ./pkg
