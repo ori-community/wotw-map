@@ -81,5 +81,5 @@ jobs:
           ./.build/godot/bin/godot.linuxbsd.editor.x86_64 --headless --export-pack Web pkg/dist/wotw-map.pck
           test -e pkg/dist/wotw-map.pck
 
-      - run: npm publish
+      - run: npm publish --provenance
         working-directory: ./pkg
