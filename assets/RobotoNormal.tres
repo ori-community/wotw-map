@@ -1,0 +1,26 @@
+[gd_resource type="FontVariation" format=3 uid="uid://cyr8liftxb5e7"]
+
+[ext_resource type="FontFile" uid="uid://dsvubu5mu5sr2" path="res://assets/RobotoFlex.ttf" id="1_vqemh"]
+
+[resource]
+base_font = ExtResource("1_vqemh")
+variation_opentype = {
+0: 1,
+1196572996: 0,
+1481592913: 96,
+1481921089: 468,
+1498370129: 79,
+1498693971: 750,
+1498694725: -203,
+1498695241: 738,
+1498696771: 514,
+1498699075: 712,
+1869640570: 14,
+1936486004: 0,
+2003072104: 100,
+2003265652: 400
+}
+opentype_features = {
+1801810542: 1,
+1818847073: 1
+}

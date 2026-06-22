@@ -1,6 +1,7 @@
 extends Control
 
 @onready var wotw_map: WotwMap = %WotwMap
+@onready var graph_view: GraphView = %GraphView
 @onready var events_view: EventsView = %EventsView
 @onready var time_slider: HSlider = %TimeSlider
 @onready var speed_slider: HSlider = %SpeedSlider
@@ -45,6 +46,7 @@ func _on_javascript_call(args: Array) -> void:
 				events_stream_reader.append_events(slot_data)
 				events_view.stream = events_stream_reader.stream
 				time_slider.max_value = events_stream_reader.stream.in_game_time_end
+				graph_view.stream = events_stream_reader.stream
 		_:
 			push_error("Unknown IPC command: %s" % args[0])
 
@@ -59,13 +61,14 @@ func _ready() -> void:
 	else:
 		# Dev mode: Load file from filesystem directly
 		# In production, the "load_save_file" IPC call is used
-		var save_file_reader := WotwSaveFileReader.new(FileAccess.get_file_as_bytes("/home/timo/Downloads/saveFile9.uberstate"))
+		var save_file_reader := WotwSaveFileReader.new(FileAccess.get_file_as_bytes("C:/Users/Timo/AppData/Local/Ori and the Will of The Wisps/saveFile1.uberstate"))
 		var slot_data := save_file_reader.read_events_stream()
 		var events_stream_reader := WotwEventsStreamReader.new()
 		events_stream_reader.append_events(slot_data)
 		
 		events_view.stream = events_stream_reader.stream
 		time_slider.max_value = events_stream_reader.stream.in_game_time_end
+		graph_view.stream = events_stream_reader.stream
 	
 	speed_label.text = str(speed_slider.value, "x")
 	update_time_label()

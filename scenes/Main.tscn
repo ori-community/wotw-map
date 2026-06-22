@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1t4jdtf66gwr" path="res://assets/ui/FitToScreen.svg" id="4_c01mt"]
 [ext_resource type="Texture2D" uid="uid://dbov4h51d3bln" path="res://assets/ui/Play.svg" id="4_rarhs"]
 [ext_resource type="Texture2D" uid="uid://4j3bdxmh5dfx" path="res://assets/ui/TransitionEnd.svg" id="4_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://d12eboaebqnxe" path="res://scenes/GraphView.tscn" id="7_nxtc6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rarhs"]
 bg_color = Color(0.11372549, 0.14117648, 0.16862746, 1)
@@ -31,6 +32,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="GraphView" parent="." unique_id=1347401567 instance=ExtResource("7_nxtc6")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 365.0
+grow_horizontal = 2
 
 [node name="WotwMap" parent="." unique_id=324143865 instance=ExtResource("1_elqb8")]
 unique_name_in_owner = true

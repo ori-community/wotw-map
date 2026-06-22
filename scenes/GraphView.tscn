@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d12eboaebqnxe"]
+
+[ext_resource type="Script" uid="uid://cg0bpa4fb1a8d" path="res://scenes/GraphView.gd" id="1_gmxyc"]
+
+[node name="GraphView" type="Control" unique_id=1347401567]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 661.0
+offset_bottom = 160.0
+script = ExtResource("1_gmxyc")
+
+[connection signal="resized" from="." to="." method="_on_resized"]

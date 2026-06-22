@@ -2,6 +2,80 @@ extends RefCounted
 class_name EventsStream
 
 
+enum GameStat {
+	PickupsCollected,
+	PickupsTotal,
+	Keystones,
+	KeystonesCollected,
+	SpiritLight,
+	SpiritLightCollected,
+	SpiritLightSpent,
+	GorlekOre,
+	GorlekOreCollected,
+	GorlekOreSpent,
+	ShardSlots,
+	Health,
+	MaxHealth,
+	Energy,
+	MaxEnergy,
+	PickupsCollectedMarsh,
+	PickupsTotalMarsh,
+	PickupsCollectedHollow,
+	PickupsTotalHollow,
+	PickupsCollectedGlades,
+	PickupsTotalGlades,
+	PickupsCollectedWellspring,
+	PickupsTotalWellspring,
+	PickupsCollectedWoods,
+	PickupsTotalWoods,
+	PickupsCollectedReach,
+	PickupsTotalReach,
+	PickupsCollectedDepths,
+	PickupsTotalDepths,
+	PickupsCollectedPools,
+	PickupsTotalPools,
+	PickupsCollectedWastes,
+	PickupsTotalWastes,
+	PickupsCollectedRuins,
+	PickupsTotalRuins,
+	PickupsCollectedWillow,
+	PickupsTotalWillow,
+	PickupsCollectedBurrows,
+	PickupsTotalBurrows,
+	PickupsCollectedShop,
+	PickupsTotalShop,
+}
+
+
+class StatValues:
+	extends RefCounted
+	
+	var min_value: int
+	var max_value: int
+	var values: PackedFloat32Array = PackedFloat32Array()
+	var in_game_times: PackedFloat32Array = PackedFloat32Array()
+	
+	func add_value(in_game_time: float, value: int) -> void:
+		if values.is_empty():
+			min_value = value
+			max_value = value
+		else:
+			min_value = mini(min_value, value)
+			max_value = maxi(max_value, value)
+		
+		in_game_times.push_back(in_game_time)
+		values.push_back(value)
+	
+	func start_time() -> float:
+		return in_game_times[0]
+	
+	func end_time() -> float:
+		return in_game_times[in_game_times.size() - 1]
+	
+	func index_at_time(in_game_time: float, before: bool = true) -> int:
+		return in_game_times.bsearch(in_game_time, before)
+
+
 class PathSegment:
 	extends RefCounted
 	
@@ -53,6 +127,12 @@ var in_game_time_end: float = 0.0  ## The in-game time of the most recent event
 var segments: Array[PathSegment] = []
 var timeline_entries: Array[TimelineEntry] = []
 var map_entries: Array[MapEntry] = []
+var stat_values: Dictionary[GameStat, StatValues] = {}
+
+
+func _init() -> void:
+	for stat in GameStat.values():
+		stat_values[stat] = StatValues.new()
 
 
 ### Returns the PathSegment that contains the given timestamp, or null if no

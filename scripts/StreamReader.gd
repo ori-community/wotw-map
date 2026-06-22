@@ -16,6 +16,12 @@ func read_i32() -> int:
 	return value
 
 
+func read_u8() -> int:
+	var value := _data.decode_u8(_cursor)
+	_cursor += 1
+	return value
+
+
 func read_u32() -> int:
 	var value := _data.decode_u32(_cursor)
 	_cursor += 4
