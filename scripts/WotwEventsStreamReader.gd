@@ -49,7 +49,7 @@ func append_events(data: PackedByteArray) -> void:
 				current_segment.in_game_times.push_back(last_event_time)
 			2:  # TimelineEntryEvent
 				var _label := reader.read_string_with_length()
-				var _icon := reader.read_string_with_length()
+				var _icon := reader.read_u8()
 			3:  # StatEvent
 				var stat := reader.read_u8() as EventsStream.GameStat
 				var value := reader.read_i32()
