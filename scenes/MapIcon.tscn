@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b0bjuuo2p0y6h"]
+
+[ext_resource type="Script" uid="uid://efq0vlw532gj" path="res://scenes/MapIcon.gd" id="1_7n3r1"]
+[ext_resource type="Texture2D" uid="uid://btd1igehqmbak" path="res://assets/Unknown.png" id="1_m03yt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0kt2"]
+font_size = 6
+
+[node name="MapIcon" type="Node2D" unique_id=556377117]
+script = ExtResource("1_7n3r1")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1606128290]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m03yt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1090464552]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(140, -1)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = 12.0
+offset_right = 70.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "Unknown Item"
+label_settings = SubResource("LabelSettings_o0kt2")
+horizontal_alignment = 1
+autowrap_mode = 2

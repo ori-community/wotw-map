@@ -39,14 +39,8 @@ func _on_javascript_call(args: Array) -> void:
 				var save_file_name: String = save_files[index].name
 				var save_file_data := JavaScriptBridge.js_buffer_to_packed_byte_array(save_files[index].data)
 				print("Loading save file: ", save_file_name)
-				
 				var save_file_reader := WotwSaveFileReader.new(save_file_data)
-				var slot_data := save_file_reader.read_events_stream()
-				var events_stream_reader := WotwEventsStreamReader.new()
-				events_stream_reader.append_events(slot_data)
-				events_view.stream = events_stream_reader.stream
-				time_slider.max_value = events_stream_reader.stream.in_game_time_end
-				graph_view.stream = events_stream_reader.stream
+				_load_game_stats(save_file_reader.game_stats_slot_reader)
 		_:
 			push_error("Unknown IPC command: %s" % args[0])
 
@@ -62,16 +56,16 @@ func _ready() -> void:
 		# Dev mode: Load file from filesystem directly
 		# In production, the "load_save_file" IPC call is used
 		var save_file_reader := WotwSaveFileReader.new(FileAccess.get_file_as_bytes("C:/Users/Timo/AppData/Local/Ori and the Will of The Wisps/saveFile1.uberstate"))
-		var slot_data := save_file_reader.read_events_stream()
-		var events_stream_reader := WotwEventsStreamReader.new()
-		events_stream_reader.append_events(slot_data)
-		
-		events_view.stream = events_stream_reader.stream
-		time_slider.max_value = events_stream_reader.stream.in_game_time_end
-		graph_view.stream = events_stream_reader.stream
+		_load_game_stats(save_file_reader.game_stats_slot_reader)
 	
 	speed_label.text = str(speed_slider.value, "x")
 	update_time_label()
+
+
+func _load_game_stats(reader: WotwGameStatsSlotReader) -> void:
+	events_view.stream = reader.stream
+	time_slider.max_value = reader.stream.in_game_time_end
+	graph_view.stream = reader.stream
 
 
 func _process(delta: float) -> void:

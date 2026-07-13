@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1t4jdtf66gwr" path="res://assets/ui/FitToScreen.svg" id="4_c01mt"]
 [ext_resource type="Texture2D" uid="uid://dbov4h51d3bln" path="res://assets/ui/Play.svg" id="4_rarhs"]
 [ext_resource type="Texture2D" uid="uid://4j3bdxmh5dfx" path="res://assets/ui/TransitionEnd.svg" id="4_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://ci8aqra2f8cya" path="res://scenes/DiscoveredItemsView.tscn" id="5_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://d12eboaebqnxe" path="res://scenes/GraphView.tscn" id="7_nxtc6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rarhs"]
@@ -51,6 +52,8 @@ zoom_to_cursor = false
 
 [node name="EventsView" parent="WotwMap" unique_id=110558812 instance=ExtResource("3_0bbpv")]
 unique_name_in_owner = true
+
+[node name="DiscoveredItemsView" parent="WotwMap" unique_id=305539587 instance=ExtResource("5_jlsqs")]
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1785859688]
 layout_mode = 1

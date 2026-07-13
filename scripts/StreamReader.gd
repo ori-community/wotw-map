@@ -46,10 +46,14 @@ func read_slice(length: int) -> PackedByteArray:
 	return slice
 
 
-func read_string_with_length() -> String:
-	var length := read_u64()
+func read_string(length: int) -> String:
 	var slice := read_slice(length)
 	return slice.get_string_from_utf8()
+
+
+func read_string_with_length() -> String:
+	var length := read_u64()
+	return read_string(length)
 
 
 func skip(length: int) -> void:

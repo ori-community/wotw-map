@@ -1,7 +1,25 @@
 [gd_resource type="Resource" script_class="IconProvider" format=3 uid="uid://h8c0crm0v7kn"]
 
 [ext_resource type="Script" uid="uid://cu3u7o2pb8e6x" path="res://scripts/IconProvider.gd" id="1_05yl5"]
+[ext_resource type="Texture2D" uid="uid://gx0rg0po5svh" path="res://assets/pickups/resource/Keystone.png" id="1_72gyf"]
+[ext_resource type="Texture2D" uid="uid://bsanyxa4f820q" path="res://assets/pickups/Wisp.png" id="2_0ggfu"]
+[ext_resource type="Texture2D" uid="uid://cdc35fvig1vmp" path="res://assets/pickups/CleanWater.png" id="3_12bgp"]
+[ext_resource type="Texture2D" uid="uid://t7yw57w5f1h7" path="res://assets/pickups/QuestReward.png" id="4_l6585"]
+[ext_resource type="Texture2D" uid="uid://de5ab2ldnpygb" path="res://assets/pickups/Quest.png" id="5_nmhul"]
+[ext_resource type="Texture2D" uid="uid://cpx54xqof1i0e" path="res://assets/pickups/Seed.png" id="6_rb0cw"]
+[ext_resource type="Texture2D" uid="uid://cb0a0ixs71hct" path="res://assets/pickups/Shard.png" id="7_r46b5"]
+[ext_resource type="Texture2D" uid="uid://cfg02c0jsrxmb" path="res://assets/pickups/SkillTree.png" id="8_a4dm0"]
 
 [resource]
 script = ExtResource("1_05yl5")
+icon_map = Dictionary[int, Texture2D]({
+0: ExtResource("1_72gyf"),
+10: ExtResource("8_a4dm0"),
+24: ExtResource("7_r46b5"),
+26: ExtResource("4_l6585"),
+30: ExtResource("5_nmhul"),
+35: ExtResource("6_rb0cw"),
+100: ExtResource("3_12bgp"),
+117: ExtResource("2_0ggfu")
+})
 metadata/_custom_type_script = "uid://cu3u7o2pb8e6x"

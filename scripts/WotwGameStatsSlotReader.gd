@@ -1,8 +1,44 @@
 extends RefCounted
-class_name WotwEventsStreamReader
+class_name WotwGameStatsSlotReader
 
 
+class DiscoveredItem:
+	extends RefCounted
+	
+	var icon: IconProvider.MapIconType
+	var label: String
+	var x: float
+	var y: float
+	var collected_at: float  # -1.0 = not collected
+	
+	func _init(p_icon: IconProvider.MapIconType, p_label: String, p_x: float, p_y: float, p_collected_at: float) -> void:
+		icon = p_icon
+		label = p_label
+		x = p_x
+		y = p_y
+		collected_at = p_collected_at
+
+
+var discovered_items: Dictionary[int, DiscoveredItem]
 var stream: EventsStream = EventsStream.new()
+
+
+func set_slot_data(data: PackedByteArray) -> void:
+	var reader := StreamReader.new(data)
+	read_slot_data(reader, data.size())
+
+
+func read_slot_data(reader: StreamReader, slot_length: int) -> void:
+	var json_string := reader.read_string_with_length()
+	_read_slot_json(JSON.parse_string(json_string))
+	append_events(reader.read_slice(slot_length - json_string.length()))
+
+
+func _read_slot_json(json: Dictionary) -> void:
+	discovered_items.clear()
+	for item_id in json.discovered_items.keys():
+		discovered_items.set(int(item_id), json.discovered_items[item_id])
+
 
 ## Reads events from a chunk of event data and appends it to the stored
 ## events (segments, timeline_entries, map_entries)

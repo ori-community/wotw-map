@@ -1,9 +1,9 @@
 extends Resource
 class_name IconProvider
 
-@export var icon_map: Dictionary[IconType, Texture2D]
+@export var icon_map: Dictionary[MapIconType, Texture2D]
 
-enum IconType {
+enum MapIconType {
 	Keystone = 0,
 	Mapstone = 1,
 	BreakableWall = 2,
@@ -93,7 +93,15 @@ enum IconType {
 	DoorSmall = 115,
 	DoorSmallUnknown = 116,
 	Wisp = 117,
+	Ori = 118,
+	OriMonochrome = 119,
+	OriPlayer = 120,
 }
 
-func get_texture(icon: IconType):
-	return 'hallo'
+
+func get_icon_texture(type: MapIconType) -> Texture2D:
+	return icon_map.get(type)
+
+
+func get_icon_texture_or_default(type: MapIconType) -> Texture2D:
+	return icon_map.get(type, preload("res://assets/Unknown.png"))

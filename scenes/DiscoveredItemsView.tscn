@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ci8aqra2f8cya"]
+
+[ext_resource type="Script" uid="uid://esrsecxp1dqm" path="res://scenes/DiscoveredItemsView.gd" id="1_7dh3a"]
+
+[node name="DiscoveredItemsView" type="Node2D" unique_id=305539587]
+script = ExtResource("1_7dh3a")
