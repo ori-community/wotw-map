@@ -44,10 +44,12 @@ func _read_save_file_slots():
 		
 		match slot_id:
 			SLOT_ID_SAVE_FILE_GAME_STATS:
-				var json_string := _reader.read_string_with_length()
-				game_stats_slot_reader.append_events(_reader.read_slice(slot_length - json_string.length()))
+				var cursor_before := _reader.get_cursor()
+				var _json_string := _reader.read_string_with_length()
+				var json_length := _reader.get_cursor() - cursor_before
+				game_stats_slot_reader.append_events(_reader.read_slice(slot_length - json_length))
+				return
 			_:
 				_reader.skip(slot_length)
 	
 	push_error("Save file did not contain a SaveFileGameStatsEvents slot")
-	return PackedByteArray()

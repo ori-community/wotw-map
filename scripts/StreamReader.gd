@@ -62,3 +62,7 @@ func skip(length: int) -> void:
 
 func available() -> bool:
 	return _cursor < _data.size()
+
+
+func get_cursor() -> int:
+	return _cursor
