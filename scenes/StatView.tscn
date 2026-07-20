@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cakyffcnajj48"]
+
+[ext_resource type="Script" uid="uid://c7xcdr1fp44ms" path="res://scenes/StatView.gd" id="1_mg1va"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mg1va"]
+line_spacing = 0.0
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qa4i"]
+line_spacing = 0.0
+font_color = Color(1, 1, 1, 0.7058824)
+
+[node name="StatView" type="VBoxContainer" unique_id=1477266951]
+offset_right = 29.0
+offset_bottom = 48.0
+theme_override_constants/separation = -4
+script = ExtResource("1_mg1va")
+
+[node name="StatValueLabel" type="Label" parent="." unique_id=943734028]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_mg1va")
+
+[node name="StatNameLabel" type="Label" parent="." unique_id=61340977]
+layout_mode = 2
+text = "Stat"
+label_settings = SubResource("LabelSettings_6qa4i")

@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://c6gta64ihwbi7"]
+
+[ext_resource type="Texture2D" uid="uid://b1irh4i2wmkf4" path="res://assets/areas/0.jpg" id="1_46mxd"]
+[ext_resource type="Script" uid="uid://cctystdc4pem0" path="res://scenes/StatsAreaView.gd" id="1_obbwn"]
+[ext_resource type="Texture2D" uid="uid://c7ni0kevlcle7" path="res://assets/gradient_h.png" id="2_1m5r7"]
+[ext_resource type="Texture2D" uid="uid://i6gkqfbq15c" path="res://assets/gradient_bi_v.png" id="3_ag68t"]
+[ext_resource type="PackedScene" uid="uid://cakyffcnajj48" path="res://scenes/StatView.tscn" id="4_1m5r7"]
+[ext_resource type="PackedScene" uid="uid://c7qt3xxkpdywl" path="res://scenes/StatsAreaVisitsBar.tscn" id="5_ag68t"]
+
+[sub_resource type="FontVariation" id="FontVariation_o0kt2"]
+variation_embolden = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_1m5r7"]
+line_spacing = 0.0
+font = SubResource("FontVariation_o0kt2")
+font_color = Color(1, 1, 1, 0.7058824)
+
+[node name="StatsAreaView" type="PanelContainer" unique_id=1105567981]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_obbwn")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1697648051]
+layout_mode = 2
+texture = ExtResource("1_46mxd")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LeftRightGradient" type="TextureRect" parent="Background" unique_id=1100482851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1m5r7")
+expand_mode = 1
+
+[node name="TopBottomGradient" type="TextureRect" parent="Background" unique_id=1842582494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ag68t")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1776418409]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1134591226]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1089521407]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="TimeStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1477266951 instance=ExtResource("4_1m5r7")]
+layout_mode = 2
+stat_value = "0:00.00"
+stat_name = "Time"
+
+[node name="DeathsStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=951958368 instance=ExtResource("4_1m5r7")]
+layout_mode = 2
+stat_name = "Deaths"
+
+[node name="PickupsPerMinuteStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1765487439 instance=ExtResource("4_1m5r7")]
+layout_mode = 2
+stat_value = "-"
+stat_name = "PPM"
+
+[node name="PickupsStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1901101534 instance=ExtResource("4_1m5r7")]
+layout_mode = 2
+stat_value = "0 / 0"
+stat_name = "Pickups"
+
+[node name="AreaNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=40232420]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "INKWATER"
+label_settings = SubResource("LabelSettings_1m5r7")
+horizontal_alignment = 2
+
+[node name="StatsAreaVisitsBar" parent="MarginContainer/VBoxContainer" unique_id=1759496907 instance=ExtResource("5_ag68t")]
+unique_name_in_owner = true
+layout_mode = 2

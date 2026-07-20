@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bolhbt7wk32hd"]
+
+[ext_resource type="PackedScene" uid="uid://c6gta64ihwbi7" path="res://scenes/StatsAreaView.tscn" id="1_6vnh7"]
+
+[node name="StatsAreasView" type="GridContainer" unique_id=621012957]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="StatsAreaView" parent="." unique_id=1105567981 instance=ExtResource("1_6vnh7")]
+layout_mode = 2
+
+[node name="StatsAreaView2" parent="." unique_id=580816998 instance=ExtResource("1_6vnh7")]
+layout_mode = 2
+
+[node name="StatsAreaView3" parent="." unique_id=363159073 instance=ExtResource("1_6vnh7")]
+layout_mode = 2
+
+[node name="StatsAreaView4" parent="." unique_id=186014220 instance=ExtResource("1_6vnh7")]
+layout_mode = 2
+
+[node name="StatsAreaView5" parent="." unique_id=943687752 instance=ExtResource("1_6vnh7")]
+layout_mode = 2
+
+[node name="StatsAreaView6" parent="." unique_id=1596895938 instance=ExtResource("1_6vnh7")]
+layout_mode = 2
+
+[node name="StatsAreaView7" parent="." unique_id=1956330599 instance=ExtResource("1_6vnh7")]
+layout_mode = 2
+
+[node name="StatsAreaView8" parent="." unique_id=2038162043 instance=ExtResource("1_6vnh7")]
+layout_mode = 2
+
+[node name="StatsAreaView9" parent="." unique_id=1968243023 instance=ExtResource("1_6vnh7")]
+layout_mode = 2

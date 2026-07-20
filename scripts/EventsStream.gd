@@ -44,24 +44,25 @@ enum GameStat {
 	PickupsTotalBurrows,
 	PickupsCollectedShop,
 	PickupsTotalShop,
+	CurrentArea,
 }
 
 
 class StatValues:
 	extends RefCounted
 	
-	var min_value: int
-	var max_value: int
+	var min_value: float
+	var max_value: float
 	var values: PackedFloat32Array = PackedFloat32Array()
 	var in_game_times: PackedFloat32Array = PackedFloat32Array()
 	
-	func add_value(in_game_time: float, value: int) -> void:
+	func add_value(in_game_time: float, value: float) -> void:
 		if values.is_empty():
 			min_value = value
 			max_value = value
 		else:
-			min_value = mini(min_value, value)
-			max_value = maxi(max_value, value)
+			min_value = minf(min_value, value)
+			max_value = maxf(max_value, value)
 		
 		in_game_times.push_back(in_game_time)
 		values.push_back(value)

@@ -84,13 +84,19 @@ func append_events(data: PackedByteArray) -> void:
 				current_segment.points.push_back(to)
 				current_segment.in_game_times.push_back(last_event_time)
 			2:  # TimelineEntryEvent
+				var _id := reader.read_u64()
 				var _label := reader.read_string_with_length()
 				var _icon := reader.read_u8()
 				var _type := reader.read_u8()
-			3:  # StatEvent
+			3:  # TimelineEntryEndEvent
+				var _id := reader.read_u64()
+				var _type := reader.read_u8()
+			4:  # StatEvent
 				var stat := reader.read_u8() as EventsStream.GameStat
-				var value := reader.read_i32()
+				var value := reader.read_f32()
 				if (stat == EventsStream.GameStat.Health || stat == EventsStream.GameStat.Energy) && value == 999.0:
+					# This is because older versions of the snippets use hp/ep = 999.0 to refill health/energy.
+					# TODO: Remove once the snippets are fixed
 					continue
 				stream.stat_values[stat].add_value(last_event_time, value)
 
