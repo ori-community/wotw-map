@@ -15,4 +15,6 @@ dest_files=["res://.godot/imported/Play.svg-5357ea1cad180f704a6afaedbb1b7b03.dpi
 base_scale=4.0
 saturation=1.0
 color_map={}
+fix_alpha_border=false
+premult_alpha=false
 compress=true

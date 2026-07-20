@@ -66,7 +66,7 @@ func _load_game_stats(reader: WotwGameStatsSlotReader) -> void:
 	events_view.stream = reader.stream
 	time_slider.max_value = reader.stream.in_game_time_end
 	graph_view.stream = reader.stream
-	$StatsAreaView.stats_area_visits_bar.stream = reader.stream
+	$StatsAreasView.stream = reader.stream
 
 
 func _process(delta: float) -> void:

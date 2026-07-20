@@ -12,15 +12,30 @@ class Segment:
 		start_relative = p_start_relative
 
 
+@export var area_id: int = 0:
+	set(value):
+		area_id = value
+		if is_node_ready():
+			_reload_segments()
+
+
 var stream: EventsStream:
 	set(value):
 		stream = value
-		_reload_segments()
+		if is_node_ready():
+			_reload_segments()
 var _segments: Array[Segment] = []
+
+
+func _ready() -> void:
+	_reload_segments()
 
 
 func _reload_segments() -> void:
 	_segments.clear()
+	
+	if stream == null:
+		return
 
 	var stat_values := stream.stat_values[EventsStream.GameStat.CurrentArea]
 	var active_segment: Segment = null
@@ -29,7 +44,7 @@ func _reload_segments() -> void:
 		var in_game_time := stat_values.in_game_times[i]
 
 		var value := stat_values.values[i]
-		if value != 0:  # TODO: Hardcoded area ID
+		if value != area_id:
 			if active_segment != null:
 				active_segment.end_relative = inverse_lerp(0.0, stream.in_game_time_end, in_game_time)
 				_segments.push_back(active_segment)
