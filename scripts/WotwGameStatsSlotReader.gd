@@ -9,7 +9,7 @@ class DiscoveredItem:
 	var label: String
 	var x: float
 	var y: float
-	var collected_at: float  # -1.0 = not collected
+	var collected_at: float  # NAN = not collected
 	
 	func _init(p_icon: IconProvider.MapIconType, p_label: String, p_x: float, p_y: float, p_collected_at: float) -> void:
 		icon = p_icon
@@ -19,25 +19,32 @@ class DiscoveredItem:
 		collected_at = p_collected_at
 
 
+class AreaStats:
+	extends RefCounted
+
+	var in_game_time_spent: float = 0.0
+	var deaths: int = 0
+	var pickups_collected: int = 0
+
+
+var in_game_time: float = 0.0
+var time_lost_to_deaths: float = 0.0
 var discovered_items: Dictionary[int, DiscoveredItem]
+var area_stats: Dictionary[int, AreaStats]
 var stream: EventsStream = EventsStream.new()
 
 
-func set_slot_data(data: PackedByteArray) -> void:
-	var reader := StreamReader.new(data)
-	read_slot_data(reader, data.size())
-
-
-func read_slot_data(reader: StreamReader, slot_length: int) -> void:
-	var json_string := reader.read_string_with_length()
-	_read_slot_json(JSON.parse_string(json_string))
-	append_events(reader.read_slice(slot_length - json_string.length()))
-
-
-func _read_slot_json(json: Dictionary) -> void:
+func set_json_data(json: Dictionary) -> void:
 	discovered_items.clear()
 	for item_id in json.discovered_items.keys():
-		discovered_items.set(int(item_id), json.discovered_items[item_id])
+		var item_dict: Dictionary = json.discovered_items[item_id]
+		discovered_items.set(int(item_id), DiscoveredItem.new(
+			int(item_dict.type),
+			item_dict.label,
+			item_dict.x,
+			item_dict.y,
+			NAN if item_dict.collected_at == null else item_dict.collected_at
+		))
 
 
 ## Reads events from a chunk of event data and appends it to the stored
@@ -67,11 +74,14 @@ func append_events(data: PackedByteArray) -> void:
 				var position := Vector2(reader.read_f32(), reader.read_f32())
 				current_segment.points.push_back(position)
 				current_segment.in_game_times.push_back(last_event_time)
+
 			1:  # DisplacementEvent
-				var _type := reader.read_u32()
+				var reason := reader.read_u32() as EventsStream.DisplacementReason
 				var from := Vector2(reader.read_f32(), reader.read_f32())
 				var to := Vector2(reader.read_f32(), reader.read_f32())
-				var _time_lost := reader.read_f32()
+				var time_lost := reader.read_f32()
+
+				time_lost_to_deaths += time_lost
 
 				current_segment.points.push_back(from)
 				current_segment.in_game_times.push_back(last_event_time)
@@ -83,21 +93,27 @@ func append_events(data: PackedByteArray) -> void:
 
 				current_segment.points.push_back(to)
 				current_segment.in_game_times.push_back(last_event_time)
+
+				# Populate virtual death stats
+				if reason == EventsStream.DisplacementReason.Death:
+					var stat_values := stream.get_current_area_death_stat_values()
+
+					if stat_values != null:
+						stat_values.add_value(in_game_time, stat_values.current_value() + 1)
+
 			2:  # TimelineEntryEvent
 				var _id := reader.read_u64()
 				var _label := reader.read_string_with_length()
 				var _icon := reader.read_u8()
 				var _type := reader.read_u8()
+
 			3:  # TimelineEntryEndEvent
 				var _id := reader.read_u64()
 				var _type := reader.read_u8()
+				
 			4:  # StatEvent
 				var stat := reader.read_u8() as EventsStream.GameStat
 				var value := reader.read_f32()
-				if (stat == EventsStream.GameStat.Health || stat == EventsStream.GameStat.Energy) && value == 999.0:
-					# This is because older versions of the snippets use hp/ep = 999.0 to refill health/energy.
-					# TODO: Remove once the snippets are fixed
-					continue
 				stream.stat_values[stat].add_value(last_event_time, value)
 
 	# If there's still a segment active, add it

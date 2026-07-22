@@ -222,8 +222,7 @@ text = "10.0x"
 horizontal_alignment = 2
 
 [node name="StatsAreasView" parent="." unique_id=621012957 instance=ExtResource("9_q8u5g")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [connection signal="map_dragged" from="WotwMap" to="." method="_on_wotw_map_map_dragged"]
 [connection signal="pressed" from="MarginContainer/VContainerBottom/HContainerControls/VContainerLeft/ButtonZoomToFit" to="." method="_on_button_pressed"]

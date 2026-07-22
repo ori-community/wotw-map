@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw1cvfaymdg51"
-path="res://.godot/imported/CleanWater.png-3d7525ca04c86ad51dac3e99df72f03e.ctex"
+uid="uid://6q8bcw25nc20"
+path="res://.godot/imported/LaunchFragment.png-8b7ab7b50aa26155c4f5936a906f0b54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pickups/CleanWater.png"
-dest_files=["res://.godot/imported/CleanWater.png-3d7525ca04c86ad51dac3e99df72f03e.ctex"]
+source_file="res://assets/pickups/LaunchFragment.png"
+dest_files=["res://.godot/imported/LaunchFragment.png-8b7ab7b50aa26155c4f5936a906f0b54.ctex"]
 
 [params]
 

@@ -66,25 +66,30 @@ layout_mode = 2
 theme_override_constants/separation = 32
 
 [node name="TimeStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1477266951 instance=ExtResource("4_1m5r7")]
+unique_name_in_owner = true
 layout_mode = 2
 stat_value = "0:00.00"
 stat_name = "Time"
 
 [node name="DeathsStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=951958368 instance=ExtResource("4_1m5r7")]
+unique_name_in_owner = true
 layout_mode = 2
 stat_name = "Deaths"
 
 [node name="PickupsPerMinuteStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1765487439 instance=ExtResource("4_1m5r7")]
+unique_name_in_owner = true
 layout_mode = 2
 stat_value = "-"
 stat_name = "PPM"
 
 [node name="PickupsStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1901101534 instance=ExtResource("4_1m5r7")]
+unique_name_in_owner = true
 layout_mode = 2
 stat_value = "0 / 0"
 stat_name = "Pickups"
 
 [node name="AreaNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=40232420]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8

@@ -3,23 +3,79 @@
 [ext_resource type="Script" uid="uid://cu3u7o2pb8e6x" path="res://scripts/IconProvider.gd" id="1_05yl5"]
 [ext_resource type="Texture2D" uid="uid://gx0rg0po5svh" path="res://assets/pickups/resource/Keystone.png" id="1_72gyf"]
 [ext_resource type="Texture2D" uid="uid://bsanyxa4f820q" path="res://assets/pickups/Wisp.png" id="2_0ggfu"]
-[ext_resource type="Texture2D" uid="uid://cdc35fvig1vmp" path="res://assets/pickups/CleanWater.png" id="3_12bgp"]
+[ext_resource type="Texture2D" uid="uid://bw1cvfaymdg51" path="res://assets/pickups/CleanWater.png" id="3_12bgp"]
 [ext_resource type="Texture2D" uid="uid://t7yw57w5f1h7" path="res://assets/pickups/QuestReward.png" id="4_l6585"]
 [ext_resource type="Texture2D" uid="uid://de5ab2ldnpygb" path="res://assets/pickups/Quest.png" id="5_nmhul"]
 [ext_resource type="Texture2D" uid="uid://cpx54xqof1i0e" path="res://assets/pickups/Seed.png" id="6_rb0cw"]
 [ext_resource type="Texture2D" uid="uid://cb0a0ixs71hct" path="res://assets/pickups/Shard.png" id="7_r46b5"]
 [ext_resource type="Texture2D" uid="uid://cfg02c0jsrxmb" path="res://assets/pickups/SkillTree.png" id="8_a4dm0"]
+[ext_resource type="Texture2D" uid="uid://0t1agqytv2x2" path="res://assets/pickups/resource/Health.png" id="9_rb0cw"]
+[ext_resource type="Texture2D" uid="uid://b0qcmnupuu3ph" path="res://assets/pickups/resource/Energy.png" id="10_r46b5"]
+[ext_resource type="Texture2D" uid="uid://6q8bcw25nc20" path="res://assets/pickups/LaunchFragment.png" id="11_a4dm0"]
+[ext_resource type="Texture2D" uid="uid://b5y60xwj763df" path="res://assets/pickups/BonusItem.png" id="12_esn7a"]
+[ext_resource type="Texture2D" uid="uid://decrs4so3uw0i" path="res://assets/pickups/ability/Bash.png" id="13_5e6a5"]
+[ext_resource type="Texture2D" uid="uid://dxoykvglbd5je" path="res://assets/pickups/ability/DoubleJump.png" id="14_lch6k"]
+[ext_resource type="Texture2D" uid="uid://0gariysk7n01" path="res://assets/pickups/ability/Launch.png" id="15_fy5ma"]
+[ext_resource type="Texture2D" uid="uid://b1kuigprofosx" path="res://assets/pickups/ability/Glide.png" id="16_jjlfi"]
+[ext_resource type="Texture2D" uid="uid://cg65au5wjxrhc" path="res://assets/pickups/ability/WaterBreath.png" id="17_jjlfi"]
+[ext_resource type="Texture2D" uid="uid://d3hg203q7pwxs" path="res://assets/pickups/ability/LightBurst.png" id="18_f200p"]
+[ext_resource type="Texture2D" uid="uid://dk421yojhr1ao" path="res://assets/pickups/ability/Grapple.png" id="19_q3dx0"]
+[ext_resource type="Texture2D" uid="uid://dcs5wulahh0ta" path="res://assets/pickups/ability/Flash.png" id="20_rmk6m"]
+[ext_resource type="Texture2D" uid="uid://b44qkfq8aw06u" path="res://assets/pickups/ability/Spike.png" id="21_hi801"]
+[ext_resource type="Texture2D" uid="uid://cql7rs8nlv7ux" path="res://assets/pickups/ability/Regenerate.png" id="22_dbytq"]
+[ext_resource type="Texture2D" uid="uid://cj5vn5a2cu8yg" path="res://assets/pickups/ability/SpiritArc.png" id="23_qvrlh"]
+[ext_resource type="Texture2D" uid="uid://cbr8o61iklomk" path="res://assets/pickups/ability/Hammer.png" id="24_06bgm"]
+[ext_resource type="Texture2D" uid="uid://c3oovgjxamb64" path="res://assets/pickups/ability/SpiritEdge.png" id="25_iqbo8"]
+[ext_resource type="Texture2D" uid="uid://ctnqfk8ovsawt" path="res://assets/pickups/ability/Burrow.png" id="26_khpng"]
+[ext_resource type="Texture2D" uid="uid://cxa04gijemet5" path="res://assets/pickups/ability/Dash.png" id="27_aehbj"]
+[ext_resource type="Texture2D" uid="uid://d1wkmilerywwr" path="res://assets/pickups/ability/SwimDash.png" id="28_hrq2j"]
+[ext_resource type="Texture2D" uid="uid://b0bhc3p55oohk" path="res://assets/pickups/ability/SpiritStar.png" id="29_qpt62"]
+[ext_resource type="Texture2D" uid="uid://0rikk60u3tv4" path="res://assets/pickups/ability/Blaze.png" id="30_wxf5r"]
+[ext_resource type="Texture2D" uid="uid://drcp6v140h0a" path="res://assets/pickups/ability/Sentry.png" id="31_bq24q"]
+[ext_resource type="Texture2D" uid="uid://bjw0ukwax6wwq" path="res://assets/pickups/ability/Flap.png" id="32_qvrlh"]
+[ext_resource type="Texture2D" uid="uid://coanqkxknvca5" path="res://assets/pickups/ability/AncestralLightGlades.png" id="33_06bgm"]
+[ext_resource type="Texture2D" uid="uid://t1c1ij3rsew5" path="res://assets/pickups/ability/AncestralLightMarsh.png" id="34_iqbo8"]
+[ext_resource type="Texture2D" uid="uid://dxcqa3p8twl01" path="res://assets/pickups/Watermill.png" id="35_06bgm"]
+[ext_resource type="Texture2D" uid="uid://cm2vq8hfc4s54" path="res://assets/pickups/resource/SpiritLight.png" id="36_iqbo8"]
 
 [resource]
 script = ExtResource("1_05yl5")
 icon_map = Dictionary[int, Texture2D]({
 0: ExtResource("1_72gyf"),
 10: ExtResource("8_a4dm0"),
+17: ExtResource("36_iqbo8"),
 24: ExtResource("7_r46b5"),
 26: ExtResource("4_l6585"),
 30: ExtResource("5_nmhul"),
+33: ExtResource("9_rb0cw"),
+34: ExtResource("10_r46b5"),
 35: ExtResource("6_rb0cw"),
 100: ExtResource("3_12bgp"),
-117: ExtResource("2_0ggfu")
+101: ExtResource("12_esn7a"),
+102: ExtResource("11_a4dm0"),
+117: ExtResource("2_0ggfu"),
+121: ExtResource("13_5e6a5"),
+123: ExtResource("14_lch6k"),
+124: ExtResource("15_fy5ma"),
+125: ExtResource("16_jjlfi"),
+126: ExtResource("17_jjlfi"),
+127: ExtResource("18_f200p"),
+128: ExtResource("19_q3dx0"),
+129: ExtResource("20_rmk6m"),
+130: ExtResource("21_hi801"),
+131: ExtResource("22_dbytq"),
+132: ExtResource("23_qvrlh"),
+133: ExtResource("24_06bgm"),
+135: ExtResource("25_iqbo8"),
+136: ExtResource("26_khpng"),
+137: ExtResource("27_aehbj"),
+138: ExtResource("28_hrq2j"),
+139: ExtResource("29_qpt62"),
+141: ExtResource("30_wxf5r"),
+142: ExtResource("31_bq24q"),
+143: ExtResource("32_qvrlh"),
+144: ExtResource("33_06bgm"),
+145: ExtResource("34_iqbo8"),
+146: ExtResource("35_06bgm")
 })
 metadata/_custom_type_script = "uid://cu3u7o2pb8e6x"
