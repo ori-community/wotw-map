@@ -8,12 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://c7qt3xxkpdywl" path="res://scenes/StatsAreaVisitsBar.tscn" id="5_ag68t"]
 
 [sub_resource type="FontVariation" id="FontVariation_o0kt2"]
-variation_embolden = 0.5
+variation_embolden = 0.7
+spacing_glyph = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_1m5r7"]
 line_spacing = 0.0
 font = SubResource("FontVariation_o0kt2")
-font_color = Color(1, 1, 1, 0.7058824)
+font_color = Color(1, 1, 1, 0.47058824)
 
 [node name="StatsAreaView" type="PanelContainer" unique_id=1105567981]
 anchors_preset = 10
@@ -63,7 +64,7 @@ theme_override_constants/separation = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1089521407]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 48
 
 [node name="TimeStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1477266951 instance=ExtResource("4_1m5r7")]
 unique_name_in_owner = true
@@ -76,12 +77,6 @@ unique_name_in_owner = true
 layout_mode = 2
 stat_name = "Deaths"
 
-[node name="PickupsPerMinuteStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1765487439 instance=ExtResource("4_1m5r7")]
-unique_name_in_owner = true
-layout_mode = 2
-stat_value = "-"
-stat_name = "PPM"
-
 [node name="PickupsStatView" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1901101534 instance=ExtResource("4_1m5r7")]
 unique_name_in_owner = true
 layout_mode = 2
@@ -92,7 +87,7 @@ stat_name = "Pickups"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 8
+size_flags_vertical = 0
 text = "INKWATER"
 label_settings = SubResource("LabelSettings_1m5r7")
 horizontal_alignment = 2

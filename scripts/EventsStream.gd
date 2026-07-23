@@ -77,7 +77,19 @@ enum GameStat {
 	DeathsRuins,
 	DeathsWillow,
 	DeathsBurrows,
-	DeathsUnknown,
+	InGameTimeMarsh,
+	InGameTimeHollow,
+	InGameTimeGlades,
+	InGameTimeWellspring,
+	InGameTimeWoods,
+	InGameTimeReach,
+	InGameTimeDepths,
+	InGameTimePools,
+	InGameTimeWastes,
+	InGameTimeRuins,
+	InGameTimeWillow,
+	InGameTimeBurrows,
+	PickupsPerSecond,
 }
 
 
@@ -99,6 +111,11 @@ class StatValues:
 	var max_value: float
 	var values: PackedFloat32Array = PackedFloat32Array()
 	var in_game_times: PackedFloat32Array = PackedFloat32Array()
+	
+	func current_value_in_game_time() -> float:
+		if in_game_times.is_empty():
+			return 0.0
+		return in_game_times[in_game_times.size() - 1]
 	
 	func current_value() -> float:
 		if values.is_empty():
@@ -186,6 +203,47 @@ func _init() -> void:
 	for stat in GameStat.values():
 		var values := StatValues.new()
 		stat_values[stat] = values
+
+		match stat:
+			# Populate virtual InGameTime* stats when CurrentArea changes
+			GameStat.CurrentArea:
+				values.value_pushed.connect(
+					func(in_game_time: float, _value: float):
+						if values.in_game_times.size() < 2:
+							return
+
+						# Get the second to last area and in_game_time
+						var area := int(values.values[values.values.size() - 2]) as GameArea
+						var in_game_time_in_area := in_game_time - values.in_game_times[values.in_game_times.size() - 2]
+						var area_in_game_time_stat_values := get_area_in_game_time_stat_values(area)
+
+						if area_in_game_time_stat_values == null:
+							return
+						
+						area_in_game_time_stat_values.add_value(in_game_time, area_in_game_time_stat_values.current_value() + in_game_time_in_area)
+				)
+
+			# PickupsFrequency
+			GameStat.PickupsCollected:
+				values.value_pushed.connect(
+					func(in_game_time: float, value: float):
+						if values.in_game_times.size() < 2:
+							return
+
+						# TODO: This calculation is only approximately correct, fix that
+						var previous_value := values.values[values.values.size() - 2]
+
+						var pickups_delta := int(value - previous_value)
+						var pickups_per_second_stat_values := stat_values[GameStat.PickupsPerSecond]
+						var time_since_last_data_point := in_game_time - values.in_game_times[values.in_game_times.size() - 2]
+
+						if pickups_per_second_stat_values.values.is_empty():
+							pickups_per_second_stat_values.add_value(in_game_time, pickups_delta)
+						elif time_since_last_data_point > 1.0:
+							pickups_per_second_stat_values.add_value(in_game_time, pickups_delta / time_since_last_data_point)
+						else:
+							pickups_per_second_stat_values.values[pickups_per_second_stat_values.values.size() - 1] += pickups_delta
+				)
 
 
 ### Returns the PathSegment that contains the given timestamp, or null if no
@@ -301,3 +359,90 @@ func get_area_pickups_total_stat_values(area: GameArea) -> StatValues:
 		GameArea.Burrows:
 			return stat_values[GameStat.PickupsTotalBurrows]
 	return null
+
+
+func get_area_in_game_time_stat_values(area: GameArea) -> StatValues:
+	match area:
+		GameArea.Marsh:
+			return stat_values[GameStat.InGameTimeMarsh]
+		GameArea.Hollow:
+			return stat_values[GameStat.InGameTimeHollow]
+		GameArea.Glades:
+			return stat_values[GameStat.InGameTimeGlades]
+		GameArea.Wellspring:
+			return stat_values[GameStat.InGameTimeWellspring]
+		GameArea.Woods:
+			return stat_values[GameStat.InGameTimeWoods]
+		GameArea.Reach:
+			return stat_values[GameStat.InGameTimeReach]
+		GameArea.Depths:
+			return stat_values[GameStat.InGameTimeDepths]
+		GameArea.Pools:
+			return stat_values[GameStat.InGameTimePools]
+		GameArea.Wastes:
+			return stat_values[GameStat.InGameTimeWastes]
+		GameArea.Ruins:
+			return stat_values[GameStat.InGameTimeRuins]
+		GameArea.Willow:
+			return stat_values[GameStat.InGameTimeWillow]
+		GameArea.Burrows:
+			return stat_values[GameStat.InGameTimeBurrows]
+	return null
+
+
+static func get_area_name(area: GameArea) -> String:
+	match area:
+		GameArea.Marsh:
+			return "Marsh"
+		GameArea.Hollow:
+			return "Hollow"
+		GameArea.Glades:
+			return "Glades"
+		GameArea.Wellspring:
+			return "Wellspring"
+		GameArea.Woods:
+			return "Woods"
+		GameArea.Reach:
+			return "Reach"
+		GameArea.Depths:
+			return "Depths"
+		GameArea.Pools:
+			return "Pools"
+		GameArea.Wastes:
+			return "Wastes"
+		GameArea.Ruins:
+			return "Ruins"
+		GameArea.Willow:
+			return "Willow"
+		GameArea.Burrows:
+			return "Burrows"
+	return "-"
+
+
+static func get_long_area_name(area: GameArea) -> String:
+	match area:
+		GameArea.Marsh:
+			return "Inkwater Marsh"
+		GameArea.Hollow:
+			return "Kwolok's Hollow"
+		GameArea.Glades:
+			return "Wellspring Glades"
+		GameArea.Wellspring:
+			return "The Wellspring"
+		GameArea.Woods:
+			return "Silent Woods"
+		GameArea.Reach:
+			return "Baur's Reach"
+		GameArea.Depths:
+			return "Mouldwood Depths"
+		GameArea.Pools:
+			return "Luma Pools"
+		GameArea.Wastes:
+			return "Windswept Wastes"
+		GameArea.Ruins:
+			return "Windtorn Ruins"
+		GameArea.Willow:
+			return "Willow's End"
+		GameArea.Burrows:
+			return "Midnight Burrows"
+	return "-"

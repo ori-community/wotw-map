@@ -2,6 +2,9 @@ extends PanelContainer
 class_name StatsAreaView
 
 
+signal sort_requested
+
+
 const BACKGROUND_IMAGES := [
 	preload("res://assets/areas/0.jpg"),
 	preload("res://assets/areas/1.jpg"),
@@ -22,7 +25,6 @@ const BACKGROUND_IMAGES := [
 @onready var background_image: TextureRect = %BackgroundImage
 @onready var time_stat_view: StatView = %TimeStatView
 @onready var deaths_stat_view: StatView = %DeathsStatView
-@onready var pickups_per_minute_stat_view: StatView = %PickupsPerMinuteStatView
 @onready var pickups_stat_view: StatView = %PickupsStatView
 @onready var area_name_label: Label = %AreaNameLabel
 
@@ -32,6 +34,7 @@ const BACKGROUND_IMAGES := [
 		area = value
 		if is_node_ready():
 			_update_background_image()
+			_update_area_name_label()
 
 var stream: EventsStream:
 	set(value):
@@ -39,12 +42,17 @@ var stream: EventsStream:
 		if is_node_ready():
 			_update_stats_area_visits_bar()
 			_update_stat_views()
+var sort_priority: float = 0.0:
+	set(value):
+		sort_priority = value
+		sort_requested.emit()
 
 
 func _ready() -> void:
 	_update_background_image()
 	_update_stats_area_visits_bar()
 	_update_stat_views()
+	_update_area_name_label()
 
 
 func _update_background_image() -> void:
@@ -62,6 +70,14 @@ func _update_stat_views() -> void:
 	
 	deaths_stat_view.stat_value = str(int(stream.get_area_death_stat_values(area).current_value()))
 
+	var area_in_game_time := stream.get_area_in_game_time_stat_values(area).current_value()
+	sort_priority = area_in_game_time
+	time_stat_view.stat_value = StatView.format_duration(area_in_game_time)
+
 	var pickups_collected := int(stream.get_area_pickups_collected_stat_values(area).current_value())
 	var pickups_total := int(stream.get_area_pickups_total_stat_values(area).current_value())
 	pickups_stat_view.stat_value = "%d / %d" % [pickups_collected, pickups_total]
+
+
+func _update_area_name_label() -> void:
+	area_name_label.text = EventsStream.get_long_area_name(area).to_upper()
