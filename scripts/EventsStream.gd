@@ -89,7 +89,7 @@ enum GameStat {
 	InGameTimeRuins,
 	InGameTimeWillow,
 	InGameTimeBurrows,
-	PickupsPerSecond,
+	PickupsFrequency,
 }
 
 
@@ -135,6 +135,12 @@ class StatValues:
 
 		value_pushed.emit(in_game_time, value)
 	
+	### Returns the delta of the value at index vs the previous value
+	func delta_at(index: int) -> float:
+		var value := values[index]
+		var previous_value := values[index - 1] if index > 0 else 0.0
+		return value - previous_value
+
 	func start_time() -> float:
 		return in_game_times[0]
 	
@@ -192,6 +198,9 @@ class MapEntry:
 
 # Events in here are always sorted by in-game time and are only appended to!
 
+const PICKUPS_FREQUENCY_SAMPLE_INTERVAL := 5.0
+const PICKUPS_FREQUENCY_ROLLING_AVERAGE := 20.0
+
 var in_game_time_end: float = 0.0  ## The in-game time of the most recent event
 var segments: Array[PathSegment] = []
 var timeline_entries: Array[TimelineEntry] = []
@@ -223,27 +232,30 @@ func _init() -> void:
 						area_in_game_time_stat_values.add_value(in_game_time, area_in_game_time_stat_values.current_value() + in_game_time_in_area)
 				)
 
-			# PickupsFrequency
-			GameStat.PickupsCollected:
-				values.value_pushed.connect(
-					func(in_game_time: float, value: float):
-						if values.in_game_times.size() < 2:
-							return
 
-						# TODO: This calculation is only approximately correct, fix that
-						var previous_value := values.values[values.values.size() - 2]
+### Sample missing data points in the PickupsFrequency stat
+func sample_pickups_frequency() -> void:
+	var ppm_stat_values := stat_values[GameStat.PickupsFrequency]
+	var pickups_collected_stat_values := stat_values[GameStat.PickupsCollected]
 
-						var pickups_delta := int(value - previous_value)
-						var pickups_per_second_stat_values := stat_values[GameStat.PickupsPerSecond]
-						var time_since_last_data_point := in_game_time - values.in_game_times[values.in_game_times.size() - 2]
+	while ppm_stat_values.current_value_in_game_time() < in_game_time_end - PICKUPS_FREQUENCY_SAMPLE_INTERVAL:
+		var sample_in_game_time := ppm_stat_values.current_value_in_game_time() + PICKUPS_FREQUENCY_SAMPLE_INTERVAL
+		var sum := 0.0
 
-						if pickups_per_second_stat_values.values.is_empty():
-							pickups_per_second_stat_values.add_value(in_game_time, pickups_delta)
-						elif time_since_last_data_point > 1.0:
-							pickups_per_second_stat_values.add_value(in_game_time, pickups_delta / time_since_last_data_point)
-						else:
-							pickups_per_second_stat_values.values[pickups_per_second_stat_values.values.size() - 1] += pickups_delta
-				)
+		var pickups_collected_index := pickups_collected_stat_values.index_at_time(sample_in_game_time) - 1
+		if pickups_collected_index == pickups_collected_stat_values.values.size():
+			pickups_collected_index -= 1
+
+		while pickups_collected_index >= 0:
+			var pickup_in_game_time := pickups_collected_stat_values.in_game_times[pickups_collected_index]
+
+			if pickup_in_game_time < sample_in_game_time - PICKUPS_FREQUENCY_ROLLING_AVERAGE:
+				break
+
+			sum +=  pickups_collected_stat_values.delta_at(pickups_collected_index)
+			pickups_collected_index -= 1
+		
+		ppm_stat_values.add_value(sample_in_game_time, sum)
 
 
 ### Returns the PathSegment that contains the given timestamp, or null if no

@@ -121,3 +121,4 @@ func append_events(data: PackedByteArray) -> void:
 		stream.segments.push_back(current_segment)
 
 	stream.in_game_time_end = last_event_time
+	stream.sample_pickups_frequency()

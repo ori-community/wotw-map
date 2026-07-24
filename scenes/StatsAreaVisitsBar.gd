@@ -21,6 +21,7 @@ class Segment:
 
 
 @onready var lines_container: Control = %LinesContainer
+@onready var baseline: ColorRect = %Baseline
 
 
 var stream: EventsStream:
@@ -75,19 +76,19 @@ func _update_lines() -> void:
 
 	var height := lines_container.size.y
 	var absolute_width := get_rect().size.x
-	var pickups_per_second_stat_values := stream.stat_values[EventsStream.GameStat.PickupsPerSecond]
+	var pickups_frequency_stat_values := stream.stat_values[EventsStream.GameStat.PickupsFrequency]
 
 	for segment in _segments:
 		var line := Line2D.new()
 		line.joint_mode = Line2D.LINE_JOINT_ROUND
 		line.default_color = Color(0.494, 0.776, 0.976)
-		line.width = 3.0
+		line.width = baseline.size.y
 		line.antialiased = true
 
 		var x_start := inverse_lerp(0.0, stream.in_game_time_end, segment.in_game_time_start)
 		var x_end := inverse_lerp(0.0, stream.in_game_time_end, segment.in_game_time_end)
 		var width_absolute := x_end - x_start
-		line.position = Vector2(x_start, height / 2.0)
+		line.position = Vector2(x_start, height - baseline.size.y * 0.5)
 
 		var line_segments := ceili(width_absolute * absolute_width * 0.5)
 		var line_segment_width := width_absolute / float(line_segments)
@@ -98,24 +99,24 @@ func _update_lines() -> void:
 		line.width_curve.min_domain = -4.0
 		line.width_curve.max_domain = 5.0
 		line.width_curve.min_value = 1.0
-		line.width_curve.max_value = height / line.width
+		line.width_curve.max_value = height / line.width * 2.0
 
-		var pickups_per_second_start_index := pickups_per_second_stat_values.index_at_time(segment.in_game_time_start, true)
-		var pickups_per_second_end_index := pickups_per_second_stat_values.index_at_time(segment.in_game_time_end, false)
+		var pickups_per_second_start_index := pickups_frequency_stat_values.index_at_time(segment.in_game_time_start, true)
+		var pickups_per_second_end_index := pickups_frequency_stat_values.index_at_time(segment.in_game_time_end, false)
 		for index in range(pickups_per_second_start_index, pickups_per_second_end_index + 1):
 			# For the last segment, just repeat the previous value
-			if index >= pickups_per_second_stat_values.values.size():
+			if index >= pickups_frequency_stat_values.values.size():
 				index -= 1
 
-			var value := pickups_per_second_stat_values.values[index]
-			var in_game_time := pickups_per_second_stat_values.in_game_times[index]
+			var value := pickups_frequency_stat_values.values[index]
+			var in_game_time := pickups_frequency_stat_values.in_game_times[index]
 			
 			line.width_curve.add_point(
 				Vector2(
 					inverse_lerp(segment.in_game_time_start, segment.in_game_time_end, in_game_time),
 					maxf(
 						1.0,
-						remap(value, 0.0, pickups_per_second_stat_values.max_value, line.width_curve.min_value, line.width_curve.max_value),
+						remap(value, 0.0, pickups_frequency_stat_values.max_value, line.width_curve.min_value, line.width_curve.max_value),
 					)
 				)
 			)
