@@ -27,6 +27,8 @@ const BACKGROUND_IMAGES := [
 @onready var deaths_stat_view: StatView = %DeathsStatView
 @onready var pickups_stat_view: StatView = %PickupsStatView
 @onready var area_name_label: Label = %AreaNameLabel
+@onready var timline_sync_container: TimelineSyncContainer = %TimlineSyncContainer
+@onready var dim_overlay: ColorRect = %DimOverlay
 
 
 @export var area: EventsStream.GameArea = EventsStream.GameArea.Void:
@@ -36,16 +38,19 @@ const BACKGROUND_IMAGES := [
 			_update_background_image()
 			_update_area_name_label()
 
-var stream: EventsStream:
+var timeline_synchronizer: TimelineSynchronizer:
 	set(value):
-		stream = value
+		timeline_synchronizer = value
 		if is_node_ready():
 			_update_stats_area_visits_bar()
 			_update_stat_views()
+			stats_area_visits_bar.timeline_synchronizer = value
+			timline_sync_container.timeline_synchronizer = value
 var sort_priority: float = 0.0:
 	set(value):
 		sort_priority = value
 		sort_requested.emit()
+var dim: bool = false
 
 
 func _ready() -> void:
@@ -53,6 +58,11 @@ func _ready() -> void:
 	_update_stats_area_visits_bar()
 	_update_stat_views()
 	_update_area_name_label()
+	timline_sync_container.timeline_synchronizer = timeline_synchronizer
+
+
+func _process(delta: float) -> void:
+	dim_overlay.self_modulate.a = lerpf(dim_overlay.self_modulate.a, 1.0 if dim else 0.0, minf(1.0, delta * 20.0))
 
 
 func _update_background_image() -> void:
@@ -61,12 +71,13 @@ func _update_background_image() -> void:
 
 func _update_stats_area_visits_bar() -> void:
 	stats_area_visits_bar.area = area
-	stats_area_visits_bar.stream = stream
+	stats_area_visits_bar.timeline_synchronizer = timeline_synchronizer
 
 
 func _update_stat_views() -> void:
-	if stream == null:
+	if timeline_synchronizer == null:
 		return
+	var stream := timeline_synchronizer.stream
 	
 	deaths_stat_view.stat_value = str(int(stream.get_area_death_stat_values(area).current_value()))
 

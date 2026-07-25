@@ -6,11 +6,17 @@ class_name StatsAreasView
 @onready var vbox_2: VBoxContainer = %VBox2
 
 
-var stream: EventsStream:
+var timeline_synchronizer: TimelineSynchronizer:
 	set(value):
-		stream = value
+		if timeline_synchronizer != null:
+			timeline_synchronizer.changed.disconnect(_on_timeline_synchronizer_changed)
+		timeline_synchronizer = value
+		if timeline_synchronizer != null:
+			timeline_synchronizer.changed.connect(_on_timeline_synchronizer_changed)
+		
 		if is_node_ready():
 			_update_stats_area_views()
+
 var _stats_area_views: Array[StatsAreaView] = []
 
 
@@ -38,7 +44,7 @@ func _ready() -> void:
 
 func _update_stats_area_views() -> void:
 	for view in _stats_area_views:
-		view.stream = stream
+		view.timeline_synchronizer = timeline_synchronizer
 	
 	_stats_area_views.sort_custom(
 		func(a: StatsAreaView, b: StatsAreaView):
@@ -55,3 +61,13 @@ func _update_stats_area_views() -> void:
 			vbox_1.add_child(view)
 		else:
 			vbox_2.add_child(view)
+
+
+func _on_timeline_synchronizer_changed(time: float, active: bool) -> void:
+	if active:
+		var highlighted_area := int(timeline_synchronizer.stream.stat_values[EventsStream.GameStat.CurrentArea].value_at_time(time))
+		for area_view in _stats_area_views:
+			area_view.dim = area_view.area != highlighted_area
+	else:
+		for area_view in _stats_area_views:
+			area_view.dim = false

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dwus4eicinymn"]
+
+[ext_resource type="Script" uid="uid://bjrokor27ogqg" path="res://scenes/TimlineSyncContainer.gd" id="1_tevpf"]
+
+[node name="TimlineSyncContainer" type="MarginContainer" unique_id=753358324]
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_tevpf")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -22,13 +22,18 @@ class Segment:
 
 @onready var lines_container: Control = %LinesContainer
 @onready var baseline: ColorRect = %Baseline
+@onready var cursor: ColorRect = %Cursor
 
 
-var stream: EventsStream:
+var timeline_synchronizer: TimelineSynchronizer:
 	set(value):
-		stream = value
+		if timeline_synchronizer != null:
+			timeline_synchronizer.changed.disconnect(_on_timeline_synchronizer_changed)
+		timeline_synchronizer = value
 		if is_node_ready():
 			_reload_segments()
+		if timeline_synchronizer != null:
+			timeline_synchronizer.changed.connect(_on_timeline_synchronizer_changed)
 var _segments: Array[Segment] = []
 var _lines: Array[Line2D] = []
 
@@ -41,8 +46,9 @@ func _ready() -> void:
 func _reload_segments() -> void:
 	_segments.clear()
 	
-	if stream == null:
+	if timeline_synchronizer == null:
 		return
+	var stream := timeline_synchronizer.stream
 
 	var stat_values := stream.stat_values[EventsStream.GameStat.CurrentArea]
 	var active_segment: Segment = null
@@ -71,8 +77,9 @@ func _update_lines() -> void:
 		line.queue_free()
 	_lines.clear()
 
-	if stream == null:
+	if timeline_synchronizer == null:
 		return
+	var stream := timeline_synchronizer.stream
 
 	var height := lines_container.size.y
 	var absolute_width := get_rect().size.x
@@ -129,3 +136,22 @@ func _on_resized() -> void:
 	if is_node_ready():
 		lines_container.scale.x = get_rect().size.x
 		_update_lines()
+		_update_cursor_position()
+
+
+func _update_cursor_position() -> void:
+	if timeline_synchronizer == null:
+		return
+	
+	cursor.position.x = remap(
+		timeline_synchronizer.time,
+		0.0,
+		timeline_synchronizer.stream.in_game_time_end,
+		0.0,
+		size.x,
+	)
+
+
+func _on_timeline_synchronizer_changed(_time: float, active: bool) -> void:
+	cursor.visible = active
+	_update_cursor_position()
