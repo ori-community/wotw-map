@@ -84,8 +84,11 @@ func _process(delta: float) -> void:
 		if current_map_center.is_equal_approx(target_map_center):
 			wotw_map.map_in_game_center_position = target_map_center
 		else:
-			var speed := minf(current_map_center.distance_to(target_map_center) * 0.01, 5)
-			wotw_map.map_in_game_center_position = current_map_center.lerp(target_map_center, clampf(delta * speed, minf(5 * delta, 1.0)  , 1.0))
+			var distance := current_map_center.distance_to(target_map_center)
+			var speed := maxf(distance * 0.02, 5.0)
+			# This causes the camera to pan instantly if the distance is too long (e.g. when the player teleported)
+			var lerp_factor := (1.0 - 150.0 / distance) if distance > 400.0 else clampf(delta * speed, minf(5.0 * delta, 1.0), 1.0)
+			wotw_map.map_in_game_center_position = current_map_center.lerp(target_map_center, lerp_factor)
 
 
 func update_time_label() -> void:
