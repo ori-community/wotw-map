@@ -41,9 +41,9 @@ const BACKGROUND_IMAGES := [
 var timeline_synchronizer: TimelineSynchronizer:
 	set(value):
 		timeline_synchronizer = value
+		_update_stat_views()
 		if is_node_ready():
 			_update_stats_area_visits_bar()
-			_update_stat_views()
 			stats_area_visits_bar.timeline_synchronizer = value
 			timline_sync_container.timeline_synchronizer = value
 var sort_priority: float = 0.0:
@@ -78,12 +78,15 @@ func _update_stat_views() -> void:
 	if timeline_synchronizer == null:
 		return
 	var stream := timeline_synchronizer.stream
-	
-	deaths_stat_view.stat_value = str(int(stream.get_area_death_stat_values(area).current_value()))
 
 	var area_in_game_time := stream.get_area_in_game_time_stat_values(area).current_value()
 	sort_priority = area_in_game_time
+	
+	if !is_node_ready():
+		return
+	
 	time_stat_view.stat_value = StatView.format_duration(area_in_game_time)
+	deaths_stat_view.stat_value = str(int(stream.get_area_death_stat_values(area).current_value()))
 
 	var pickups_collected := int(stream.get_area_pickups_collected_stat_values(area).current_value())
 	var pickups_total := int(stream.get_area_pickups_total_stat_values(area).current_value())

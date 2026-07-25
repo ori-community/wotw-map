@@ -8,5 +8,6 @@ script = ExtResource("1_2k1in")
 [node name="Viewport" type="SubViewport" parent="." unique_id=843664433]
 unique_name_in_owner = true
 process_priority = 100
+size_2d_override = Vector2i(1380, 1000)
 size_2d_override_stretch = true
 render_target_update_mode = 1

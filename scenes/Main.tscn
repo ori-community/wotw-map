@@ -221,16 +221,8 @@ layout_mode = 2
 text = "10.0x"
 horizontal_alignment = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1381262975]
+[node name="StatsAreasView" parent="." unique_id=621012957 instance=ExtResource("9_q8u5g")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="StatsAreasView" parent="ScrollContainer" unique_id=621012957 instance=ExtResource("9_q8u5g")]
-layout_mode = 2
 
 [node name="CopyImageButton" type="Button" parent="." unique_id=1321402655]
 layout_mode = 0
