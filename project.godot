@@ -15,7 +15,11 @@ run/main_scene="uid://c1xnpteo6atvc"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://dbtwtgv8xxccu"
+
+[autoload]
+
+StatsImageRenderer="*uid://bpj4dp7jv6fd2"
 
 [display]
 

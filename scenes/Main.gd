@@ -66,7 +66,7 @@ func _load_game_stats(reader: WotwGameStatsSlotReader) -> void:
 	events_view.stream = reader.stream
 	time_slider.max_value = reader.stream.in_game_time_end
 	graph_view.stream = reader.stream
-	$StatsAreasView.timeline_synchronizer = TimelineSynchronizer.new(reader.stream)
+	$ScrollContainer/StatsAreasView.timeline_synchronizer = TimelineSynchronizer.new(reader.stream)
 
 
 func _process(delta: float) -> void:
@@ -139,3 +139,8 @@ func _on_follow_player_button_toggled(toggled_on: bool) -> void:
 
 func _on_short_trails_button_toggled(toggled_on: bool) -> void:
 	events_view.fade_out = toggled_on
+
+
+func _on_copy_image_button_pressed() -> void:
+	var image := await StatsImageRenderer.render(events_view.stream)
+	image.save_png("C:/Users/Timo/screenshot.png")

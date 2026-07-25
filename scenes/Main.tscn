@@ -221,8 +221,22 @@ layout_mode = 2
 text = "10.0x"
 horizontal_alignment = 2
 
-[node name="StatsAreasView" parent="." unique_id=621012957 instance=ExtResource("9_q8u5g")]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1381262975]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsAreasView" parent="ScrollContainer" unique_id=621012957 instance=ExtResource("9_q8u5g")]
+layout_mode = 2
+
+[node name="CopyImageButton" type="Button" parent="." unique_id=1321402655]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Generate Image"
 
 [connection signal="map_dragged" from="WotwMap" to="." method="_on_wotw_map_map_dragged"]
 [connection signal="pressed" from="MarginContainer/VContainerBottom/HContainerControls/VContainerLeft/ButtonZoomToFit" to="." method="_on_button_pressed"]
@@ -235,3 +249,4 @@ layout_mode = 1
 [connection signal="pressed" from="MarginContainer/VContainerBottom/Container/MContainer/VBoxContainer/HContainerTimeControls/HBoxContainer/PlayButton" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VContainerBottom/Container/MContainer/VBoxContainer/HContainerTimeControls/HBoxContainer/ToEndButton" to="." method="_on_button_end_pressed"]
 [connection signal="value_changed" from="MarginContainer/VContainerBottom/Container/MContainer/VBoxContainer/HContainerTimeControls/HBoxContainer2/SpeedSlider" to="." method="_on_speed_slider_value_changed"]
+[connection signal="pressed" from="CopyImageButton" to="." method="_on_copy_image_button_pressed"]

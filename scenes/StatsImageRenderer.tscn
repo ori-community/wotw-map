@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bpj4dp7jv6fd2"]
+
+[ext_resource type="Script" uid="uid://dcpvsom3co6dn" path="res://scenes/StatsImageRenderer.gd" id="1_2k1in"]
+
+[node name="Node" type="Node" unique_id=877290593]
+script = ExtResource("1_2k1in")
+
+[node name="Viewport" type="SubViewport" parent="." unique_id=843664433]
+unique_name_in_owner = true
+process_priority = 100
+size_2d_override_stretch = true
+render_target_update_mode = 1
