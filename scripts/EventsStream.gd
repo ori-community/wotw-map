@@ -65,6 +65,9 @@ enum GameStat {
 
 	# Virtual stats that don't actually exist but get computed
 	# from other events.
+	TimeLost,
+	Teleports,
+	Deaths,
 	DeathsMarsh,
 	DeathsHollow,
 	DeathsGlades,
@@ -172,32 +175,41 @@ class PathSegment:
 
 class TimelineEntry:
 	extends RefCounted
+
+	enum Type {
+		Ability,
+		Custom,
+	}
 	
 	var in_game_time: float
+	var in_game_time_end: float = NAN
 	var label: String
-	var icon: String
+	var icon: IconProvider.MapIconType
+	var type: Type
 	
-	func _init(p_in_game_time: float, p_label: String, p_icon: String) -> void:
+	func _init(p_in_game_time: float, p_label: String, p_icon: IconProvider.MapIconType, p_type: Type) -> void:
 		in_game_time = p_in_game_time
 		label = p_label
 		icon = p_icon
+		type = p_type
+	
+	func has_end() -> bool:
+		return !is_nan(in_game_time_end)
 
 
-class MapEntry:
+class TimelineEntries:
 	extends RefCounted
+
+	var entries: Array[TimelineEntry] = []
 	
-	var in_game_time: float
-	var label: String
-	var icon: String
-	var x: float
-	var y: float
-	
-	func _init(p_in_game_time: float, p_label: String, p_icon: String, p_x: float, p_y: float) -> void:
-		in_game_time = p_in_game_time
-		label = p_label
-		icon = p_icon
-		x = p_x
-		y = p_y
+	func index_at_time(in_game_time: float, before: bool = true) -> int:
+		return entries.bsearch_custom(
+			in_game_time,
+			func(a: TimelineEntry, b: TimelineEntry):
+				return a.in_game_time < b.in_game_time,
+			before,
+		)
+
 
 # Events in here are always sorted by in-game time and are only appended to!
 
@@ -206,8 +218,7 @@ const PICKUPS_FREQUENCY_ROLLING_AVERAGE := 20.0
 
 var in_game_time_end: float = 0.0  ## The in-game time of the most recent event
 var segments: Array[PathSegment] = []
-var timeline_entries: Array[TimelineEntry] = []
-var map_entries: Array[MapEntry] = []
+var timeline_entries: TimelineEntries = TimelineEntries.new()
 var stat_values: Dictionary[GameStat, StatValues] = {}
 
 

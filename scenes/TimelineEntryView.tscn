@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c8fbpciekv1c5"]
+
+[ext_resource type="Script" uid="uid://b3yojv16cqhqd" path="res://scenes/TimelineEntryView.gd" id="1_dun1d"]
+[ext_resource type="Texture2D" uid="uid://cql7rs8nlv7ux" path="res://assets/pickups/ability/Regenerate.png" id="2_uqaxn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqaxn"]
+bg_color = Color(0.49411765, 0.7764706, 0.9764706, 0.078431375)
+border_width_left = 2
+border_color = Color(0.494, 0.776, 0.976, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="TimelineEntryView" type="Control" unique_id=2067156581]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 1
+script = ExtResource("1_dun1d")
+texture = Object(TextureRect,"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"oversampling_with_scale":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"custom_minimum_size":Vector2(0, 0),"custom_maximum_size":Vector2(-1, -1),"propagate_maximum_size":false,"clip_contents":false,"layout_mode":3,"anchors_preset":-1,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":1.0,"offset_right":0.0,"offset_bottom":-1.0,"grow_horizontal":1,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"offset_transform_enabled":false,"offset_transform_position":Vector2(0, 0),"offset_transform_position_ratio":Vector2(0, 0),"offset_transform_scale":Vector2(1, 1),"offset_transform_rotation":0.0,"offset_transform_pivot":Vector2(0, 0),"offset_transform_pivot_ratio":Vector2(0.5, 0.5),"offset_transform_visual_only":true,"localize_numeral_system":true,"layout_direction":0,"translation_context":&"","tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":1,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","texture":ExtResource("2_uqaxn"),"expand_mode":2,"stretch_mode":4,"flip_h":false,"flip_v":false,"script":null)
+
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2019653086]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 2.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uqaxn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1940553254]
+unique_name_in_owner = true
+layout_mode = 0
+mouse_filter = 2
+texture = ExtResource("2_uqaxn")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="resized" from="PanelContainer" to="." method="_on_panel_container_resized"]

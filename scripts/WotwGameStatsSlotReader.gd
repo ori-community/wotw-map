@@ -19,19 +19,20 @@ class DiscoveredItem:
 		collected_at = p_collected_at
 
 
-class AreaStats:
+class TimelineEntriesById:
 	extends RefCounted
 
-	var in_game_time_spent: float = 0.0
-	var deaths: int = 0
-	var pickups_collected: int = 0
+	var entries: Dictionary[int, EventsStream.TimelineEntry] = {}
 
 
-var in_game_time: float = 0.0
-var time_lost_to_deaths: float = 0.0
 var discovered_items: Dictionary[int, DiscoveredItem]
-var area_stats: Dictionary[int, AreaStats]
+var timeline_entries_without_end: Dictionary[EventsStream.TimelineEntry.Type, TimelineEntriesById]
 var stream: EventsStream = EventsStream.new()
+
+
+func _init() -> void:
+	for type in EventsStream.TimelineEntry.Type.values():
+		timeline_entries_without_end.set(type, TimelineEntriesById.new())
 
 
 func set_json_data(json: Dictionary) -> void:
@@ -81,7 +82,9 @@ func append_events(data: PackedByteArray) -> void:
 				var to := Vector2(reader.read_f32(), reader.read_f32())
 				var time_lost := reader.read_f32()
 
-				time_lost_to_deaths += time_lost
+				if time_lost > 0.0:
+					var time_lost_stat_values := stream.stat_values[EventsStream.GameStat.TimeLost]
+					time_lost_stat_values.add_value(last_event_time, time_lost_stat_values.current_value() + time_lost)
 
 				current_segment.points.push_back(from)
 				current_segment.in_game_times.push_back(last_event_time)
@@ -95,21 +98,38 @@ func append_events(data: PackedByteArray) -> void:
 				current_segment.in_game_times.push_back(last_event_time)
 
 				# Populate virtual death stats
-				if reason == EventsStream.DisplacementReason.Death:
-					var stat_values := stream.get_current_area_death_stat_values()
+				match reason:
+					EventsStream.DisplacementReason.Death:
+						var deaths_stat_values := stream.stat_values[EventsStream.GameStat.Deaths]
+						deaths_stat_values.add_value(last_event_time, deaths_stat_values.current_value() + 1)
 
-					if stat_values != null:
-						stat_values.add_value(in_game_time, stat_values.current_value() + 1)
+						var area_deaths_stat_values := stream.get_current_area_death_stat_values()
+
+						if area_deaths_stat_values != null:
+							area_deaths_stat_values.add_value(last_event_time, area_deaths_stat_values.current_value() + 1)
+					EventsStream.DisplacementReason.Teleporter:
+						var teleports_stat_values := stream.stat_values[EventsStream.GameStat.Teleports]
+						teleports_stat_values.add_value(last_event_time, teleports_stat_values.current_value() + 1)
 
 			2:  # TimelineEntryEvent
-				var _id := reader.read_u64()
-				var _label := reader.read_string_with_length()
-				var _icon := reader.read_u8()
-				var _type := reader.read_u8()
+				var id := reader.read_u64()
+				var label := reader.read_string_with_length()
+				var icon := reader.read_u8() as IconProvider.MapIconType
+				var type := reader.read_u8()
+				var timeline_entry := EventsStream.TimelineEntry.new(last_event_time, label, icon, type)
+				stream.timeline_entries.entries.push_back(timeline_entry)
+				timeline_entries_without_end[type].entries.set(id, timeline_entry)
 
 			3:  # TimelineEntryEndEvent
-				var _id := reader.read_u64()
-				var _type := reader.read_u8()
+				var id := reader.read_u64()
+				var type := reader.read_u8() as EventsStream.TimelineEntry.Type
+
+				var entries_by_id := timeline_entries_without_end[type].entries
+				if entries_by_id.has(id):
+					entries_by_id[id].in_game_time_end = last_event_time
+					entries_by_id.erase(id)
+				else:
+					push_error("Failed to process TimelineEntryEndEvent, ID %d (%s) does not exist" % [id, EventsStream.TimelineEntry.Type.keys()[type]])
 				
 			4:  # StatEvent
 				var stat := reader.read_u8() as EventsStream.GameStat

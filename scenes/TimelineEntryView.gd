@@ -1,0 +1,60 @@
+extends Control
+class_name TimelineEntryView
+
+
+@export var texture: Texture2D:
+	set(value):
+		texture = value
+		if is_node_ready():
+			_update_texture_rect_texture()
+@export var entry_width: float = 0.0:
+	set(value):
+		entry_width = value
+		if is_node_ready():
+			_update_panel_container_size()
+			_update_texture_rect_position()
+			_update_control_size()
+
+
+@onready var panel_container: PanelContainer = %PanelContainer
+@onready var texture_rect: TextureRect = %TextureRect
+
+
+func _ready() -> void:
+	_update_texture_rect_texture()
+	_update_texture_rect_size()
+	_update_panel_container_size()
+	_update_texture_rect_position()
+	_update_control_size()
+
+
+func _update_control_size() -> void:
+	size.x = texture_rect.position.x + texture_rect.size.x
+
+
+func _update_texture_rect_texture() -> void:
+	texture_rect.texture = texture
+
+
+func _update_texture_rect_size() -> void:
+	texture_rect.size.y = size.y - 4
+	texture_rect.size.x = texture_rect.size.y
+
+
+func _update_panel_container_size() -> void:
+	panel_container.size.y = size.y
+	panel_container.size.x = entry_width
+
+
+func _on_resized() -> void:
+	if is_node_ready():
+		_update_texture_rect_size()
+
+
+func _update_texture_rect_position() -> void:
+	texture_rect.position.y = 2
+	
+	if panel_container.size.x > texture_rect.size.x:
+		texture_rect.position.x = panel_container.size.x - texture_rect.size.x
+	else:
+		texture_rect.position.x = panel_container.size.x

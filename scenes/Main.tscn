@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://4j3bdxmh5dfx" path="res://assets/ui/TransitionEnd.svg" id="4_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://ci8aqra2f8cya" path="res://scenes/DiscoveredItemsView.tscn" id="5_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://d12eboaebqnxe" path="res://scenes/GraphView.tscn" id="7_nxtc6"]
-[ext_resource type="PackedScene" uid="uid://bolhbt7wk32hd" path="res://scenes/StatsAreasView.tscn" id="9_q8u5g"]
+[ext_resource type="PackedScene" uid="uid://cxypxjd7afiop" path="res://scenes/StatsView.tscn" id="9_q8u5g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rarhs"]
 bg_color = Color(0.11372549, 0.14117648, 0.16862746, 1)
@@ -48,6 +48,7 @@ grow_horizontal = 2
 
 [node name="WotwMap" parent="." unique_id=324143865 instance=ExtResource("1_elqb8")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 zoom_to_cursor = false
 
@@ -57,6 +58,7 @@ unique_name_in_owner = true
 [node name="DiscoveredItemsView" parent="WotwMap" unique_id=305539587 instance=ExtResource("5_jlsqs")]
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1785859688]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,10 +223,22 @@ layout_mode = 2
 text = "10.0x"
 horizontal_alignment = 2
 
-[node name="StatsAreasView" parent="." unique_id=621012957 instance=ExtResource("9_q8u5g")]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=259550816]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsView" parent="ScrollContainer" unique_id=1756676672 instance=ExtResource("9_q8u5g")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="CopyImageButton" type="Button" parent="." unique_id=1321402655]
+visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0

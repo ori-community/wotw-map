@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c7xcdr1fp44ms" path="res://scenes/StatView.gd" id="1_mg1va"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_mg1va"]
+[sub_resource type="LabelSettings" id="LabelSettings_bnuyw"]
 line_spacing = 0.0
 font_size = 28
 
-[sub_resource type="LabelSettings" id="LabelSettings_6qa4i"]
+[sub_resource type="LabelSettings" id="LabelSettings_ee1cm"]
 line_spacing = 0.0
 font_color = Color(1, 1, 1, 0.7058824)
 
@@ -15,13 +15,17 @@ offset_right = 29.0
 offset_bottom = 48.0
 theme_override_constants/separation = -4
 script = ExtResource("1_mg1va")
+value_label_settings = SubResource("LabelSettings_bnuyw")
+name_label_settings = SubResource("LabelSettings_ee1cm")
 
 [node name="StatValueLabel" type="Label" parent="." unique_id=943734028]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
-label_settings = SubResource("LabelSettings_mg1va")
+label_settings = SubResource("LabelSettings_bnuyw")
 
 [node name="StatNameLabel" type="Label" parent="." unique_id=61340977]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Stat"
-label_settings = SubResource("LabelSettings_6qa4i")
+label_settings = SubResource("LabelSettings_ee1cm")

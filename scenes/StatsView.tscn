@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://cxypxjd7afiop"]
+
+[ext_resource type="Script" uid="uid://bp6whcmct37gt" path="res://scenes/StatsView.gd" id="1_qbrcv"]
+[ext_resource type="Texture2D" uid="uid://bxvsmr82h83xr" path="res://assets/ori_running_top_right.png" id="2_cfpdr"]
+[ext_resource type="PackedScene" uid="uid://b55ahelrb6rae" path="res://scenes/StatsTimelineView.tscn" id="2_li1jt"]
+[ext_resource type="PackedScene" uid="uid://bolhbt7wk32hd" path="res://scenes/StatsAreasView.tscn" id="3_cfpdr"]
+[ext_resource type="PackedScene" uid="uid://cakyffcnajj48" path="res://scenes/StatView.tscn" id="3_kdec3"]
+
+[sub_resource type="Gradient" id="Gradient_li1jt"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0032235254, 0.058856584, 0.10508869, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_li1jt"]
+gradient = SubResource("Gradient_li1jt")
+width = 256
+fill_from = Vector2(0, 0.36219513)
+
+[sub_resource type="FontVariation" id="FontVariation_o0kt2"]
+variation_embolden = 1.0
+spacing_glyph = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_ayqch"]
+line_spacing = 0.0
+font = SubResource("FontVariation_o0kt2")
+font_size = 24
+font_color = Color(1, 1, 1, 0.5568628)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfpdr"]
+line_spacing = 0.0
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdec3"]
+line_spacing = 0.0
+font_size = 28
+font_color = Color(1, 1, 1, 0.7058824)
+
+[node name="StatsView" type="VBoxContainer" unique_id=1756676672]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_qbrcv")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1196991675]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=13620451]
+clip_contents = true
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRectGradient" type="TextureRect" parent="MarginContainer/ColorRect" unique_id=436130868]
+self_modulate = Color(1, 1, 1, 0.7058824)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_li1jt")
+expand_mode = 1
+
+[node name="TextureRectOriRunning" type="TextureRect" parent="MarginContainer/ColorRect" unique_id=540562456]
+self_modulate = Color(1, 1, 1, 0.7058824)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -500.0
+offset_bottom = 500.0
+grow_horizontal = 0
+texture = ExtResource("2_cfpdr")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1976237873]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1573085843]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=493775426]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=120792077]
+layout_mode = 2
+text = "GAME STATS"
+label_settings = SubResource("LabelSettings_ayqch")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1933543495]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="TimeStatView" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1477266951 instance=ExtResource("3_kdec3")]
+unique_name_in_owner = true
+layout_mode = 2
+stat_value = "0:00.0"
+stat_name = "Time"
+value_label_settings = SubResource("LabelSettings_cfpdr")
+name_label_settings = SubResource("LabelSettings_kdec3")
+
+[node name="DeathsStatView" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1819930668 instance=ExtResource("3_kdec3")]
+unique_name_in_owner = true
+layout_mode = 2
+stat_name = "Deaths"
+value_label_settings = SubResource("LabelSettings_cfpdr")
+name_label_settings = SubResource("LabelSettings_kdec3")
+
+[node name="TimeLostStatView" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=829132956 instance=ExtResource("3_kdec3")]
+unique_name_in_owner = true
+layout_mode = 2
+stat_value = "0:00.0"
+stat_name = "Time lost"
+value_label_settings = SubResource("LabelSettings_cfpdr")
+name_label_settings = SubResource("LabelSettings_kdec3")
+
+[node name="TeleportsStatView" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1268162271 instance=ExtResource("3_kdec3")]
+unique_name_in_owner = true
+layout_mode = 2
+stat_name = "TPs"
+value_label_settings = SubResource("LabelSettings_cfpdr")
+name_label_settings = SubResource("LabelSettings_kdec3")
+
+[node name="PickupsPerMinuteStatView" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1091703553 instance=ExtResource("3_kdec3")]
+unique_name_in_owner = true
+layout_mode = 2
+stat_value = "0.0"
+stat_name = "PPM"
+value_label_settings = SubResource("LabelSettings_cfpdr")
+name_label_settings = SubResource("LabelSettings_kdec3")
+
+[node name="PickupsStatView" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1036698684 instance=ExtResource("3_kdec3")]
+unique_name_in_owner = true
+layout_mode = 2
+stat_value = "0 / 0"
+stat_name = "Pickups"
+value_label_settings = SubResource("LabelSettings_cfpdr")
+name_label_settings = SubResource("LabelSettings_kdec3")
+
+[node name="StatsTimelineView" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1226367726 instance=ExtResource("2_li1jt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StatsAreasView" parent="." unique_id=621012957 instance=ExtResource("3_cfpdr")]
+unique_name_in_owner = true
+layout_mode = 2

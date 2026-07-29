@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cyylyw0tl0tfh"]
+
+[ext_resource type="Script" uid="uid://brsgrmwu83eps" path="res://scenes/TimeMarker.gd" id="1_2cygv"]
+
+[sub_resource type="Gradient" id="Gradient_6nlmk"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7ett0"]
+gradient = SubResource("Gradient_6nlmk")
+width = 2
+height = 10
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6nlmk"]
+font_size = 14
+
+[node name="TimeMarker" type="TextureRect" unique_id=471000384]
+texture_filter = 1
+custom_minimum_size = Vector2(1, 0)
+custom_maximum_size = Vector2(1, -1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_right = 1.0
+offset_bottom = 10.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_7ett0")
+expand_mode = 1
+stretch_mode = 1
+flip_v = true
+script = ExtResource("1_2cygv")
+
+[node name="Label" type="Label" parent="." unique_id=225360156]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+grow_vertical = 0
+text = "00:00"
+label_settings = SubResource("LabelSettings_6nlmk")

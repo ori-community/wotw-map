@@ -9,6 +9,7 @@ extends Control
 @onready var speed_label: Label = %SpeedLabel
 @onready var time_label: Label = %TimeLabel
 @onready var follow_player_button: CheckButton = %FollowPlayerButton
+@onready var stats_view: StatsView = %StatsView
 
 var _is_playing = false:
 	set(value):
@@ -66,7 +67,7 @@ func _load_game_stats(reader: WotwGameStatsSlotReader) -> void:
 	events_view.stream = reader.stream
 	time_slider.max_value = reader.stream.in_game_time_end
 	graph_view.stream = reader.stream
-	$StatsAreasView.timeline_synchronizer = TimelineSynchronizer.new(reader.stream)
+	stats_view.timeline_synchronizer = TimelineSynchronizer.new(reader.stream)
 
 
 func _process(delta: float) -> void:

@@ -71,3 +71,7 @@ func _on_timeline_synchronizer_changed(time: float, active: bool) -> void:
 	else:
 		for area_view in _stats_area_views:
 			area_view.dim = false
+
+
+func _on_resized() -> void:
+	columns = 2 if size.x >= 1380 else 1
