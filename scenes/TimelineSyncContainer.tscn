@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwus4eicinymn"]
 
-[ext_resource type="Script" uid="uid://bjrokor27ogqg" path="res://scenes/TimlineSyncContainer.gd" id="1_tevpf"]
+[ext_resource type="Script" uid="uid://bjrokor27ogqg" path="res://scenes/TimelineSyncContainer.gd" id="1_vhapg"]
 
 [node name="TimlineSyncContainer" type="MarginContainer" unique_id=753358324]
 mouse_filter = 0
@@ -9,7 +9,12 @@ theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
-script = ExtResource("1_tevpf")
+script = ExtResource("1_vhapg")
+
+[node name="Timer" type="Timer" parent="." unique_id=1771081577]
+unique_name_in_owner = true
+one_shot = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
