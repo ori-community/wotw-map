@@ -15,9 +15,9 @@ var _is_playing = false:
 	set(value):
 		_is_playing = value
 		if value:
-			play_button.texture_normal = preload("res://assets/ui/Pause.svg")
+			play_button.texture_normal = preload("res://assets/ui/pause.svg")
 		else:
-			play_button.texture_normal = preload("res://assets/ui/Play.svg")
+			play_button.texture_normal = preload("res://assets/ui/play.svg")
 var _is_dragging_any_slider = false
 var _javascript_call_object: JavaScriptObject = null
 
@@ -144,4 +144,9 @@ func _on_short_trails_button_toggled(toggled_on: bool) -> void:
 
 func _on_copy_image_button_pressed() -> void:
 	var image := await StatsImageRenderer.render(events_view.stream)
-	image.save_webp("C:/Users/Timo/screenshot.webp")
+	
+	if OS.has_feature("web"):
+		var window = JavaScriptBridge.get_interface("window")
+		window.__godotBridge.copyImageToClipboard(image.save_webp_to_buffer())
+	else:
+		image.save_webp("C:/Users/Timo/screenshot.webp")
