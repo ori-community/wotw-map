@@ -42,6 +42,12 @@ func _on_javascript_call(args: Array) -> void:
 				print("Loading save file: ", save_file_name)
 				var save_file_reader := WotwSaveFileReader.new(save_file_data)
 				_load_game_stats(save_file_reader.game_stats_slot_reader)
+		"load_game_stats_slot_data":
+			var slot_data = args[1] as PackedByteArray
+			print("Loading game stats slot data")
+			var reader := WotwGameStatsSlotReader.new()
+			reader.append_events(slot_data)
+			_load_game_stats(reader)
 		_:
 			push_error("Unknown IPC command: %s" % args[0])
 

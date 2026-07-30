@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://s4yqgy7yvtwt" path="res://assets/ui/magnify-scan.svg" id="6_wp0k4"]
 [ext_resource type="Texture2D" uid="uid://c0ua8oooeooml" path="res://assets/ui/skip-backward.svg" id="7_bjd11"]
 [ext_resource type="PackedScene" uid="uid://d12eboaebqnxe" path="res://scenes/GraphView.tscn" id="7_nxtc6"]
-[ext_resource type="Texture2D" uid="uid://b30aem80kth1r" path="res://assets/ui/play.svg" id="8_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://c7hrd2dbgcvxx" path="res://assets/ui/play.svg" id="8_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://b3ao1658b57vx" path="res://assets/ui/skip-forward.svg" id="9_mwfav"]
 [ext_resource type="PackedScene" uid="uid://cxypxjd7afiop" path="res://scenes/StatsView.tscn" id="9_q8u5g"]
 [ext_resource type="Texture2D" uid="uid://dq2iytijyf6bq" path="res://assets/ui/content-copy.svg" id="10_lhr70"]

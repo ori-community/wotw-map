@@ -17,6 +17,9 @@ class DiscoveredItem:
 		x = p_x
 		y = p_y
 		collected_at = p_collected_at
+	
+	func is_collected() -> bool:
+		return !is_nan(collected_at)
 
 
 class TimelineEntriesById:
@@ -33,19 +36,6 @@ var stream: EventsStream = EventsStream.new()
 func _init() -> void:
 	for type in EventsStream.TimelineEntry.Type.values():
 		timeline_entries_without_end.set(type, TimelineEntriesById.new())
-
-
-func set_json_data(json: Dictionary) -> void:
-	discovered_items.clear()
-	for item_id in json.discovered_items.keys():
-		var item_dict: Dictionary = json.discovered_items[item_id]
-		discovered_items.set(int(item_id), DiscoveredItem.new(
-			int(item_dict.type),
-			item_dict.label,
-			item_dict.x,
-			item_dict.y,
-			NAN if item_dict.collected_at == null else item_dict.collected_at
-		))
 
 
 ## Reads events from a chunk of event data and appends it to the stored
