@@ -355,7 +355,6 @@
 		"VideoStream",
 		"VideoStreamPlayback",
 		"VideoStreamPlayer",
-		"ViewportTexture",
 		"VisibleOnScreenNotifier2D",
 		"VisualShaderNode",
 		"VoxelGIData",
