@@ -43,8 +43,8 @@ func _on_javascript_call(args: Array) -> void:
 				var save_file_reader := WotwSaveFileReader.new(save_file_data)
 				_load_game_stats(save_file_reader.game_stats_slot_reader)
 		"load_game_stats_slot_data":
-			var slot_data = args[1] as PackedByteArray
-			print("Loading game stats slot data")
+			var slot_data = JavaScriptBridge.js_buffer_to_packed_byte_array(args[1]) as PackedByteArray
+			print("Loading game stats slot data (length = %d)" % slot_data.size())
 			var reader := WotwGameStatsSlotReader.new()
 			reader.append_events(slot_data)
 			_load_game_stats(reader)
@@ -153,6 +153,13 @@ func _on_copy_image_button_pressed() -> void:
 	
 	if OS.has_feature("web"):
 		var window = JavaScriptBridge.get_interface("window")
-		window.__godotBridge.copyImageToClipboard(image.save_webp_to_buffer())
+		var png_buffer := image.save_png_to_buffer()
+		
+		var js_buffer = JavaScriptBridge.create_object("ArrayBuffer", png_buffer.size())
+		var js_array = JavaScriptBridge.create_object("Uint8Array", js_buffer)
+		for byte_i in range(png_buffer.size()):
+			js_array[byte_i] = png_buffer[byte_i]
+		
+		window.__godotBridge.copyImageToClipboard(js_buffer)
 	else:
-		image.save_webp("C:/Users/Timo/screenshot.webp")
+		image.save_png("C:/Users/Timo/screenshot.png")
