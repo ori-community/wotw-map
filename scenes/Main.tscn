@@ -86,7 +86,6 @@ grow_horizontal = 2
 
 [node name="WotwMap" parent="." unique_id=324143865 instance=ExtResource("1_elqb8")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 zoom_to_cursor = false
 
@@ -96,7 +95,6 @@ unique_name_in_owner = true
 [node name="DiscoveredItemsView" parent="WotwMap" unique_id=305539587 instance=ExtResource("5_jlsqs")]
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1785859688]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -263,6 +261,7 @@ text = "10.0x"
 horizontal_alignment = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=259550816]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -277,6 +276,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CopyImageButton" type="Button" parent="." unique_id=1321402655]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
