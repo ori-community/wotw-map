@@ -62,7 +62,7 @@ func _ready() -> void:
 	else:
 		# Dev mode: Load file from filesystem directly
 		# In production, the "load_save_file" IPC call is used
-		var save_file_reader := WotwSaveFileReader.new(FileAccess.get_file_as_bytes("C:/Users/Timo/Downloads/saveFile9.uberstate"))
+		var save_file_reader := WotwSaveFileReader.new(FileAccess.get_file_as_bytes("C:/Users/Timo/AppData/Local/Ori and the Will of The Wisps/saveFile1.uberstate"))
 		_load_game_stats(save_file_reader.game_stats_slot_reader)
 	
 	speed_label.text = str(speed_slider.value, "x")

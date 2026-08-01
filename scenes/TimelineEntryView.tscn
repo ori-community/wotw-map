@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cql7rs8nlv7ux" path="res://assets/pickups/ability/Regenerate.png" id="2_uqaxn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqaxn"]
-bg_color = Color(0.49411765, 0.7764706, 0.9764706, 0.078431375)
+bg_color = Color(0.49411765, 0.7764706, 0.9764706, 0.11764706)
 border_width_left = 2
 border_color = Color(0.494, 0.776, 0.976, 1)
 corner_radius_top_left = 1

@@ -83,7 +83,7 @@ func _update_layout() -> void:
 
 		entry_view.position.x = remap(entry.in_game_time, 0.0, _in_game_time_end, 0.0, _timeline_max_x)
 		if entry.has_end():
-			entry_view.entry_width = remap(entry.in_game_time_end, 0.0, _in_game_time_end, 0.0, _timeline_max_x)
+			entry_view.entry_width = remap(entry.in_game_time_end - entry.in_game_time, 0.0, _in_game_time_end, 0.0, _timeline_max_x)
 		
 		if !entry_view.is_inside_tree():
 			timeline_entry_container.add_child(entry_view)

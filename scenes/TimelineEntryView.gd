@@ -14,6 +14,7 @@ class_name TimelineEntryView
 			_update_panel_container_size()
 			_update_texture_rect_position()
 			_update_control_size()
+			_update_texture_rect_opacity()
 
 
 @onready var panel_container: PanelContainer = %PanelContainer
@@ -41,6 +42,10 @@ func _update_texture_rect_size() -> void:
 	texture_rect.size.x = texture_rect.size.y
 
 
+func _update_texture_rect_opacity() -> void:
+	texture_rect.modulate.a = 1.0 if entry_width == 0.0 else 0.5
+
+
 func _update_panel_container_size() -> void:
 	panel_container.size.y = size.y
 	panel_container.size.x = entry_width
@@ -57,4 +62,4 @@ func _update_texture_rect_position() -> void:
 	if panel_container.size.x > texture_rect.size.x:
 		texture_rect.position.x = panel_container.size.x - texture_rect.size.x
 	else:
-		texture_rect.position.x = panel_container.size.x
+		texture_rect.position.x = 0
