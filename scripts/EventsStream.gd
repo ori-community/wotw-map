@@ -154,6 +154,8 @@ class StatValues:
 		return in_game_times.bsearch(in_game_time, before)
 	
 	func value_at_time(in_game_time: float, before: bool = true) -> float:
+		if values.is_empty():
+			return 0.0
 		return values[clampi(index_at_time(in_game_time, before) - 1, 0, values.size() - 1)]
 
 
@@ -226,25 +228,6 @@ func _init() -> void:
 	for stat in GameStat.values():
 		var values := StatValues.new()
 		stat_values[stat] = values
-
-		match stat:
-			# Populate virtual InGameTime* stats when CurrentArea changes
-			GameStat.CurrentArea:
-				values.value_pushed.connect(
-					func(in_game_time: float, _value: float):
-						if values.in_game_times.size() < 2:
-							return
-
-						# Get the second to last area and in_game_time
-						var area := int(values.values[values.values.size() - 2]) as GameArea
-						var in_game_time_in_area := in_game_time - values.in_game_times[values.in_game_times.size() - 2]
-						var area_in_game_time_stat_values := get_area_in_game_time_stat_values(area)
-
-						if area_in_game_time_stat_values == null:
-							return
-						
-						area_in_game_time_stat_values.add_value(in_game_time, area_in_game_time_stat_values.current_value() + in_game_time_in_area)
-				)
 
 
 ### Sample missing data points in the PickupsFrequency stat

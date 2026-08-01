@@ -124,11 +124,47 @@ func append_events(data: PackedByteArray) -> void:
 			4:  # StatEvent
 				var stat := reader.read_u8() as EventsStream.GameStat
 				var value := reader.read_f32()
-				stream.stat_values[stat].add_value(last_event_time, value)
+				var stat_values := stream.stat_values[stat]
+
+				match stat:
+					EventsStream.GameStat.CurrentArea:
+						print(last_event_time, " -> ", value)
+						if !stat_values.values.is_empty():
+							var area := int(stat_values.current_value()) as EventsStream.GameArea
+							var in_game_time_in_area := last_event_time - stat_values.in_game_times[stat_values.in_game_times.size() - 1]
+							print("adding ", in_game_time_in_area, " to ", area)
+
+							var area_in_game_time_stat_values := stream.get_area_in_game_time_stat_values(area)
+
+							if area_in_game_time_stat_values == null:
+								return
+							
+							area_in_game_time_stat_values.add_value(last_event_time, area_in_game_time_stat_values.current_value() + in_game_time_in_area)
+							print(" = ", area_in_game_time_stat_values.current_value())
+
+				stat_values.add_value(last_event_time, value)
 
 	# If there's still a segment active, add it
 	if !current_segment_finalized && !current_segment.points.is_empty():
 		stream.segments.push_back(current_segment)
+
+	# Record time in area stat for last visited area
+	var current_area_stat_values := stream.stat_values[EventsStream.GameStat.CurrentArea]
+	if !current_area_stat_values.values.is_empty():
+		var last_area := int(current_area_stat_values.values[current_area_stat_values.values.size() - 1]) as EventsStream.GameArea
+		var last_area_change_in_game_time := current_area_stat_values.in_game_times[current_area_stat_values.in_game_times.size() - 1]
+
+		# This is for the case where a new chunk of events are appended to the stream, so we
+		# don't record the entire duration of the last area again but only the part that is
+		# missing
+		var unrecorded_area_time := (last_event_time - maxf(last_area_change_in_game_time, stream.in_game_time_end))
+
+		var area_in_game_time_stat_values := stream.get_area_in_game_time_stat_values(last_area)
+
+		if area_in_game_time_stat_values == null:
+			return
+		
+		area_in_game_time_stat_values.add_value(last_event_time, area_in_game_time_stat_values.current_value() + unrecorded_area_time)
 
 	stream.in_game_time_end = last_event_time
 	stream.sample_pickups_frequency()
