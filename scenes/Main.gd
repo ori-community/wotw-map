@@ -1,25 +1,27 @@
 extends Control
 
-@onready var wotw_map: WotwMap = %WotwMap
-@onready var graph_view: GraphView = %GraphView
-@onready var events_view: EventsView = %EventsView
-@onready var time_slider: HSlider = %TimeSlider
-@onready var speed_slider: HSlider = %SpeedSlider
-@onready var play_button: TextureButton = %PlayButton
-@onready var speed_label: Label = %SpeedLabel
-@onready var time_label: Label = %TimeLabel
-@onready var follow_player_button: CheckButton = %FollowPlayerButton
-@onready var stats_view: StatsView = %StatsView
 
-var _is_playing = false:
-	set(value):
-		_is_playing = value
-		if value:
-			play_button.texture_normal = preload("res://assets/ui/pause.svg")
-		else:
-			play_button.texture_normal = preload("res://assets/ui/play.svg")
-var _is_dragging_any_slider = false
+enum Page {
+	Stats,
+	Map,
+}
+
+
+@onready var scroll_container: ScrollContainer = %ScrollContainer
+@onready var stats_button: Button = %StatsButton
+@onready var map_button: Button = %MapButton
+@onready var copy_image_button: Button = %CopyImageButton
+
+
 var _javascript_call_object: JavaScriptObject = null
+var _current_page: Page = Page.Stats:
+	set(value):
+		_current_page = value
+		if is_node_ready():
+			_load_page()
+			_update_button_visibilities()
+var _timeline_synchronizer: TimelineSynchronizer = null
+var _page_node: Control = null
 
 
 func _on_javascript_call(args: Array) -> void:
@@ -41,13 +43,13 @@ func _on_javascript_call(args: Array) -> void:
 				var save_file_data := JavaScriptBridge.js_buffer_to_packed_byte_array(save_files[index].data)
 				print("Loading save file: ", save_file_name)
 				var save_file_reader := WotwSaveFileReader.new(save_file_data)
-				_load_game_stats(save_file_reader.game_stats_slot_reader)
+				_timeline_synchronizer = TimelineSynchronizer.new(save_file_reader.game_stats_slot_reader.stream)
 		"load_game_stats_slot_data":
 			var slot_data = JavaScriptBridge.js_buffer_to_packed_byte_array(args[1]) as PackedByteArray
 			print("Loading game stats slot data (length = %d)" % slot_data.size())
 			var reader := WotwGameStatsSlotReader.new()
 			reader.append_events(slot_data)
-			_load_game_stats(reader)
+			_timeline_synchronizer = TimelineSynchronizer.new(reader.stream)
 		_:
 			push_error("Unknown IPC command: %s" % args[0])
 
@@ -63,93 +65,39 @@ func _ready() -> void:
 		# Dev mode: Load file from filesystem directly
 		# In production, the "load_save_file" IPC call is used
 		var save_file_reader := WotwSaveFileReader.new(FileAccess.get_file_as_bytes("C:/Users/Timo/AppData/Local/Ori and the Will of The Wisps/saveFile1.uberstate"))
-		_load_game_stats(save_file_reader.game_stats_slot_reader)
+		_timeline_synchronizer = TimelineSynchronizer.new(save_file_reader.game_stats_slot_reader.stream)
 	
-	speed_label.text = str(speed_slider.value, "x")
-	update_time_label()
+	_load_page()
+	_update_button_visibilities()
 
 
-func _load_game_stats(reader: WotwGameStatsSlotReader) -> void:
-	events_view.stream = reader.stream
-	time_slider.max_value = reader.stream.in_game_time_end
-	graph_view.stream = reader.stream
-	stats_view.timeline_synchronizer = TimelineSynchronizer.new(reader.stream)
+func _update_button_visibilities() -> void:
+	map_button.visible = _current_page == Page.Stats
+	stats_button.visible = _current_page == Page.Map
+	copy_image_button.visible = _current_page == Page.Stats
 
 
-func _process(delta: float) -> void:
-	# Time progress
-	if _is_playing && !_is_dragging_any_slider:
-		time_slider.value += delta * speed_slider.value
-		if time_slider.value >= time_slider.max_value:
-			_is_playing = false
+func _load_page() -> void:
+	if _page_node != null:
+		_page_node.queue_free()
+		_page_node = null
 	
-	# Follow players
-	if follow_player_button.button_pressed:
-		var current_map_center := wotw_map.map_in_game_center_position
-		var target_map_center := events_view.stream.get_position_at_time(time_slider.value, current_map_center)
-
-		if current_map_center.is_equal_approx(target_map_center):
-			wotw_map.map_in_game_center_position = target_map_center
-		else:
-			var distance := current_map_center.distance_to(target_map_center)
-			var speed := maxf(distance * 0.02, 5.0)
-			# This causes the camera to pan instantly if the distance is too long (e.g. when the player teleported)
-			var lerp_factor := (1.0 - 150.0 / distance) if distance > 400.0 else clampf(delta * speed, minf(5.0 * delta, 1.0), 1.0)
-			wotw_map.map_in_game_center_position = current_map_center.lerp(target_map_center, lerp_factor)
-
-
-func update_time_label() -> void:
-	time_label.text = str(StringUtils.format_time(time_slider.value), " / ", StringUtils.format_time(time_slider.max_value))
-
-
-func _on_time_slider_value_changed(value: float) -> void:
-	update_time_label()
-	events_view.slice_end_time = value
-
-
-func _on_button_pressed() -> void:
-	follow_player_button.button_pressed = false
-	wotw_map.zoom_to_map_bounds()
-
-
-func _on_time_slider_drag_started() -> void:
-	_is_dragging_any_slider = true
-
-
-func _on_time_slider_drag_ended(_value_changed: bool) -> void:
-	_is_dragging_any_slider = false
-
-
-func _on_speed_slider_value_changed(value: float) -> void:
-	speed_label.text = str(value, "x")
-
-
-func _on_button_beginning_pressed() -> void:
-	time_slider.value = 0
-
-
-func _on_button_end_pressed() -> void:
-	time_slider.value = time_slider.max_value
-
-
-func _on_button_play_pressed() -> void:
-	_is_playing = !_is_playing
-
-
-func _on_wotw_map_map_dragged() -> void:
-	follow_player_button.button_pressed = false
-
-
-func _on_follow_player_button_toggled(toggled_on: bool) -> void:
-	wotw_map.zoom_to_cursor = !toggled_on
-
-
-func _on_short_trails_button_toggled(toggled_on: bool) -> void:
-	events_view.fade_out = toggled_on
+	match _current_page:
+		Page.Stats:
+			var stats_view: StatsView = load("res://scenes/StatsView.tscn").instantiate()
+			stats_view.timeline_synchronizer = _timeline_synchronizer
+			_page_node = stats_view
+		Page.Map:
+			var map_view: WotwMapView = load("res://scenes/WotwMapView.tscn").instantiate()
+			map_view.timeline_synchronizer = _timeline_synchronizer
+			_page_node = map_view
+	
+	if _page_node != null:
+		scroll_container.add_child(_page_node)
 
 
 func _on_copy_image_button_pressed() -> void:
-	var image := await StatsImageRenderer.render(events_view.stream)
+	var image := await StatsImageRenderer.render(_timeline_synchronizer.stream)
 	
 	if OS.has_feature("web"):
 		var window = JavaScriptBridge.get_interface("window")
@@ -163,3 +111,11 @@ func _on_copy_image_button_pressed() -> void:
 		window.__godotBridge.copyImageToClipboard(js_buffer)
 	else:
 		image.save_png("C:/Users/Timo/screenshot.png")
+
+
+func _on_map_button_pressed() -> void:
+	_current_page = Page.Map
+
+
+func _on_stats_button_pressed() -> void:
+	_current_page = Page.Stats
