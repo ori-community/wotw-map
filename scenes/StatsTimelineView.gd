@@ -164,7 +164,10 @@ func _on_timeline_synchronizer_changed(_time: float, active: bool) -> void:
 
 func _update_cursor_time_marker() -> void:
 	_cursor_time_marker.size.y = size.y
-	_cursor_time_marker.position.x = remap(timeline_synchronizer.time, 0.0, _in_game_time_end, 0.0, _timeline_max_x)
+	if _in_game_time_end == 0.0:
+		_cursor_time_marker.position.x = 0.0
+	else:
+		_cursor_time_marker.position.x = remap(timeline_synchronizer.time, 0.0, _in_game_time_end, 0.0, _timeline_max_x)
 	_cursor_time_marker.time_value = StatView.format_duration(timeline_synchronizer.time, false)
 
 

@@ -53,7 +53,10 @@ func _update_stat_views() -> void:
 		deaths_stat_view.stat_value = str(int(stream.stat_values[EventsStream.GameStat.Deaths].current_value()))
 		time_lost_stat_view.stat_value = StatView.format_duration(stream.stat_values[EventsStream.GameStat.TimeLost].current_value())
 		teleports_stat_view.stat_value = str(int(stream.stat_values[EventsStream.GameStat.Teleports].current_value()))
-		pickups_per_minute_stat_view.stat_value = "%.1f" % (stream.stat_values[EventsStream.GameStat.PickupsCollected].current_value() / (stream.in_game_time_end / 60.0))
+		if stream.in_game_time_end == 0.0:
+			pickups_per_minute_stat_view.stat_value = "%.1f" % 0.0
+		else:
+			pickups_per_minute_stat_view.stat_value = "%.1f" % (stream.stat_values[EventsStream.GameStat.PickupsCollected].current_value() / (stream.in_game_time_end / 60.0))
 		pickups_stat_view.stat_value = "%d / %d" % [
 			int(stream.stat_values[EventsStream.GameStat.PickupsCollected].current_value()),
 			int(stream.stat_values[EventsStream.GameStat.PickupsTotal].current_value())
