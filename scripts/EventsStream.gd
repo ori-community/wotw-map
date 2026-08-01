@@ -153,10 +153,15 @@ class StatValues:
 	func index_at_time(in_game_time: float, before: bool = true) -> int:
 		return in_game_times.bsearch(in_game_time, before)
 	
-	func value_at_time(in_game_time: float, before: bool = true) -> float:
+	func value_at_time(in_game_time: float) -> float:
 		if values.is_empty():
 			return 0.0
-		return values[clampi(index_at_time(in_game_time, before) - 1, 0, values.size() - 1)]
+		
+		var index := index_at_time(in_game_time, true)
+		if index == 0:
+			return 0.0
+		
+		return values[clampi(index - 1, 0, values.size() - 1)]
 
 
 class PathSegment:
