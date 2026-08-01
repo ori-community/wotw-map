@@ -118,15 +118,22 @@ func _update_lines() -> void:
 			var value := pickups_frequency_stat_values.values[index]
 			var in_game_time := pickups_frequency_stat_values.in_game_times[index]
 			
-			line.width_curve.add_point(
-				Vector2(
-					inverse_lerp(segment.in_game_time_start, segment.in_game_time_end, in_game_time),
-					maxf(
-						1.0,
-						remap(value, 0.0, pickups_frequency_stat_values.max_value, line.width_curve.min_value, line.width_curve.max_value),
+			var point_x := inverse_lerp(segment.in_game_time_start, segment.in_game_time_end, in_game_time)
+
+			# remap() returns NAN if pickups_frequency_stat_values.max_value == 0.0, so we insert y=0.0 manually here.
+			# Otherwise the line is invisible.
+			if pickups_frequency_stat_values.max_value == 0.0:
+				line.width_curve.add_point(Vector2(point_x, 0.0))
+			else:
+				line.width_curve.add_point(
+					Vector2(
+						point_x,
+						maxf(
+							1.0,
+							remap(value, 0.0, pickups_frequency_stat_values.max_value, line.width_curve.min_value, line.width_curve.max_value),
+						)
 					)
 				)
-			)
 
 		lines_container.add_child(line)
 		_lines.push_back(line)
