@@ -44,6 +44,7 @@ func _update_segment_lines() -> void:
 	
 	for line in segment_lines:
 		line.queue_free()
+	segment_lines.clear()
 	
 	if stream == null:
 		return
