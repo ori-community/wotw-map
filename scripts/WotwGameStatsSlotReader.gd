@@ -128,11 +128,9 @@ func append_events(data: PackedByteArray) -> void:
 
 				match stat:
 					EventsStream.GameStat.CurrentArea:
-						print(last_event_time, " -> ", value)
 						if !stat_values.values.is_empty():
 							var area := int(stat_values.current_value()) as EventsStream.GameArea
 							var in_game_time_in_area := last_event_time - stat_values.in_game_times[stat_values.in_game_times.size() - 1]
-							print("adding ", in_game_time_in_area, " to ", area)
 
 							var area_in_game_time_stat_values := stream.get_area_in_game_time_stat_values(area)
 
@@ -140,7 +138,6 @@ func append_events(data: PackedByteArray) -> void:
 								return
 							
 							area_in_game_time_stat_values.add_value(last_event_time, area_in_game_time_stat_values.current_value() + in_game_time_in_area)
-							print(" = ", area_in_game_time_stat_values.current_value())
 
 				stat_values.add_value(last_event_time, value)
 
