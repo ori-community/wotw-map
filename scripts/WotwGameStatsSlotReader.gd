@@ -156,10 +156,8 @@ func append_events(data: PackedByteArray) -> void:
 
 		var area_in_game_time_stat_values := stream.get_area_in_game_time_stat_values(last_area)
 
-		if area_in_game_time_stat_values == null:
-			return
-		
-		area_in_game_time_stat_values.add_value(last_event_time, area_in_game_time_stat_values.current_value() + unrecorded_area_time)
+		if area_in_game_time_stat_values != null:
+			area_in_game_time_stat_values.add_value(last_event_time, area_in_game_time_stat_values.current_value() + unrecorded_area_time)
 
 	stream.in_game_time_end = last_event_time
 	stream.sample_pickups_frequency()
