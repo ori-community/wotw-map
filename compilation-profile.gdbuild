@@ -330,7 +330,6 @@
 		"Texture3D",
 		"TextureLayered",
 		"TextureProgressBar",
-		"Theme",
 		"ThemeContext",
 		"ThemeDB",
 		"Thread",
