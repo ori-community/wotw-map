@@ -85,7 +85,7 @@ func _on_timeline_synchronizer_changed(time: float, active: bool) -> void:
 	_update_stat_views()
 	
 	if active:
-		_background_image_area = int(timeline_synchronizer.stream.stat_values[EventsStream.GameStat.CurrentArea].value_at_time(time)) as EventsStream.GameArea
+		_background_image_area = int(timeline_synchronizer.stream.stat_values[EventsStream.GameStat.CurrentArea].value_at_time(time, true)) as EventsStream.GameArea
 	else:
 		_background_image_area = EventsStream.GameArea.Void
 

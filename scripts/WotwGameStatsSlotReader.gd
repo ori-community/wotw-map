@@ -134,10 +134,8 @@ func append_events(data: PackedByteArray) -> void:
 
 							var area_in_game_time_stat_values := stream.get_area_in_game_time_stat_values(area)
 
-							if area_in_game_time_stat_values == null:
-								return
-							
-							area_in_game_time_stat_values.add_value(last_event_time, area_in_game_time_stat_values.current_value() + in_game_time_in_area)
+							if area_in_game_time_stat_values != null:
+								area_in_game_time_stat_values.add_value(last_event_time, area_in_game_time_stat_values.current_value() + in_game_time_in_area)
 
 				stat_values.add_value(last_event_time, value)
 

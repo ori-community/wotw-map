@@ -24,7 +24,7 @@ var _timeline_synchronizer: TimelineSynchronizer = null:
 	set(value):
 		_timeline_synchronizer = value
 		if is_node_ready():
-          _update_page_timeline_synchronizer()
+			_update_page_timeline_synchronizer()
 var _page_node: Control = null
 
 

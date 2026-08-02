@@ -153,12 +153,14 @@ class StatValues:
 	func index_at_time(in_game_time: float, before: bool = true) -> int:
 		return in_game_times.bsearch(in_game_time, before)
 	
-	func value_at_time(in_game_time: float) -> float:
+	func value_at_time(in_game_time: float, return_first_value_if_before_start: bool = false) -> float:
 		if values.is_empty():
 			return 0.0
 		
 		var index := index_at_time(in_game_time, true)
 		if index == 0:
+			if return_first_value_if_before_start:
+				return values[0]
 			return 0.0
 		
 		return values[clampi(index - 1, 0, values.size() - 1)]
