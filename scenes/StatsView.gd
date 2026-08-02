@@ -10,6 +10,8 @@ class_name StatsView
 @onready var teleports_stat_view: StatView = %TeleportsStatView
 @onready var pickups_per_minute_stat_view: StatView = %PickupsPerMinuteStatView
 @onready var pickups_stat_view: StatView = %PickupsStatView
+@onready var ori_running_texture_rect: TextureRect = %OriRunningTextureRect
+@onready var background_image_container: Control = %BackgroundImageContainer
 
 
 var timeline_synchronizer: TimelineSynchronizer:
@@ -22,6 +24,16 @@ var timeline_synchronizer: TimelineSynchronizer:
 		
 		if is_node_ready():
 			_update_views()
+var _background_image_area: EventsStream.GameArea = EventsStream.GameArea.Void:
+	set(value):
+		if value == _background_image_area:
+			return
+		
+		_background_image_area = value
+		if is_node_ready():
+			_transition_area_background_image()
+var _background_image_texture_rect: FadingBackgroundImageTextureRect = null
+var _ori_running_tween: Tween = null
 
 
 func _ready() -> void:
@@ -66,9 +78,35 @@ func _update_stat_views() -> void:
 func _update_views() -> void:
 	stats_areas_view.timeline_synchronizer = timeline_synchronizer
 	stats_timeline_view.timeline_synchronizer = timeline_synchronizer
+	_update_stat_views()
+
+
+func _on_timeline_synchronizer_changed(time: float, active: bool) -> void:
+	_update_stat_views()
 	
-	_update_stat_views()
+	if active:
+		_background_image_area = int(timeline_synchronizer.stream.stat_values[EventsStream.GameStat.CurrentArea].value_at_time(time)) as EventsStream.GameArea
+	else:
+		_background_image_area = EventsStream.GameArea.Void
 
 
-func _on_timeline_synchronizer_changed(_time: float, _active: bool) -> void:
-	_update_stat_views()
+func _transition_area_background_image() -> void:
+	if _background_image_texture_rect != null:
+		_background_image_texture_rect.fade_out_and_free()
+		_background_image_texture_rect = null
+	
+	if _background_image_area == EventsStream.GameArea.Void:
+		if _ori_running_tween != null:
+			_ori_running_tween.kill()
+		_ori_running_tween = ori_running_texture_rect.create_tween()
+		_ori_running_tween.tween_property(ori_running_texture_rect, "self_modulate:a", 1.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	else:
+		_background_image_texture_rect = preload("res://scenes/FadingBackgroundImageTextureRect.tscn").instantiate()
+		_background_image_texture_rect.texture = StatsAreaView.BACKGROUND_IMAGES[_background_image_area]
+		background_image_container.add_child(_background_image_texture_rect)
+		
+		if _ori_running_tween != null:
+			_ori_running_tween.kill()
+		_ori_running_tween = ori_running_texture_rect.create_tween()
+		_ori_running_tween.tween_property(ori_running_texture_rect, "self_modulate:a", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		
