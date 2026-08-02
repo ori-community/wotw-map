@@ -20,7 +20,11 @@ var _current_page: Page = Page.Stats:
 		if is_node_ready():
 			_load_page()
 			_update_button_visibilities()
-var _timeline_synchronizer: TimelineSynchronizer = null
+var _timeline_synchronizer: TimelineSynchronizer = null:
+	set(value):
+		_timeline_synchronizer = value
+		if is_node_ready():
+          _update_page_timeline_synchronizer()
 var _page_node: Control = null
 
 
@@ -75,6 +79,11 @@ func _update_button_visibilities() -> void:
 	map_button.visible = _current_page == Page.Stats
 	stats_button.visible = _current_page == Page.Map
 	copy_image_button.visible = _current_page == Page.Stats
+
+
+func _update_page_timeline_synchronizer() -> void:
+	if _page_node != null:
+		_page_node.timeline_synchronizer = _timeline_synchronizer
 
 
 func _load_page() -> void:
