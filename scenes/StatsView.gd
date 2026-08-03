@@ -30,10 +30,13 @@ var _background_image_area: EventsStream.GameArea = EventsStream.GameArea.Void:
 			return
 		
 		_background_image_area = value
+		
 		if is_node_ready():
 			_transition_area_background_image()
 var _background_image_texture_rect: FadingBackgroundImageTextureRect = null
 var _ori_running_tween: Tween = null
+var _background_image_transition_blocked_for: float = 0.0
+var _background_image_transition_queued: bool = false
 
 
 func _ready() -> void:
@@ -90,7 +93,20 @@ func _on_timeline_synchronizer_changed(time: float, active: bool) -> void:
 		_background_image_area = EventsStream.GameArea.Void
 
 
+func _process(delta: float) -> void:
+	if _background_image_transition_blocked_for > 0.0:
+		_background_image_transition_blocked_for -= delta
+		if _background_image_transition_blocked_for <= 0.0 && _background_image_transition_queued:
+			_background_image_transition_queued = false
+			_transition_area_background_image()
+
+
 func _transition_area_background_image() -> void:
+	if _background_image_transition_blocked_for > 0.0:
+		_background_image_transition_queued = true
+		return
+	_background_image_transition_blocked_for = 0.2
+	
 	if _background_image_texture_rect != null:
 		_background_image_texture_rect.fade_out_and_free()
 		_background_image_texture_rect = null

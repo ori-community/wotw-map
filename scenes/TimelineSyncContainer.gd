@@ -42,5 +42,5 @@ func _on_mouse_exited() -> void:
 
 func _on_timer_timeout() -> void:
 	_active = true
-	timeline_synchronizer.active = true
 	_update_timeline_synchronizer_time()
+	timeline_synchronizer.active = true
