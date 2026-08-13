@@ -37,11 +37,13 @@
 [ext_resource type="Texture2D" uid="uid://t1c1ij3rsew5" path="res://assets/pickups/ability/AncestralLightMarsh.png" id="34_iqbo8"]
 [ext_resource type="Texture2D" uid="uid://dxcqa3p8twl01" path="res://assets/pickups/Watermill.png" id="35_06bgm"]
 [ext_resource type="Texture2D" uid="uid://cm2vq8hfc4s54" path="res://assets/pickups/resource/SpiritLight.png" id="36_iqbo8"]
+[ext_resource type="Texture2D" uid="uid://ixc3xwb2nwmx" path="res://assets/pickups/Mapstone.png" id="37_khpng"]
 
 [resource]
 script = ExtResource("1_05yl5")
 icon_map = Dictionary[int, Texture2D]({
 0: ExtResource("1_72gyf"),
+1: ExtResource("37_khpng"),
 10: ExtResource("8_a4dm0"),
 17: ExtResource("36_iqbo8"),
 24: ExtResource("7_r46b5"),
