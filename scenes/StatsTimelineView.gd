@@ -13,11 +13,13 @@ class TimelineEntryViewWithMetadata:
 		entry = p_entry
 
 
-const LANE_HEIGHT: float = 80.0
 const MAX_TIME_MARKER_COUNT: int = 6
 
 
 @export var icon_provider: IconProvider = preload("res://assets/wotw_icons.tres")
+@export var type: EventsStream.TimelineEntry.Type
+@export var lane_height_ability: float = 80.0
+@export var lane_height_custom: float = 50.0
 
 
 @onready var timeline_sync_container: TimelineSyncContainer = %TimlineSyncContainer
@@ -46,7 +48,7 @@ var _timeline_max_x: float = 0.0
 func _ready() -> void:
 	_update_timeline()
 	
-	timeline_sync_container.offset_right = -LANE_HEIGHT
+	timeline_sync_container.offset_right = -lane_height_ability
 
 
 func _update_timeline() -> void:
@@ -65,21 +67,33 @@ func _update_timeline() -> void:
 	for entry in stream.timeline_entries.entries:
 		var entry_view := preload("res://scenes/TimelineEntryView.tscn").instantiate() as TimelineEntryView
 		entry_view.texture = icon_provider.get_icon_texture_or_default(entry.icon)
-		entry_view.size.y = LANE_HEIGHT
+		entry_view.size.y = lane_height_ability
 		_entry_views_with_metadata.push_back(TimelineEntryViewWithMetadata.new(entry_view, entry))
 	_update_layout()
 
 
 func _update_layout() -> void:
-	_timeline_max_x = size.x - LANE_HEIGHT  # This is to leave space for icons on the right side
+	_timeline_max_x = size.x - max(lane_height_ability, lane_height_custom)  # This is to leave space for icons on the right side
+	
+	var abilities_y_end := _layout_entries_with_type(EventsStream.TimelineEntry.Type.Ability, lane_height_ability, 0.0)
+	var custom_y_end := _layout_entries_with_type(EventsStream.TimelineEntry.Type.Custom, lane_height_custom, abilities_y_end + 16.0)
+
+	custom_minimum_size.y = custom_y_end + 32.0  # 32px for time markers
+	_update_time_markers()
+
+
+func _layout_entries_with_type(type: EventsStream.TimelineEntry.Type, lane_height: float, y_start: float) -> float:
 	var timeline_lane_widths: Array[float] = [-1.0]  # The maximum x coordinates each lane is occupied up to
 	
 	for entry_view_with_metadata in _entry_views_with_metadata:
+		if entry_view_with_metadata.entry.type != type:
+			continue
+		
 		var entry_view := entry_view_with_metadata.view
 		var entry := entry_view_with_metadata.entry
 
 		entry_view.texture = icon_provider.get_icon_texture_or_default(entry.icon)
-		entry_view.size.y = LANE_HEIGHT
+		entry_view.size.y = lane_height
 
 		entry_view.position.x = remap(entry.in_game_time, 0.0, _in_game_time_end, 0.0, _timeline_max_x)
 		if entry.has_end():
@@ -92,7 +106,7 @@ func _update_layout() -> void:
 		var found_lane := false
 		for i in range(timeline_lane_widths.size()):
 			if timeline_lane_widths[i] + 2 < entry_view.position.x:
-				entry_view.position.y = i * LANE_HEIGHT
+				entry_view.position.y = y_start + i * lane_height
 				timeline_lane_widths[i] = entry_end_x
 				found_lane = true
 				break
@@ -101,10 +115,9 @@ func _update_layout() -> void:
 			continue
 		
 		timeline_lane_widths.push_back(entry_end_x)
-		entry_view.position.y = (timeline_lane_widths.size() - 1) * LANE_HEIGHT
-
-	custom_minimum_size.y = timeline_lane_widths.size() * LANE_HEIGHT + 32.0  # 32px for time markers
-	_update_time_markers()
+		entry_view.position.y = y_start + (timeline_lane_widths.size() - 1) * lane_height
+	
+	return y_start + timeline_lane_widths.size() * lane_height
 
 
 func _update_time_markers() -> void:

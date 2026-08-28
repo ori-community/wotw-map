@@ -43,9 +43,9 @@
 script = ExtResource("1_05yl5")
 icon_map = Dictionary[int, Texture2D]({
 0: ExtResource("1_72gyf"),
-1: ExtResource("37_khpng"),
 10: ExtResource("8_a4dm0"),
 17: ExtResource("36_iqbo8"),
+18: ExtResource("37_khpng"),
 24: ExtResource("7_r46b5"),
 26: ExtResource("4_l6585"),
 30: ExtResource("5_nmhul"),

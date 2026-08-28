@@ -38,5 +38,6 @@ texture = ExtResource("2_uqaxn")
 expand_mode = 1
 stretch_mode = 5
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="resized" from="PanelContainer" to="." method="_on_panel_container_resized"]
