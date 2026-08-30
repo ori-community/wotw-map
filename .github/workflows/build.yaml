@@ -2,6 +2,8 @@ name: build-and-publish
 
 on:
   push:
+    branches:
+      - main
     tags:
       - '*'
   workflow_dispatch:
@@ -83,4 +85,5 @@ jobs:
           test -e pkg/dist/wotw-map.pck
 
       - run: npm publish --provenance
+        if: startsWith(github.ref, 'refs/tags/')
         working-directory: ./pkg
