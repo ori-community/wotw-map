@@ -20,7 +20,11 @@ func _update_timeline_synchronizer_time() -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		_hovered_relative_time = inverse_lerp(0.0, size.x, get_local_mouse_position().x)
+		_hovered_relative_time = clampf(
+			inverse_lerp(0.0, size.x, get_local_mouse_position().x),
+			0.0,
+			1.0,
+		)
 
 		if _active:
 			_update_timeline_synchronizer_time()

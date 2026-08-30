@@ -38,6 +38,9 @@
 [ext_resource type="Texture2D" uid="uid://dxcqa3p8twl01" path="res://assets/pickups/Watermill.png" id="35_06bgm"]
 [ext_resource type="Texture2D" uid="uid://cm2vq8hfc4s54" path="res://assets/pickups/resource/SpiritLight.png" id="36_iqbo8"]
 [ext_resource type="Texture2D" uid="uid://ixc3xwb2nwmx" path="res://assets/pickups/Mapstone.png" id="37_khpng"]
+[ext_resource type="Texture2D" uid="uid://cgpmd1byabfvh" path="res://assets/npc/Opher.png" id="38_qpt62"]
+[ext_resource type="Texture2D" uid="uid://g206eo5iw2yd" path="res://assets/npc/Lupo.png" id="39_wxf5r"]
+[ext_resource type="Texture2D" uid="uid://buwlqgb8slew0" path="res://assets/npc/Twillen.png" id="40_bq24q"]
 
 [resource]
 script = ExtResource("1_05yl5")
@@ -52,6 +55,9 @@ icon_map = Dictionary[int, Texture2D]({
 33: ExtResource("9_rb0cw"),
 34: ExtResource("10_r46b5"),
 35: ExtResource("6_rb0cw"),
+51: ExtResource("38_qpt62"),
+53: ExtResource("39_wxf5r"),
+54: ExtResource("40_bq24q"),
 100: ExtResource("3_12bgp"),
 101: ExtResource("12_esn7a"),
 102: ExtResource("11_a4dm0"),

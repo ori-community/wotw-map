@@ -67,6 +67,16 @@ func _update_timeline() -> void:
 	for entry in stream.timeline_entries.entries:
 		var entry_view := preload("res://scenes/TimelineEntryView.tscn").instantiate() as TimelineEntryView
 		entry_view.texture = icon_provider.get_icon_texture_or_default(entry.icon)
+		entry_view.tooltip_title = entry.label
+
+		if entry.has_end():
+			entry_view.tooltip_description = "%s - %s" % [
+				StringUtils.format_time(entry.in_game_time),
+				StringUtils.format_time(entry.in_game_time_end),
+			]
+		else:
+			entry_view.tooltip_description = StringUtils.format_time(entry.in_game_time)
+		
 		entry_view.size.y = lane_height_ability
 		_entry_views_with_metadata.push_back(TimelineEntryViewWithMetadata.new(entry_view, entry))
 	_update_layout()

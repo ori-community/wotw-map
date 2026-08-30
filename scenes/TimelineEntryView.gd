@@ -7,6 +7,16 @@ class_name TimelineEntryView
 		texture = value
 		if is_node_ready():
 			_update_texture_rect_texture()
+@export var tooltip_title: String:
+	set(value):
+		tooltip_title = value
+		if is_node_ready():
+			_update_tooltip_labels()
+@export var tooltip_description: String:
+	set(value):
+		tooltip_description = value
+		if is_node_ready():
+			_update_tooltip_labels()
 @export var entry_width: float = 0.0:
 	set(value):
 		entry_width = value
@@ -19,6 +29,8 @@ class_name TimelineEntryView
 
 @onready var panel_container: PanelContainer = %PanelContainer
 @onready var texture_rect: TextureRect = %TextureRect
+@onready var tooltip_title_label: Label = %TooltipTitleLabel
+@onready var tooltip_description_label: Label = %TooltipDescriptionLabel
 
 
 func _ready() -> void:
@@ -27,6 +39,7 @@ func _ready() -> void:
 	_update_panel_container_size()
 	_update_texture_rect_position()
 	_update_control_size()
+	_update_tooltip_labels()
 
 
 func _update_control_size() -> void:
@@ -63,3 +76,8 @@ func _update_texture_rect_position() -> void:
 		texture_rect.position.x = panel_container.size.x - texture_rect.size.x
 	else:
 		texture_rect.position.x = 0
+
+
+func _update_tooltip_labels() -> void:
+	tooltip_title_label.text = tooltip_title
+	tooltip_description_label.text = tooltip_description
