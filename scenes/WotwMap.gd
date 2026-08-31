@@ -8,11 +8,14 @@ signal map_dragged
 
 @export var in_game_map_bounds: Rect2 = Rect2(Vector2(-2023, -4656), Vector2(4405, 1233))
 @export var zoom_to_cursor: bool = true
+@export var map_tile_size: Vector2 = Vector2(512, 512)
+@export var map_tiles: Array[MapTile] = []
 
 
 @onready var origin: Node2D = %Origin
 @onready var in_game_origin: Node2D = %InGameOrigin
 @onready var slot: Node2D = %Slot
+@onready var map_tiles_container: Node2D = %MapTilesContainer
 
 
 const SCROLL_ZOOM_SPEED := 0.04
@@ -37,6 +40,8 @@ var map_scale: float:
 			_update_map_position(current_center)
 	get():
 		return origin.scale.x
+var _pending_map_tiles: Array[MapTile] = []
+
 		
 func _ready() -> void:
 	for node in _nodes_to_reparent_to_in_game_origin:
@@ -47,8 +52,12 @@ func _ready() -> void:
 		
 	# Add @tool to this script and reload the scene in the editor
 	# to regenerate map tile sprites.
-	if Engine.is_editor_hint() && get_child_count() == 0:
+	if Engine.is_editor_hint() && map_tiles.is_empty():
 		_editor_create_map_tiles()
+	
+	if !Engine.is_editor_hint():
+		_pending_map_tiles.append_array(map_tiles)
+		_pending_map_tiles.reverse()
 		
 
 func _editor_create_map_tiles() -> void:
@@ -59,13 +68,11 @@ func _editor_create_map_tiles() -> void:
 			if !ResourceLoader.exists(resource_path):
 				continue
 			
-			var sprite := Sprite2D.new()
-			sprite.texture = load(resource_path)
-			sprite.name = "Tile-%d-%d" % [x, y]
-			sprite.centered = false
-			add_child(sprite)
-			sprite.set_owner(get_tree().get_edited_scene_root())
-			sprite.global_position = Vector2(x * 512, y * 512)
+			var map_tile := MapTile.new()
+			map_tile.x = x
+			map_tile.y = y
+			map_tile.texture_path = ResourceUID.path_to_uid(resource_path)
+			map_tiles.push_back(map_tile)
 
 
 func get_in_game_mouse_position() -> Vector2:
@@ -121,7 +128,24 @@ func _update_map_position(center: Vector2):
 	var position_offset := get_global_rect().get_center() - in_game_origin.to_global(center)
 	origin.position += position_offset
 
+
 func _process(delta: float) -> void:
+	if !_pending_map_tiles.is_empty():
+		var start_time := Time.get_ticks_usec()
+
+		while (Time.get_ticks_usec() - start_time) < 10000:
+			var tile: MapTile = _pending_map_tiles.back()
+			_pending_map_tiles.pop_back()
+			var sprite := FadeInSprite.new()
+			sprite.texture = load(tile.texture_path)
+			sprite.position = Vector2(tile.x, tile.y) * map_tile_size
+			sprite.centered = false
+			map_tiles_container.add_child(sprite)
+
+			if _pending_map_tiles.is_empty():
+				break
+
+
 	# Clamp map to drag limits
 	if !_is_dragging:
 		var current_map_in_game_center_position := map_in_game_center_position

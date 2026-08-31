@@ -1,200 +1,1156 @@
 [gd_scene format=3 uid="uid://ccs75bygv2cx6"]
 
 [ext_resource type="Script" uid="uid://b2vr13ug5vtxj" path="res://scenes/WotwMap.gd" id="1_337id"]
-[ext_resource type="Texture2D" uid="uid://bvbr65bq8deun" path="res://assets/wotw-map-tiles/tile-0_4.png" id="2_rlc80"]
-[ext_resource type="Texture2D" uid="uid://7dmwtea6li7p" path="res://assets/wotw-map-tiles/tile-0_5.png" id="3_i0msf"]
-[ext_resource type="Texture2D" uid="uid://byl6uf0cmym0v" path="res://assets/wotw-map-tiles/tile-1_4.png" id="4_atkxf"]
-[ext_resource type="Texture2D" uid="uid://gvlaca6xc1bd" path="res://assets/wotw-map-tiles/tile-1_5.png" id="5_hyfbk"]
-[ext_resource type="Texture2D" uid="uid://dgeiynv3rkg5l" path="res://assets/wotw-map-tiles/tile-2_3.png" id="6_2wvrv"]
-[ext_resource type="Texture2D" uid="uid://dgtlrkwe46uwi" path="res://assets/wotw-map-tiles/tile-2_4.png" id="7_bw8ug"]
-[ext_resource type="Texture2D" uid="uid://cw0q3fi3fyhr3" path="res://assets/wotw-map-tiles/tile-2_5.png" id="8_bg4ka"]
-[ext_resource type="Texture2D" uid="uid://nn2err8p277c" path="res://assets/wotw-map-tiles/tile-3_3.png" id="9_0n7j7"]
-[ext_resource type="Texture2D" uid="uid://dgmv4thbt3hk1" path="res://assets/wotw-map-tiles/tile-3_4.png" id="10_whlt8"]
-[ext_resource type="Texture2D" uid="uid://duiter1wvmhus" path="res://assets/wotw-map-tiles/tile-3_5.png" id="11_mc3sc"]
-[ext_resource type="Texture2D" uid="uid://n00m1v7mrpsb" path="res://assets/wotw-map-tiles/tile-4_4.png" id="12_didpk"]
-[ext_resource type="Texture2D" uid="uid://c3nkkwusp2y0t" path="res://assets/wotw-map-tiles/tile-4_5.png" id="13_14tfk"]
-[ext_resource type="Texture2D" uid="uid://dd6b1ot5x3ldt" path="res://assets/wotw-map-tiles/tile-5_0.png" id="14_2ifu5"]
-[ext_resource type="Texture2D" uid="uid://4bj33ka4up6b" path="res://assets/wotw-map-tiles/tile-5_1.png" id="15_ddedr"]
-[ext_resource type="Texture2D" uid="uid://t6nt1ounrqke" path="res://assets/wotw-map-tiles/tile-5_2.png" id="16_k60if"]
-[ext_resource type="Texture2D" uid="uid://d4lky0lcgbxcb" path="res://assets/wotw-map-tiles/tile-5_3.png" id="17_lhgbw"]
-[ext_resource type="Texture2D" uid="uid://dj2jy70vidcj3" path="res://assets/wotw-map-tiles/tile-5_4.png" id="18_qof0s"]
-[ext_resource type="Texture2D" uid="uid://dv3hdieuscgkp" path="res://assets/wotw-map-tiles/tile-5_5.png" id="19_yy508"]
-[ext_resource type="Texture2D" uid="uid://dr84510ae46a2" path="res://assets/wotw-map-tiles/tile-6_0.png" id="20_5tvwb"]
-[ext_resource type="Texture2D" uid="uid://bu5la64qg0ek0" path="res://assets/wotw-map-tiles/tile-6_1.png" id="21_hm2a3"]
-[ext_resource type="Texture2D" uid="uid://56f4p5hmflpg" path="res://assets/wotw-map-tiles/tile-6_2.png" id="22_mf5ab"]
-[ext_resource type="Texture2D" uid="uid://b88qcxynxok5" path="res://assets/wotw-map-tiles/tile-6_3.png" id="23_pwaes"]
-[ext_resource type="Texture2D" uid="uid://6r525fs4y75f" path="res://assets/wotw-map-tiles/tile-6_4.png" id="24_utpsi"]
-[ext_resource type="Texture2D" uid="uid://c8wx2w156rnfq" path="res://assets/wotw-map-tiles/tile-6_5.png" id="25_4eo6t"]
-[ext_resource type="Texture2D" uid="uid://duyolc0nu427b" path="res://assets/wotw-map-tiles/tile-7_0.png" id="26_5fug8"]
-[ext_resource type="Texture2D" uid="uid://cpnpxsbh4q6i" path="res://assets/wotw-map-tiles/tile-7_1.png" id="27_bdq3f"]
-[ext_resource type="Texture2D" uid="uid://5pkhrhycjnf6" path="res://assets/wotw-map-tiles/tile-7_2.png" id="28_jmr4w"]
-[ext_resource type="Texture2D" uid="uid://birqrswienthm" path="res://assets/wotw-map-tiles/tile-7_3.png" id="29_fttic"]
-[ext_resource type="Texture2D" uid="uid://clast01ilr32d" path="res://assets/wotw-map-tiles/tile-7_4.png" id="30_2u0ko"]
-[ext_resource type="Texture2D" uid="uid://btumsf4h1132b" path="res://assets/wotw-map-tiles/tile-7_5.png" id="31_2yk1b"]
-[ext_resource type="Texture2D" uid="uid://cl75t3yv3r8xl" path="res://assets/wotw-map-tiles/tile-7_6.png" id="32_j6hjc"]
-[ext_resource type="Texture2D" uid="uid://bo1clgfgjtj5m" path="res://assets/wotw-map-tiles/tile-7_7.png" id="33_ayrkc"]
-[ext_resource type="Texture2D" uid="uid://ds52i7md6tdxv" path="res://assets/wotw-map-tiles/tile-7_8.png" id="34_uivc4"]
-[ext_resource type="Texture2D" uid="uid://br543b6yia1gk" path="res://assets/wotw-map-tiles/tile-8_2.png" id="35_2hva1"]
-[ext_resource type="Texture2D" uid="uid://djgi5043a7yh6" path="res://assets/wotw-map-tiles/tile-8_3.png" id="36_d40pw"]
-[ext_resource type="Texture2D" uid="uid://ppi383jo7teh" path="res://assets/wotw-map-tiles/tile-8_4.png" id="37_gfoqs"]
-[ext_resource type="Texture2D" uid="uid://b5wjf50paodiw" path="res://assets/wotw-map-tiles/tile-8_5.png" id="38_s88ad"]
-[ext_resource type="Texture2D" uid="uid://vxkoorlxj1wm" path="res://assets/wotw-map-tiles/tile-8_6.png" id="39_er1e8"]
-[ext_resource type="Texture2D" uid="uid://b05eumbdixrlr" path="res://assets/wotw-map-tiles/tile-8_7.png" id="40_6xxth"]
-[ext_resource type="Texture2D" uid="uid://dxbpedf5a6eib" path="res://assets/wotw-map-tiles/tile-8_8.png" id="41_mtrf6"]
-[ext_resource type="Texture2D" uid="uid://cqoq6uuyfrav3" path="res://assets/wotw-map-tiles/tile-9_2.png" id="42_y68ov"]
-[ext_resource type="Texture2D" uid="uid://2qdfgwsw8wow" path="res://assets/wotw-map-tiles/tile-9_3.png" id="43_jbjir"]
-[ext_resource type="Texture2D" uid="uid://tmp31vbby6hu" path="res://assets/wotw-map-tiles/tile-9_4.png" id="44_tcwxb"]
-[ext_resource type="Texture2D" uid="uid://b8hp84lr4006a" path="res://assets/wotw-map-tiles/tile-9_5.png" id="45_ydp6y"]
-[ext_resource type="Texture2D" uid="uid://jpranw271864" path="res://assets/wotw-map-tiles/tile-9_6.png" id="46_iause"]
-[ext_resource type="Texture2D" uid="uid://r7otxp5qch8r" path="res://assets/wotw-map-tiles/tile-9_7.png" id="47_binap"]
-[ext_resource type="Texture2D" uid="uid://dlv1vv7ahnnl3" path="res://assets/wotw-map-tiles/tile-9_8.png" id="48_fw68v"]
-[ext_resource type="Texture2D" uid="uid://c81pl3u0en7fc" path="res://assets/wotw-map-tiles/tile-10_2.png" id="49_6bbo4"]
-[ext_resource type="Texture2D" uid="uid://c255lk16lae05" path="res://assets/wotw-map-tiles/tile-10_3.png" id="50_ap08i"]
-[ext_resource type="Texture2D" uid="uid://b8dr6racjt80d" path="res://assets/wotw-map-tiles/tile-10_4.png" id="51_e58lg"]
-[ext_resource type="Texture2D" uid="uid://d0w4ruhs3c18m" path="res://assets/wotw-map-tiles/tile-10_5.png" id="52_xk6w3"]
-[ext_resource type="Texture2D" uid="uid://cy1ck8wdf1igc" path="res://assets/wotw-map-tiles/tile-10_6.png" id="53_skc32"]
-[ext_resource type="Texture2D" uid="uid://chh6l1doay7yi" path="res://assets/wotw-map-tiles/tile-10_7.png" id="54_ykmc4"]
-[ext_resource type="Texture2D" uid="uid://dwnobtnwgglof" path="res://assets/wotw-map-tiles/tile-10_8.png" id="55_aur07"]
-[ext_resource type="Texture2D" uid="uid://badbx8krt0uo2" path="res://assets/wotw-map-tiles/tile-11_3.png" id="56_d0orr"]
-[ext_resource type="Texture2D" uid="uid://ddklndvfaqo8b" path="res://assets/wotw-map-tiles/tile-11_4.png" id="57_og0n0"]
-[ext_resource type="Texture2D" uid="uid://c0dm7qxms2hdu" path="res://assets/wotw-map-tiles/tile-11_5.png" id="58_2lkyy"]
-[ext_resource type="Texture2D" uid="uid://bpicyc7keu6fp" path="res://assets/wotw-map-tiles/tile-11_6.png" id="59_7dr74"]
-[ext_resource type="Texture2D" uid="uid://bmgsvtvq31yyw" path="res://assets/wotw-map-tiles/tile-11_7.png" id="60_v86b1"]
-[ext_resource type="Texture2D" uid="uid://bxvys8clyhsg3" path="res://assets/wotw-map-tiles/tile-11_8.png" id="61_pp5fc"]
-[ext_resource type="Texture2D" uid="uid://bgej66y5s2cal" path="res://assets/wotw-map-tiles/tile-12_2.png" id="62_sndd4"]
-[ext_resource type="Texture2D" uid="uid://d04ec23pqxime" path="res://assets/wotw-map-tiles/tile-12_3.png" id="63_86i62"]
-[ext_resource type="Texture2D" uid="uid://c4jajmv2kphvi" path="res://assets/wotw-map-tiles/tile-12_4.png" id="64_8j5uv"]
-[ext_resource type="Texture2D" uid="uid://nybglkq82rjo" path="res://assets/wotw-map-tiles/tile-12_5.png" id="65_irp61"]
-[ext_resource type="Texture2D" uid="uid://uo25l42pisr2" path="res://assets/wotw-map-tiles/tile-12_6.png" id="66_76cc4"]
-[ext_resource type="Texture2D" uid="uid://6st3clqu1rj8" path="res://assets/wotw-map-tiles/tile-12_7.png" id="67_juwdc"]
-[ext_resource type="Texture2D" uid="uid://m3yv57seqchs" path="res://assets/wotw-map-tiles/tile-12_8.png" id="68_fbxly"]
-[ext_resource type="Texture2D" uid="uid://b5qp7f1vpdfpe" path="res://assets/wotw-map-tiles/tile-13_2.png" id="69_k2n5i"]
-[ext_resource type="Texture2D" uid="uid://chavrjrmokq02" path="res://assets/wotw-map-tiles/tile-13_3.png" id="70_c7ehc"]
-[ext_resource type="Texture2D" uid="uid://bskp2rn7mpk1r" path="res://assets/wotw-map-tiles/tile-13_4.png" id="71_3xxx1"]
-[ext_resource type="Texture2D" uid="uid://bo7gqdu7lvk5u" path="res://assets/wotw-map-tiles/tile-13_5.png" id="72_owb6a"]
-[ext_resource type="Texture2D" uid="uid://5o0251adxb80" path="res://assets/wotw-map-tiles/tile-13_6.png" id="73_2xcag"]
-[ext_resource type="Texture2D" uid="uid://62jnytsua4q0" path="res://assets/wotw-map-tiles/tile-13_7.png" id="74_w0wh6"]
-[ext_resource type="Texture2D" uid="uid://dffdlgt3iwobt" path="res://assets/wotw-map-tiles/tile-13_8.png" id="75_ckv1w"]
-[ext_resource type="Texture2D" uid="uid://cf3w51ov1lq3d" path="res://assets/wotw-map-tiles/tile-14_2.png" id="76_n7l16"]
-[ext_resource type="Texture2D" uid="uid://d1wcasj2ijq8p" path="res://assets/wotw-map-tiles/tile-14_3.png" id="77_a65dh"]
-[ext_resource type="Texture2D" uid="uid://clp8r2j2tm8f5" path="res://assets/wotw-map-tiles/tile-14_4.png" id="78_dt832"]
-[ext_resource type="Texture2D" uid="uid://cnwdmcf4230jm" path="res://assets/wotw-map-tiles/tile-14_5.png" id="79_bbhpb"]
-[ext_resource type="Texture2D" uid="uid://bi1w07dpyd12v" path="res://assets/wotw-map-tiles/tile-14_6.png" id="80_8yjkt"]
-[ext_resource type="Texture2D" uid="uid://ds3w8acon0ts7" path="res://assets/wotw-map-tiles/tile-14_7.png" id="81_h6s3o"]
-[ext_resource type="Texture2D" uid="uid://dd2oijhvwsxqh" path="res://assets/wotw-map-tiles/tile-15_1.png" id="82_w884q"]
-[ext_resource type="Texture2D" uid="uid://cvcistwy2dhvv" path="res://assets/wotw-map-tiles/tile-15_2.png" id="83_xt6uj"]
-[ext_resource type="Texture2D" uid="uid://b3yon0no5ecxq" path="res://assets/wotw-map-tiles/tile-15_3.png" id="84_wf04y"]
-[ext_resource type="Texture2D" uid="uid://d3skpy2oax01v" path="res://assets/wotw-map-tiles/tile-15_4.png" id="85_2cjni"]
-[ext_resource type="Texture2D" uid="uid://butvj4qayg0x0" path="res://assets/wotw-map-tiles/tile-15_5.png" id="86_5i5k1"]
-[ext_resource type="Texture2D" uid="uid://3vji4jxacx8a" path="res://assets/wotw-map-tiles/tile-15_6.png" id="87_atipf"]
-[ext_resource type="Texture2D" uid="uid://m76xkccqkneg" path="res://assets/wotw-map-tiles/tile-15_7.png" id="88_gvgfp"]
-[ext_resource type="Texture2D" uid="uid://bdembm26d1mpt" path="res://assets/wotw-map-tiles/tile-16_1.png" id="89_kermt"]
-[ext_resource type="Texture2D" uid="uid://benyktfhyeij5" path="res://assets/wotw-map-tiles/tile-16_2.png" id="90_b7suy"]
-[ext_resource type="Texture2D" uid="uid://cql551akivsqu" path="res://assets/wotw-map-tiles/tile-16_3.png" id="91_1cmns"]
-[ext_resource type="Texture2D" uid="uid://b1wn4rfke6typ" path="res://assets/wotw-map-tiles/tile-16_4.png" id="92_x21wh"]
-[ext_resource type="Texture2D" uid="uid://j4rr0n5rli3w" path="res://assets/wotw-map-tiles/tile-16_5.png" id="93_l4f7a"]
-[ext_resource type="Texture2D" uid="uid://dl2mnp461l01l" path="res://assets/wotw-map-tiles/tile-16_6.png" id="94_r5ghh"]
-[ext_resource type="Texture2D" uid="uid://cife7jyybi3i1" path="res://assets/wotw-map-tiles/tile-16_7.png" id="95_rgeis"]
-[ext_resource type="Texture2D" uid="uid://j44gfk73iknm" path="res://assets/wotw-map-tiles/tile-17_5.png" id="96_o8ju8"]
-[ext_resource type="Texture2D" uid="uid://sw87jjlup6j5" path="res://assets/wotw-map-tiles/tile-17_6.png" id="97_5t3pb"]
-[ext_resource type="Texture2D" uid="uid://btbmpi2vcm7e2" path="res://assets/wotw-map-tiles/tile-17_7.png" id="98_dpgjg"]
-[ext_resource type="Texture2D" uid="uid://dou6ps2kinjee" path="res://assets/wotw-map-tiles/tile-17_8.png" id="99_qff0x"]
-[ext_resource type="Texture2D" uid="uid://3lea8teo2ryi" path="res://assets/wotw-map-tiles/tile-18_1.png" id="100_bmtpg"]
-[ext_resource type="Texture2D" uid="uid://do51qril8a30l" path="res://assets/wotw-map-tiles/tile-18_2.png" id="101_c6arc"]
-[ext_resource type="Texture2D" uid="uid://c0lwc70ccqtrx" path="res://assets/wotw-map-tiles/tile-18_3.png" id="102_wuedu"]
-[ext_resource type="Texture2D" uid="uid://c5sqtayi0ijto" path="res://assets/wotw-map-tiles/tile-18_5.png" id="103_khsbj"]
-[ext_resource type="Texture2D" uid="uid://pqlu3mq8ae0o" path="res://assets/wotw-map-tiles/tile-18_6.png" id="104_0qy4q"]
-[ext_resource type="Texture2D" uid="uid://cmia5xf683w6a" path="res://assets/wotw-map-tiles/tile-18_7.png" id="105_5h3tb"]
-[ext_resource type="Texture2D" uid="uid://d3h5ir52ppubm" path="res://assets/wotw-map-tiles/tile-18_8.png" id="106_5i4us"]
-[ext_resource type="Texture2D" uid="uid://c5g38015668ov" path="res://assets/wotw-map-tiles/tile-19_0.png" id="107_2wuit"]
-[ext_resource type="Texture2D" uid="uid://dpct78xvl2so2" path="res://assets/wotw-map-tiles/tile-19_1.png" id="108_xl1wx"]
-[ext_resource type="Texture2D" uid="uid://wlh3fa338l7h" path="res://assets/wotw-map-tiles/tile-19_2.png" id="109_8iqy1"]
-[ext_resource type="Texture2D" uid="uid://bcrcdou8vbeb7" path="res://assets/wotw-map-tiles/tile-19_3.png" id="110_1msqp"]
-[ext_resource type="Texture2D" uid="uid://c2ytw2xe6nchu" path="res://assets/wotw-map-tiles/tile-19_4.png" id="111_5lqs7"]
-[ext_resource type="Texture2D" uid="uid://cl5ihyl5i24vj" path="res://assets/wotw-map-tiles/tile-19_5.png" id="112_06ka4"]
-[ext_resource type="Texture2D" uid="uid://d4mumdv08ewut" path="res://assets/wotw-map-tiles/tile-19_6.png" id="113_umrkh"]
-[ext_resource type="Texture2D" uid="uid://b513wojdorxxx" path="res://assets/wotw-map-tiles/tile-19_7.png" id="114_by3m5"]
-[ext_resource type="Texture2D" uid="uid://cqwsc1hkhc4nv" path="res://assets/wotw-map-tiles/tile-19_8.png" id="115_cwjnt"]
-[ext_resource type="Texture2D" uid="uid://svg14iokusn5" path="res://assets/wotw-map-tiles/tile-20_0.png" id="116_vt3fu"]
-[ext_resource type="Texture2D" uid="uid://chlmnddywysps" path="res://assets/wotw-map-tiles/tile-20_1.png" id="117_ebaur"]
-[ext_resource type="Texture2D" uid="uid://du587n5xoxvlr" path="res://assets/wotw-map-tiles/tile-20_2.png" id="118_832de"]
-[ext_resource type="Texture2D" uid="uid://y46drs0iowg8" path="res://assets/wotw-map-tiles/tile-20_3.png" id="119_lcdqp"]
-[ext_resource type="Texture2D" uid="uid://hfwsmu3wy0xs" path="res://assets/wotw-map-tiles/tile-20_4.png" id="120_hanii"]
-[ext_resource type="Texture2D" uid="uid://bgai28w3qfqaf" path="res://assets/wotw-map-tiles/tile-20_5.png" id="121_qlwfn"]
-[ext_resource type="Texture2D" uid="uid://dns1qxmhjb7r8" path="res://assets/wotw-map-tiles/tile-20_6.png" id="122_kbvlw"]
-[ext_resource type="Texture2D" uid="uid://o08rthvgqfsb" path="res://assets/wotw-map-tiles/tile-20_7.png" id="123_35g3r"]
-[ext_resource type="Texture2D" uid="uid://d35pey2f2cj5m" path="res://assets/wotw-map-tiles/tile-20_8.png" id="124_0iko7"]
-[ext_resource type="Texture2D" uid="uid://bsnfl8aib0nsq" path="res://assets/wotw-map-tiles/tile-21_0.png" id="125_pliww"]
-[ext_resource type="Texture2D" uid="uid://bvsydl8sl1fp8" path="res://assets/wotw-map-tiles/tile-21_1.png" id="126_foay3"]
-[ext_resource type="Texture2D" uid="uid://dsocfe1cedpiv" path="res://assets/wotw-map-tiles/tile-21_2.png" id="127_msg7v"]
-[ext_resource type="Texture2D" uid="uid://c50lx2ryria51" path="res://assets/wotw-map-tiles/tile-21_3.png" id="128_4xua8"]
-[ext_resource type="Texture2D" uid="uid://dn6ar5dofpout" path="res://assets/wotw-map-tiles/tile-21_4.png" id="129_qv4an"]
-[ext_resource type="Texture2D" uid="uid://cy1j5rulo2grs" path="res://assets/wotw-map-tiles/tile-21_5.png" id="130_y2klg"]
-[ext_resource type="Texture2D" uid="uid://bkbjsro0ql1no" path="res://assets/wotw-map-tiles/tile-21_6.png" id="131_mm6q0"]
-[ext_resource type="Texture2D" uid="uid://bp64p2lywg8s7" path="res://assets/wotw-map-tiles/tile-21_7.png" id="132_5kag3"]
-[ext_resource type="Texture2D" uid="uid://ew5os5sovaum" path="res://assets/wotw-map-tiles/tile-21_8.png" id="133_mtrql"]
-[ext_resource type="Texture2D" uid="uid://cbmvehcg6dor1" path="res://assets/wotw-map-tiles/tile-22_0.png" id="134_x3y7r"]
-[ext_resource type="Texture2D" uid="uid://bxh5spvtwk0cn" path="res://assets/wotw-map-tiles/tile-22_1.png" id="135_bod4h"]
-[ext_resource type="Texture2D" uid="uid://cnkuo8l7j3cvo" path="res://assets/wotw-map-tiles/tile-22_3.png" id="136_35dhx"]
-[ext_resource type="Texture2D" uid="uid://bhtsr6yukoopg" path="res://assets/wotw-map-tiles/tile-22_4.png" id="137_71u1w"]
-[ext_resource type="Texture2D" uid="uid://ckr5eylbarudt" path="res://assets/wotw-map-tiles/tile-22_5.png" id="138_lkju0"]
-[ext_resource type="Texture2D" uid="uid://cj413kth28g0o" path="res://assets/wotw-map-tiles/tile-22_6.png" id="139_3ddpy"]
-[ext_resource type="Texture2D" uid="uid://caisah2lo53rh" path="res://assets/wotw-map-tiles/tile-22_7.png" id="140_ul4te"]
-[ext_resource type="Texture2D" uid="uid://8neibafqeedd" path="res://assets/wotw-map-tiles/tile-22_8.png" id="141_q0rc3"]
-[ext_resource type="Texture2D" uid="uid://bqa4yv12rxo3l" path="res://assets/wotw-map-tiles/tile-23_3.png" id="142_gav4n"]
-[ext_resource type="Texture2D" uid="uid://b6dea806i3thp" path="res://assets/wotw-map-tiles/tile-23_4.png" id="143_ecvq1"]
-[ext_resource type="Texture2D" uid="uid://dllsyxxlw1aan" path="res://assets/wotw-map-tiles/tile-23_5.png" id="144_tpamj"]
-[ext_resource type="Texture2D" uid="uid://cibbeuqmposww" path="res://assets/wotw-map-tiles/tile-24_0.png" id="145_wfpoa"]
-[ext_resource type="Texture2D" uid="uid://b3dougpjwfiib" path="res://assets/wotw-map-tiles/tile-24_1.png" id="146_62g0p"]
-[ext_resource type="Texture2D" uid="uid://5k4ok1qrmrsm" path="res://assets/wotw-map-tiles/tile-24_2.png" id="147_kbdt4"]
-[ext_resource type="Texture2D" uid="uid://l81qvjg1lui3" path="res://assets/wotw-map-tiles/tile-24_3.png" id="148_fka4w"]
-[ext_resource type="Texture2D" uid="uid://cncc6b0lnge7l" path="res://assets/wotw-map-tiles/tile-24_4.png" id="149_4cl78"]
-[ext_resource type="Texture2D" uid="uid://dhfionqkhdxtp" path="res://assets/wotw-map-tiles/tile-24_5.png" id="150_myoro"]
-[ext_resource type="Texture2D" uid="uid://beqccsecrnupg" path="res://assets/wotw-map-tiles/tile-25_0.png" id="151_qc2ar"]
-[ext_resource type="Texture2D" uid="uid://bowkbkuo7vqcn" path="res://assets/wotw-map-tiles/tile-25_1.png" id="152_64u8v"]
-[ext_resource type="Texture2D" uid="uid://qkg5hhqhgtiy" path="res://assets/wotw-map-tiles/tile-25_2.png" id="153_7aaj4"]
-[ext_resource type="Texture2D" uid="uid://bgaa48ddxq741" path="res://assets/wotw-map-tiles/tile-25_3.png" id="154_st345"]
-[ext_resource type="Texture2D" uid="uid://bweg7icf8mual" path="res://assets/wotw-map-tiles/tile-25_4.png" id="155_63k3x"]
-[ext_resource type="Texture2D" uid="uid://dwaq8wjr7t77p" path="res://assets/wotw-map-tiles/tile-26_0.png" id="156_7jnmf"]
-[ext_resource type="Texture2D" uid="uid://dl4b1bxl51afu" path="res://assets/wotw-map-tiles/tile-26_1.png" id="157_pv73p"]
-[ext_resource type="Texture2D" uid="uid://c8oap28pl35vw" path="res://assets/wotw-map-tiles/tile-26_2.png" id="158_v1g3g"]
-[ext_resource type="Texture2D" uid="uid://celfmwowws53n" path="res://assets/wotw-map-tiles/tile-26_3.png" id="159_j1li6"]
-[ext_resource type="Texture2D" uid="uid://jfkrr1obq0mw" path="res://assets/wotw-map-tiles/tile-26_4.png" id="160_x7pip"]
-[ext_resource type="Texture2D" uid="uid://dux1aewvg6of1" path="res://assets/wotw-map-tiles/tile-27_1.png" id="161_34uxu"]
-[ext_resource type="Texture2D" uid="uid://diptd86tu065s" path="res://assets/wotw-map-tiles/tile-27_2.png" id="162_l8xsa"]
-[ext_resource type="Texture2D" uid="uid://dxviam3tbveha" path="res://assets/wotw-map-tiles/tile-27_3.png" id="163_0yi7e"]
-[ext_resource type="Texture2D" uid="uid://1350euw6hi1i" path="res://assets/wotw-map-tiles/tile-27_4.png" id="164_n7axc"]
-[ext_resource type="Texture2D" uid="uid://pwsp8wg7hdme" path="res://assets/wotw-map-tiles/tile-28_2.png" id="165_2kjuv"]
-[ext_resource type="Texture2D" uid="uid://gtv77okt6p51" path="res://assets/wotw-map-tiles/tile-28_3.png" id="166_hm1ei"]
-[ext_resource type="Texture2D" uid="uid://doigohbunwmm8" path="res://assets/wotw-map-tiles/tile-28_4.png" id="167_p5q21"]
-[ext_resource type="Texture2D" uid="uid://bg1n0038e2fo6" path="res://assets/wotw-map-tiles/tile-29_2.png" id="168_kassi"]
-[ext_resource type="Texture2D" uid="uid://hw3ej20t1r1r" path="res://assets/wotw-map-tiles/tile-29_3.png" id="169_jagur"]
-[ext_resource type="Texture2D" uid="uid://4p2eoxjo6qid" path="res://assets/wotw-map-tiles/tile-29_4.png" id="170_l2y0u"]
-[ext_resource type="Texture2D" uid="uid://dqlcjcnx0cqup" path="res://assets/wotw-map-tiles/tile-30_1.png" id="171_i4fao"]
-[ext_resource type="Texture2D" uid="uid://bhfx73ybm4abp" path="res://assets/wotw-map-tiles/tile-30_2.png" id="172_k1un6"]
-[ext_resource type="Texture2D" uid="uid://bbu3pfj7xoj41" path="res://assets/wotw-map-tiles/tile-30_3.png" id="173_bshhq"]
-[ext_resource type="Texture2D" uid="uid://deg48clc465u0" path="res://assets/wotw-map-tiles/tile-30_4.png" id="174_8lm0h"]
-[ext_resource type="Texture2D" uid="uid://qglq5dv4bvpc" path="res://assets/wotw-map-tiles/tile-31_0.png" id="175_fv6iy"]
-[ext_resource type="Texture2D" uid="uid://bpypa2u8rkwch" path="res://assets/wotw-map-tiles/tile-31_1.png" id="176_1bxqj"]
-[ext_resource type="Texture2D" uid="uid://bm5n1qftg7mcy" path="res://assets/wotw-map-tiles/tile-31_2.png" id="177_8a0gr"]
-[ext_resource type="Texture2D" uid="uid://b1sabhv2pukae" path="res://assets/wotw-map-tiles/tile-31_3.png" id="178_t7d0m"]
-[ext_resource type="Texture2D" uid="uid://d011n1csqri5i" path="res://assets/wotw-map-tiles/tile-31_4.png" id="179_m8kb2"]
-[ext_resource type="Texture2D" uid="uid://cq1eod5s806gw" path="res://assets/wotw-map-tiles/tile-32_0.png" id="180_dd42b"]
-[ext_resource type="Texture2D" uid="uid://dyg3x0mxwqsaj" path="res://assets/wotw-map-tiles/tile-32_1.png" id="181_shr3o"]
-[ext_resource type="Texture2D" uid="uid://b64lm40cac3s0" path="res://assets/wotw-map-tiles/tile-32_2.png" id="182_7qyap"]
-[ext_resource type="Texture2D" uid="uid://b4254t8xodcil" path="res://assets/wotw-map-tiles/tile-32_3.png" id="183_3ysh6"]
-[ext_resource type="Texture2D" uid="uid://bl6rchuqcmd34" path="res://assets/wotw-map-tiles/tile-32_4.png" id="184_n46s5"]
-[ext_resource type="Texture2D" uid="uid://mxim1umhwrwt" path="res://assets/wotw-map-tiles/tile-33_0.png" id="185_lk2ie"]
-[ext_resource type="Texture2D" uid="uid://djq22shmjoche" path="res://assets/wotw-map-tiles/tile-33_1.png" id="186_r038v"]
-[ext_resource type="Texture2D" uid="uid://c2krfbvwnyjsi" path="res://assets/wotw-map-tiles/tile-33_2.png" id="187_rlcmf"]
-[ext_resource type="Texture2D" uid="uid://bd784bpufirgv" path="res://assets/wotw-map-tiles/tile-33_3.png" id="188_wslbt"]
-[ext_resource type="Texture2D" uid="uid://bjotraucmbml6" path="res://assets/wotw-map-tiles/tile-33_4.png" id="189_wegsy"]
-[ext_resource type="Texture2D" uid="uid://dwnxqhqkdgwue" path="res://assets/wotw-map-tiles/tile-34_1.png" id="190_7xbtt"]
-[ext_resource type="Texture2D" uid="uid://8g2asossv1fa" path="res://assets/wotw-map-tiles/tile-34_2.png" id="191_3rq2k"]
-[ext_resource type="Texture2D" uid="uid://bwit1bnn5yk0s" path="res://assets/wotw-map-tiles/tile-34_3.png" id="192_feenl"]
-[ext_resource type="Texture2D" uid="uid://dnmr57yspyhj4" path="res://assets/wotw-map-tiles/tile-34_4.png" id="193_jh5fx"]
-[ext_resource type="Texture2D" uid="uid://dn4s2jhph2whx" path="res://assets/wotw-map-tiles/tile-35_2.png" id="194_hsqj4"]
-[ext_resource type="Texture2D" uid="uid://13g0oibsbue8" path="res://assets/wotw-map-tiles/tile-35_3.png" id="195_yvfx2"]
+[ext_resource type="Script" uid="uid://bajhmmxow3qg3" path="res://scripts/MapTile.gd" id="2_i0msf"]
+
+[sub_resource type="Resource" id="Resource_quag2"]
+script = ExtResource("2_i0msf")
+y = 4
+texture_path = "uid://bvbr65bq8deun"
+
+[sub_resource type="Resource" id="Resource_nrfue"]
+script = ExtResource("2_i0msf")
+y = 5
+texture_path = "uid://7dmwtea6li7p"
+
+[sub_resource type="Resource" id="Resource_fvt4j"]
+script = ExtResource("2_i0msf")
+x = 1
+y = 4
+texture_path = "uid://byl6uf0cmym0v"
+
+[sub_resource type="Resource" id="Resource_xj4mg"]
+script = ExtResource("2_i0msf")
+x = 1
+y = 5
+texture_path = "uid://gvlaca6xc1bd"
+
+[sub_resource type="Resource" id="Resource_u1wel"]
+script = ExtResource("2_i0msf")
+x = 2
+y = 3
+texture_path = "uid://dgeiynv3rkg5l"
+
+[sub_resource type="Resource" id="Resource_mifqr"]
+script = ExtResource("2_i0msf")
+x = 2
+y = 4
+texture_path = "uid://dgtlrkwe46uwi"
+
+[sub_resource type="Resource" id="Resource_tx8dx"]
+script = ExtResource("2_i0msf")
+x = 2
+y = 5
+texture_path = "uid://cw0q3fi3fyhr3"
+
+[sub_resource type="Resource" id="Resource_d7xcd"]
+script = ExtResource("2_i0msf")
+x = 3
+y = 3
+texture_path = "uid://nn2err8p277c"
+
+[sub_resource type="Resource" id="Resource_ri1ka"]
+script = ExtResource("2_i0msf")
+x = 3
+y = 4
+texture_path = "uid://dgmv4thbt3hk1"
+
+[sub_resource type="Resource" id="Resource_jj1no"]
+script = ExtResource("2_i0msf")
+x = 3
+y = 5
+texture_path = "uid://duiter1wvmhus"
+
+[sub_resource type="Resource" id="Resource_sh5fo"]
+script = ExtResource("2_i0msf")
+x = 4
+y = 4
+texture_path = "uid://n00m1v7mrpsb"
+
+[sub_resource type="Resource" id="Resource_77whi"]
+script = ExtResource("2_i0msf")
+x = 4
+y = 5
+texture_path = "uid://c3nkkwusp2y0t"
+
+[sub_resource type="Resource" id="Resource_juk1a"]
+script = ExtResource("2_i0msf")
+x = 5
+texture_path = "uid://dd6b1ot5x3ldt"
+
+[sub_resource type="Resource" id="Resource_pp7p1"]
+script = ExtResource("2_i0msf")
+x = 5
+y = 1
+texture_path = "uid://4bj33ka4up6b"
+
+[sub_resource type="Resource" id="Resource_4dcge"]
+script = ExtResource("2_i0msf")
+x = 5
+y = 2
+texture_path = "uid://t6nt1ounrqke"
+
+[sub_resource type="Resource" id="Resource_3rh8i"]
+script = ExtResource("2_i0msf")
+x = 5
+y = 3
+texture_path = "uid://d4lky0lcgbxcb"
+
+[sub_resource type="Resource" id="Resource_d4yaq"]
+script = ExtResource("2_i0msf")
+x = 5
+y = 4
+texture_path = "uid://dj2jy70vidcj3"
+
+[sub_resource type="Resource" id="Resource_5nu12"]
+script = ExtResource("2_i0msf")
+x = 5
+y = 5
+texture_path = "uid://dv3hdieuscgkp"
+
+[sub_resource type="Resource" id="Resource_yrdwn"]
+script = ExtResource("2_i0msf")
+x = 6
+texture_path = "uid://dr84510ae46a2"
+
+[sub_resource type="Resource" id="Resource_gpvc2"]
+script = ExtResource("2_i0msf")
+x = 6
+y = 1
+texture_path = "uid://bu5la64qg0ek0"
+
+[sub_resource type="Resource" id="Resource_7qvff"]
+script = ExtResource("2_i0msf")
+x = 6
+y = 2
+texture_path = "uid://56f4p5hmflpg"
+
+[sub_resource type="Resource" id="Resource_6ko0o"]
+script = ExtResource("2_i0msf")
+x = 6
+y = 3
+texture_path = "uid://b88qcxynxok5"
+
+[sub_resource type="Resource" id="Resource_xq7xu"]
+script = ExtResource("2_i0msf")
+x = 6
+y = 4
+texture_path = "uid://6r525fs4y75f"
+
+[sub_resource type="Resource" id="Resource_f7wa4"]
+script = ExtResource("2_i0msf")
+x = 6
+y = 5
+texture_path = "uid://c8wx2w156rnfq"
+
+[sub_resource type="Resource" id="Resource_xofyt"]
+script = ExtResource("2_i0msf")
+x = 7
+texture_path = "uid://duyolc0nu427b"
+
+[sub_resource type="Resource" id="Resource_m63xh"]
+script = ExtResource("2_i0msf")
+x = 7
+y = 1
+texture_path = "uid://cpnpxsbh4q6i"
+
+[sub_resource type="Resource" id="Resource_adms8"]
+script = ExtResource("2_i0msf")
+x = 7
+y = 2
+texture_path = "uid://5pkhrhycjnf6"
+
+[sub_resource type="Resource" id="Resource_4fdsr"]
+script = ExtResource("2_i0msf")
+x = 7
+y = 3
+texture_path = "uid://birqrswienthm"
+
+[sub_resource type="Resource" id="Resource_me5nm"]
+script = ExtResource("2_i0msf")
+x = 7
+y = 4
+texture_path = "uid://clast01ilr32d"
+
+[sub_resource type="Resource" id="Resource_kbbfi"]
+script = ExtResource("2_i0msf")
+x = 7
+y = 5
+texture_path = "uid://btumsf4h1132b"
+
+[sub_resource type="Resource" id="Resource_28vmt"]
+script = ExtResource("2_i0msf")
+x = 7
+y = 6
+texture_path = "uid://cl75t3yv3r8xl"
+
+[sub_resource type="Resource" id="Resource_2yd7t"]
+script = ExtResource("2_i0msf")
+x = 7
+y = 7
+texture_path = "uid://bo1clgfgjtj5m"
+
+[sub_resource type="Resource" id="Resource_lvllu"]
+script = ExtResource("2_i0msf")
+x = 7
+y = 8
+texture_path = "uid://ds52i7md6tdxv"
+
+[sub_resource type="Resource" id="Resource_wtx1c"]
+script = ExtResource("2_i0msf")
+x = 8
+y = 2
+texture_path = "uid://br543b6yia1gk"
+
+[sub_resource type="Resource" id="Resource_s00hj"]
+script = ExtResource("2_i0msf")
+x = 8
+y = 3
+texture_path = "uid://djgi5043a7yh6"
+
+[sub_resource type="Resource" id="Resource_xx7vl"]
+script = ExtResource("2_i0msf")
+x = 8
+y = 4
+texture_path = "uid://ppi383jo7teh"
+
+[sub_resource type="Resource" id="Resource_u0oox"]
+script = ExtResource("2_i0msf")
+x = 8
+y = 5
+texture_path = "uid://b5wjf50paodiw"
+
+[sub_resource type="Resource" id="Resource_lx5wd"]
+script = ExtResource("2_i0msf")
+x = 8
+y = 6
+texture_path = "uid://vxkoorlxj1wm"
+
+[sub_resource type="Resource" id="Resource_p7ib2"]
+script = ExtResource("2_i0msf")
+x = 8
+y = 7
+texture_path = "uid://b05eumbdixrlr"
+
+[sub_resource type="Resource" id="Resource_or8fs"]
+script = ExtResource("2_i0msf")
+x = 8
+y = 8
+texture_path = "uid://dxbpedf5a6eib"
+
+[sub_resource type="Resource" id="Resource_7tu2y"]
+script = ExtResource("2_i0msf")
+x = 9
+y = 2
+texture_path = "uid://cqoq6uuyfrav3"
+
+[sub_resource type="Resource" id="Resource_fjdco"]
+script = ExtResource("2_i0msf")
+x = 9
+y = 3
+texture_path = "uid://2qdfgwsw8wow"
+
+[sub_resource type="Resource" id="Resource_dgb2o"]
+script = ExtResource("2_i0msf")
+x = 9
+y = 4
+texture_path = "uid://tmp31vbby6hu"
+
+[sub_resource type="Resource" id="Resource_qptem"]
+script = ExtResource("2_i0msf")
+x = 9
+y = 5
+texture_path = "uid://b8hp84lr4006a"
+
+[sub_resource type="Resource" id="Resource_wp55r"]
+script = ExtResource("2_i0msf")
+x = 9
+y = 6
+texture_path = "uid://jpranw271864"
+
+[sub_resource type="Resource" id="Resource_esmuo"]
+script = ExtResource("2_i0msf")
+x = 9
+y = 7
+texture_path = "uid://r7otxp5qch8r"
+
+[sub_resource type="Resource" id="Resource_n55rw"]
+script = ExtResource("2_i0msf")
+x = 9
+y = 8
+texture_path = "uid://dlv1vv7ahnnl3"
+
+[sub_resource type="Resource" id="Resource_xrhjd"]
+script = ExtResource("2_i0msf")
+x = 10
+y = 2
+texture_path = "uid://c81pl3u0en7fc"
+
+[sub_resource type="Resource" id="Resource_jstn4"]
+script = ExtResource("2_i0msf")
+x = 10
+y = 3
+texture_path = "uid://c255lk16lae05"
+
+[sub_resource type="Resource" id="Resource_8audx"]
+script = ExtResource("2_i0msf")
+x = 10
+y = 4
+texture_path = "uid://b8dr6racjt80d"
+
+[sub_resource type="Resource" id="Resource_tgtli"]
+script = ExtResource("2_i0msf")
+x = 10
+y = 5
+texture_path = "uid://d0w4ruhs3c18m"
+
+[sub_resource type="Resource" id="Resource_2cjf0"]
+script = ExtResource("2_i0msf")
+x = 10
+y = 6
+texture_path = "uid://cy1ck8wdf1igc"
+
+[sub_resource type="Resource" id="Resource_r2awo"]
+script = ExtResource("2_i0msf")
+x = 10
+y = 7
+texture_path = "uid://chh6l1doay7yi"
+
+[sub_resource type="Resource" id="Resource_olgwn"]
+script = ExtResource("2_i0msf")
+x = 10
+y = 8
+texture_path = "uid://dwnobtnwgglof"
+
+[sub_resource type="Resource" id="Resource_p0l82"]
+script = ExtResource("2_i0msf")
+x = 11
+y = 3
+texture_path = "uid://badbx8krt0uo2"
+
+[sub_resource type="Resource" id="Resource_uo41c"]
+script = ExtResource("2_i0msf")
+x = 11
+y = 4
+texture_path = "uid://ddklndvfaqo8b"
+
+[sub_resource type="Resource" id="Resource_0afcf"]
+script = ExtResource("2_i0msf")
+x = 11
+y = 5
+texture_path = "uid://c0dm7qxms2hdu"
+
+[sub_resource type="Resource" id="Resource_2hrkt"]
+script = ExtResource("2_i0msf")
+x = 11
+y = 6
+texture_path = "uid://bpicyc7keu6fp"
+
+[sub_resource type="Resource" id="Resource_epw6c"]
+script = ExtResource("2_i0msf")
+x = 11
+y = 7
+texture_path = "uid://bmgsvtvq31yyw"
+
+[sub_resource type="Resource" id="Resource_4ec7b"]
+script = ExtResource("2_i0msf")
+x = 11
+y = 8
+texture_path = "uid://bxvys8clyhsg3"
+
+[sub_resource type="Resource" id="Resource_dbm2p"]
+script = ExtResource("2_i0msf")
+x = 12
+y = 2
+texture_path = "uid://bgej66y5s2cal"
+
+[sub_resource type="Resource" id="Resource_ssxxo"]
+script = ExtResource("2_i0msf")
+x = 12
+y = 3
+texture_path = "uid://d04ec23pqxime"
+
+[sub_resource type="Resource" id="Resource_bffyi"]
+script = ExtResource("2_i0msf")
+x = 12
+y = 4
+texture_path = "uid://c4jajmv2kphvi"
+
+[sub_resource type="Resource" id="Resource_yh4la"]
+script = ExtResource("2_i0msf")
+x = 12
+y = 5
+texture_path = "uid://nybglkq82rjo"
+
+[sub_resource type="Resource" id="Resource_wonpi"]
+script = ExtResource("2_i0msf")
+x = 12
+y = 6
+texture_path = "uid://uo25l42pisr2"
+
+[sub_resource type="Resource" id="Resource_o7bf5"]
+script = ExtResource("2_i0msf")
+x = 12
+y = 7
+texture_path = "uid://6st3clqu1rj8"
+
+[sub_resource type="Resource" id="Resource_k7ule"]
+script = ExtResource("2_i0msf")
+x = 12
+y = 8
+texture_path = "uid://m3yv57seqchs"
+
+[sub_resource type="Resource" id="Resource_bagxf"]
+script = ExtResource("2_i0msf")
+x = 13
+y = 2
+texture_path = "uid://b5qp7f1vpdfpe"
+
+[sub_resource type="Resource" id="Resource_ip5wa"]
+script = ExtResource("2_i0msf")
+x = 13
+y = 3
+texture_path = "uid://chavrjrmokq02"
+
+[sub_resource type="Resource" id="Resource_12uv4"]
+script = ExtResource("2_i0msf")
+x = 13
+y = 4
+texture_path = "uid://bskp2rn7mpk1r"
+
+[sub_resource type="Resource" id="Resource_bdn23"]
+script = ExtResource("2_i0msf")
+x = 13
+y = 5
+texture_path = "uid://bo7gqdu7lvk5u"
+
+[sub_resource type="Resource" id="Resource_2jj1m"]
+script = ExtResource("2_i0msf")
+x = 13
+y = 6
+texture_path = "uid://5o0251adxb80"
+
+[sub_resource type="Resource" id="Resource_x005s"]
+script = ExtResource("2_i0msf")
+x = 13
+y = 7
+texture_path = "uid://62jnytsua4q0"
+
+[sub_resource type="Resource" id="Resource_ehyme"]
+script = ExtResource("2_i0msf")
+x = 13
+y = 8
+texture_path = "uid://dffdlgt3iwobt"
+
+[sub_resource type="Resource" id="Resource_7fvlh"]
+script = ExtResource("2_i0msf")
+x = 14
+y = 2
+texture_path = "uid://cf3w51ov1lq3d"
+
+[sub_resource type="Resource" id="Resource_ogstu"]
+script = ExtResource("2_i0msf")
+x = 14
+y = 3
+texture_path = "uid://d1wcasj2ijq8p"
+
+[sub_resource type="Resource" id="Resource_pep7i"]
+script = ExtResource("2_i0msf")
+x = 14
+y = 4
+texture_path = "uid://clp8r2j2tm8f5"
+
+[sub_resource type="Resource" id="Resource_fng07"]
+script = ExtResource("2_i0msf")
+x = 14
+y = 5
+texture_path = "uid://cnwdmcf4230jm"
+
+[sub_resource type="Resource" id="Resource_i2kfv"]
+script = ExtResource("2_i0msf")
+x = 14
+y = 6
+texture_path = "uid://bi1w07dpyd12v"
+
+[sub_resource type="Resource" id="Resource_cjtg5"]
+script = ExtResource("2_i0msf")
+x = 14
+y = 7
+texture_path = "uid://ds3w8acon0ts7"
+
+[sub_resource type="Resource" id="Resource_7mc6n"]
+script = ExtResource("2_i0msf")
+x = 15
+y = 1
+texture_path = "uid://dd2oijhvwsxqh"
+
+[sub_resource type="Resource" id="Resource_ukot6"]
+script = ExtResource("2_i0msf")
+x = 15
+y = 2
+texture_path = "uid://cvcistwy2dhvv"
+
+[sub_resource type="Resource" id="Resource_3n3v4"]
+script = ExtResource("2_i0msf")
+x = 15
+y = 3
+texture_path = "uid://b3yon0no5ecxq"
+
+[sub_resource type="Resource" id="Resource_qcnj2"]
+script = ExtResource("2_i0msf")
+x = 15
+y = 4
+texture_path = "uid://d3skpy2oax01v"
+
+[sub_resource type="Resource" id="Resource_5qeoy"]
+script = ExtResource("2_i0msf")
+x = 15
+y = 5
+texture_path = "uid://butvj4qayg0x0"
+
+[sub_resource type="Resource" id="Resource_uiv5u"]
+script = ExtResource("2_i0msf")
+x = 15
+y = 6
+texture_path = "uid://3vji4jxacx8a"
+
+[sub_resource type="Resource" id="Resource_isgd8"]
+script = ExtResource("2_i0msf")
+x = 15
+y = 7
+texture_path = "uid://m76xkccqkneg"
+
+[sub_resource type="Resource" id="Resource_14d55"]
+script = ExtResource("2_i0msf")
+x = 16
+y = 1
+texture_path = "uid://bdembm26d1mpt"
+
+[sub_resource type="Resource" id="Resource_4l442"]
+script = ExtResource("2_i0msf")
+x = 16
+y = 2
+texture_path = "uid://benyktfhyeij5"
+
+[sub_resource type="Resource" id="Resource_tiisx"]
+script = ExtResource("2_i0msf")
+x = 16
+y = 3
+texture_path = "uid://cql551akivsqu"
+
+[sub_resource type="Resource" id="Resource_tdd26"]
+script = ExtResource("2_i0msf")
+x = 16
+y = 4
+texture_path = "uid://b1wn4rfke6typ"
+
+[sub_resource type="Resource" id="Resource_rsaxv"]
+script = ExtResource("2_i0msf")
+x = 16
+y = 5
+texture_path = "uid://j4rr0n5rli3w"
+
+[sub_resource type="Resource" id="Resource_6186y"]
+script = ExtResource("2_i0msf")
+x = 16
+y = 6
+texture_path = "uid://dl2mnp461l01l"
+
+[sub_resource type="Resource" id="Resource_rtexa"]
+script = ExtResource("2_i0msf")
+x = 16
+y = 7
+texture_path = "uid://cife7jyybi3i1"
+
+[sub_resource type="Resource" id="Resource_wfbrg"]
+script = ExtResource("2_i0msf")
+x = 17
+y = 5
+texture_path = "uid://j44gfk73iknm"
+
+[sub_resource type="Resource" id="Resource_m06fe"]
+script = ExtResource("2_i0msf")
+x = 17
+y = 6
+texture_path = "uid://sw87jjlup6j5"
+
+[sub_resource type="Resource" id="Resource_2ck3g"]
+script = ExtResource("2_i0msf")
+x = 17
+y = 7
+texture_path = "uid://btbmpi2vcm7e2"
+
+[sub_resource type="Resource" id="Resource_3lbfx"]
+script = ExtResource("2_i0msf")
+x = 17
+y = 8
+texture_path = "uid://dou6ps2kinjee"
+
+[sub_resource type="Resource" id="Resource_n5i01"]
+script = ExtResource("2_i0msf")
+x = 18
+y = 1
+texture_path = "uid://3lea8teo2ryi"
+
+[sub_resource type="Resource" id="Resource_8je5r"]
+script = ExtResource("2_i0msf")
+x = 18
+y = 2
+texture_path = "uid://do51qril8a30l"
+
+[sub_resource type="Resource" id="Resource_owyw0"]
+script = ExtResource("2_i0msf")
+x = 18
+y = 3
+texture_path = "uid://c0lwc70ccqtrx"
+
+[sub_resource type="Resource" id="Resource_upjyh"]
+script = ExtResource("2_i0msf")
+x = 18
+y = 5
+texture_path = "uid://c5sqtayi0ijto"
+
+[sub_resource type="Resource" id="Resource_p6qnn"]
+script = ExtResource("2_i0msf")
+x = 18
+y = 6
+texture_path = "uid://pqlu3mq8ae0o"
+
+[sub_resource type="Resource" id="Resource_tw1ww"]
+script = ExtResource("2_i0msf")
+x = 18
+y = 7
+texture_path = "uid://cmia5xf683w6a"
+
+[sub_resource type="Resource" id="Resource_vh77y"]
+script = ExtResource("2_i0msf")
+x = 18
+y = 8
+texture_path = "uid://d3h5ir52ppubm"
+
+[sub_resource type="Resource" id="Resource_7njqa"]
+script = ExtResource("2_i0msf")
+x = 19
+texture_path = "uid://c5g38015668ov"
+
+[sub_resource type="Resource" id="Resource_7lcxc"]
+script = ExtResource("2_i0msf")
+x = 19
+y = 1
+texture_path = "uid://dpct78xvl2so2"
+
+[sub_resource type="Resource" id="Resource_gstu8"]
+script = ExtResource("2_i0msf")
+x = 19
+y = 2
+texture_path = "uid://wlh3fa338l7h"
+
+[sub_resource type="Resource" id="Resource_pgobs"]
+script = ExtResource("2_i0msf")
+x = 19
+y = 3
+texture_path = "uid://bcrcdou8vbeb7"
+
+[sub_resource type="Resource" id="Resource_a5bvq"]
+script = ExtResource("2_i0msf")
+x = 19
+y = 4
+texture_path = "uid://c2ytw2xe6nchu"
+
+[sub_resource type="Resource" id="Resource_ikihc"]
+script = ExtResource("2_i0msf")
+x = 19
+y = 5
+texture_path = "uid://cl5ihyl5i24vj"
+
+[sub_resource type="Resource" id="Resource_lir30"]
+script = ExtResource("2_i0msf")
+x = 19
+y = 6
+texture_path = "uid://d4mumdv08ewut"
+
+[sub_resource type="Resource" id="Resource_nw1bu"]
+script = ExtResource("2_i0msf")
+x = 19
+y = 7
+texture_path = "uid://b513wojdorxxx"
+
+[sub_resource type="Resource" id="Resource_wru0o"]
+script = ExtResource("2_i0msf")
+x = 19
+y = 8
+texture_path = "uid://cqwsc1hkhc4nv"
+
+[sub_resource type="Resource" id="Resource_dln0b"]
+script = ExtResource("2_i0msf")
+x = 20
+texture_path = "uid://svg14iokusn5"
+
+[sub_resource type="Resource" id="Resource_046wh"]
+script = ExtResource("2_i0msf")
+x = 20
+y = 1
+texture_path = "uid://chlmnddywysps"
+
+[sub_resource type="Resource" id="Resource_uqa7x"]
+script = ExtResource("2_i0msf")
+x = 20
+y = 2
+texture_path = "uid://du587n5xoxvlr"
+
+[sub_resource type="Resource" id="Resource_3uegn"]
+script = ExtResource("2_i0msf")
+x = 20
+y = 3
+texture_path = "uid://y46drs0iowg8"
+
+[sub_resource type="Resource" id="Resource_h2cxa"]
+script = ExtResource("2_i0msf")
+x = 20
+y = 4
+texture_path = "uid://hfwsmu3wy0xs"
+
+[sub_resource type="Resource" id="Resource_7cmm3"]
+script = ExtResource("2_i0msf")
+x = 20
+y = 5
+texture_path = "uid://bgai28w3qfqaf"
+
+[sub_resource type="Resource" id="Resource_jhwrl"]
+script = ExtResource("2_i0msf")
+x = 20
+y = 6
+texture_path = "uid://dns1qxmhjb7r8"
+
+[sub_resource type="Resource" id="Resource_n7x3s"]
+script = ExtResource("2_i0msf")
+x = 20
+y = 7
+texture_path = "uid://o08rthvgqfsb"
+
+[sub_resource type="Resource" id="Resource_w2ftl"]
+script = ExtResource("2_i0msf")
+x = 20
+y = 8
+texture_path = "uid://d35pey2f2cj5m"
+
+[sub_resource type="Resource" id="Resource_wcwrj"]
+script = ExtResource("2_i0msf")
+x = 21
+texture_path = "uid://bsnfl8aib0nsq"
+
+[sub_resource type="Resource" id="Resource_grhii"]
+script = ExtResource("2_i0msf")
+x = 21
+y = 1
+texture_path = "uid://bvsydl8sl1fp8"
+
+[sub_resource type="Resource" id="Resource_1txwb"]
+script = ExtResource("2_i0msf")
+x = 21
+y = 2
+texture_path = "uid://dsocfe1cedpiv"
+
+[sub_resource type="Resource" id="Resource_4be7l"]
+script = ExtResource("2_i0msf")
+x = 21
+y = 3
+texture_path = "uid://c50lx2ryria51"
+
+[sub_resource type="Resource" id="Resource_5d5in"]
+script = ExtResource("2_i0msf")
+x = 21
+y = 4
+texture_path = "uid://dn6ar5dofpout"
+
+[sub_resource type="Resource" id="Resource_7qjv5"]
+script = ExtResource("2_i0msf")
+x = 21
+y = 5
+texture_path = "uid://cy1j5rulo2grs"
+
+[sub_resource type="Resource" id="Resource_pdlur"]
+script = ExtResource("2_i0msf")
+x = 21
+y = 6
+texture_path = "uid://bkbjsro0ql1no"
+
+[sub_resource type="Resource" id="Resource_n5itc"]
+script = ExtResource("2_i0msf")
+x = 21
+y = 7
+texture_path = "uid://bp64p2lywg8s7"
+
+[sub_resource type="Resource" id="Resource_rqtbj"]
+script = ExtResource("2_i0msf")
+x = 21
+y = 8
+texture_path = "uid://ew5os5sovaum"
+
+[sub_resource type="Resource" id="Resource_qxj7e"]
+script = ExtResource("2_i0msf")
+x = 22
+texture_path = "uid://cbmvehcg6dor1"
+
+[sub_resource type="Resource" id="Resource_p65u3"]
+script = ExtResource("2_i0msf")
+x = 22
+y = 1
+texture_path = "uid://bxh5spvtwk0cn"
+
+[sub_resource type="Resource" id="Resource_xqx6k"]
+script = ExtResource("2_i0msf")
+x = 22
+y = 3
+texture_path = "uid://cnkuo8l7j3cvo"
+
+[sub_resource type="Resource" id="Resource_36i64"]
+script = ExtResource("2_i0msf")
+x = 22
+y = 4
+texture_path = "uid://bhtsr6yukoopg"
+
+[sub_resource type="Resource" id="Resource_2q6v5"]
+script = ExtResource("2_i0msf")
+x = 22
+y = 5
+texture_path = "uid://ckr5eylbarudt"
+
+[sub_resource type="Resource" id="Resource_30ebs"]
+script = ExtResource("2_i0msf")
+x = 22
+y = 6
+texture_path = "uid://cj413kth28g0o"
+
+[sub_resource type="Resource" id="Resource_nldna"]
+script = ExtResource("2_i0msf")
+x = 22
+y = 7
+texture_path = "uid://caisah2lo53rh"
+
+[sub_resource type="Resource" id="Resource_qbmux"]
+script = ExtResource("2_i0msf")
+x = 22
+y = 8
+texture_path = "uid://8neibafqeedd"
+
+[sub_resource type="Resource" id="Resource_ca0cy"]
+script = ExtResource("2_i0msf")
+x = 23
+y = 3
+texture_path = "uid://bqa4yv12rxo3l"
+
+[sub_resource type="Resource" id="Resource_nsqye"]
+script = ExtResource("2_i0msf")
+x = 23
+y = 4
+texture_path = "uid://b6dea806i3thp"
+
+[sub_resource type="Resource" id="Resource_nnrn1"]
+script = ExtResource("2_i0msf")
+x = 23
+y = 5
+texture_path = "uid://dllsyxxlw1aan"
+
+[sub_resource type="Resource" id="Resource_oj6j6"]
+script = ExtResource("2_i0msf")
+x = 24
+texture_path = "uid://cibbeuqmposww"
+
+[sub_resource type="Resource" id="Resource_wc502"]
+script = ExtResource("2_i0msf")
+x = 24
+y = 1
+texture_path = "uid://b3dougpjwfiib"
+
+[sub_resource type="Resource" id="Resource_ssa43"]
+script = ExtResource("2_i0msf")
+x = 24
+y = 2
+texture_path = "uid://5k4ok1qrmrsm"
+
+[sub_resource type="Resource" id="Resource_txacx"]
+script = ExtResource("2_i0msf")
+x = 24
+y = 3
+texture_path = "uid://l81qvjg1lui3"
+
+[sub_resource type="Resource" id="Resource_ups0j"]
+script = ExtResource("2_i0msf")
+x = 24
+y = 4
+texture_path = "uid://cncc6b0lnge7l"
+
+[sub_resource type="Resource" id="Resource_84mdr"]
+script = ExtResource("2_i0msf")
+x = 24
+y = 5
+texture_path = "uid://dhfionqkhdxtp"
+
+[sub_resource type="Resource" id="Resource_g2ihn"]
+script = ExtResource("2_i0msf")
+x = 25
+texture_path = "uid://beqccsecrnupg"
+
+[sub_resource type="Resource" id="Resource_gsn2t"]
+script = ExtResource("2_i0msf")
+x = 25
+y = 1
+texture_path = "uid://bowkbkuo7vqcn"
+
+[sub_resource type="Resource" id="Resource_wurs7"]
+script = ExtResource("2_i0msf")
+x = 25
+y = 2
+texture_path = "uid://qkg5hhqhgtiy"
+
+[sub_resource type="Resource" id="Resource_wl7q3"]
+script = ExtResource("2_i0msf")
+x = 25
+y = 3
+texture_path = "uid://bgaa48ddxq741"
+
+[sub_resource type="Resource" id="Resource_xlxq8"]
+script = ExtResource("2_i0msf")
+x = 25
+y = 4
+texture_path = "uid://bweg7icf8mual"
+
+[sub_resource type="Resource" id="Resource_qa7sg"]
+script = ExtResource("2_i0msf")
+x = 26
+texture_path = "uid://dwaq8wjr7t77p"
+
+[sub_resource type="Resource" id="Resource_57d7w"]
+script = ExtResource("2_i0msf")
+x = 26
+y = 1
+texture_path = "uid://dl4b1bxl51afu"
+
+[sub_resource type="Resource" id="Resource_h6w88"]
+script = ExtResource("2_i0msf")
+x = 26
+y = 2
+texture_path = "uid://c8oap28pl35vw"
+
+[sub_resource type="Resource" id="Resource_sp2lc"]
+script = ExtResource("2_i0msf")
+x = 26
+y = 3
+texture_path = "uid://celfmwowws53n"
+
+[sub_resource type="Resource" id="Resource_vtpys"]
+script = ExtResource("2_i0msf")
+x = 26
+y = 4
+texture_path = "uid://jfkrr1obq0mw"
+
+[sub_resource type="Resource" id="Resource_q5l1m"]
+script = ExtResource("2_i0msf")
+x = 27
+y = 1
+texture_path = "uid://dux1aewvg6of1"
+
+[sub_resource type="Resource" id="Resource_kc4ni"]
+script = ExtResource("2_i0msf")
+x = 27
+y = 2
+texture_path = "uid://diptd86tu065s"
+
+[sub_resource type="Resource" id="Resource_ih2y7"]
+script = ExtResource("2_i0msf")
+x = 27
+y = 3
+texture_path = "uid://dxviam3tbveha"
+
+[sub_resource type="Resource" id="Resource_agly3"]
+script = ExtResource("2_i0msf")
+x = 27
+y = 4
+texture_path = "uid://1350euw6hi1i"
+
+[sub_resource type="Resource" id="Resource_1ahxg"]
+script = ExtResource("2_i0msf")
+x = 28
+y = 2
+texture_path = "uid://pwsp8wg7hdme"
+
+[sub_resource type="Resource" id="Resource_64njy"]
+script = ExtResource("2_i0msf")
+x = 28
+y = 3
+texture_path = "uid://gtv77okt6p51"
+
+[sub_resource type="Resource" id="Resource_hp6c6"]
+script = ExtResource("2_i0msf")
+x = 28
+y = 4
+texture_path = "uid://doigohbunwmm8"
+
+[sub_resource type="Resource" id="Resource_eglna"]
+script = ExtResource("2_i0msf")
+x = 29
+y = 2
+texture_path = "uid://bg1n0038e2fo6"
+
+[sub_resource type="Resource" id="Resource_26e7e"]
+script = ExtResource("2_i0msf")
+x = 29
+y = 3
+texture_path = "uid://hw3ej20t1r1r"
+
+[sub_resource type="Resource" id="Resource_dq7mw"]
+script = ExtResource("2_i0msf")
+x = 29
+y = 4
+texture_path = "uid://4p2eoxjo6qid"
+
+[sub_resource type="Resource" id="Resource_mp070"]
+script = ExtResource("2_i0msf")
+x = 30
+y = 1
+texture_path = "uid://dqlcjcnx0cqup"
+
+[sub_resource type="Resource" id="Resource_y2out"]
+script = ExtResource("2_i0msf")
+x = 30
+y = 2
+texture_path = "uid://bhfx73ybm4abp"
+
+[sub_resource type="Resource" id="Resource_eot58"]
+script = ExtResource("2_i0msf")
+x = 30
+y = 3
+texture_path = "uid://bbu3pfj7xoj41"
+
+[sub_resource type="Resource" id="Resource_pgdqe"]
+script = ExtResource("2_i0msf")
+x = 30
+y = 4
+texture_path = "uid://deg48clc465u0"
+
+[sub_resource type="Resource" id="Resource_l5xxu"]
+script = ExtResource("2_i0msf")
+x = 31
+texture_path = "uid://qglq5dv4bvpc"
+
+[sub_resource type="Resource" id="Resource_vkeay"]
+script = ExtResource("2_i0msf")
+x = 31
+y = 1
+texture_path = "uid://bpypa2u8rkwch"
+
+[sub_resource type="Resource" id="Resource_jgif8"]
+script = ExtResource("2_i0msf")
+x = 31
+y = 2
+texture_path = "uid://bm5n1qftg7mcy"
+
+[sub_resource type="Resource" id="Resource_br4tg"]
+script = ExtResource("2_i0msf")
+x = 31
+y = 3
+texture_path = "uid://b1sabhv2pukae"
+
+[sub_resource type="Resource" id="Resource_hdaue"]
+script = ExtResource("2_i0msf")
+x = 31
+y = 4
+texture_path = "uid://d011n1csqri5i"
+
+[sub_resource type="Resource" id="Resource_5kjmv"]
+script = ExtResource("2_i0msf")
+x = 32
+texture_path = "uid://cq1eod5s806gw"
+
+[sub_resource type="Resource" id="Resource_ylt5v"]
+script = ExtResource("2_i0msf")
+x = 32
+y = 1
+texture_path = "uid://dyg3x0mxwqsaj"
+
+[sub_resource type="Resource" id="Resource_q7qmw"]
+script = ExtResource("2_i0msf")
+x = 32
+y = 2
+texture_path = "uid://b64lm40cac3s0"
+
+[sub_resource type="Resource" id="Resource_8n207"]
+script = ExtResource("2_i0msf")
+x = 32
+y = 3
+texture_path = "uid://b4254t8xodcil"
+
+[sub_resource type="Resource" id="Resource_8jrqe"]
+script = ExtResource("2_i0msf")
+x = 32
+y = 4
+texture_path = "uid://bl6rchuqcmd34"
+
+[sub_resource type="Resource" id="Resource_g10vu"]
+script = ExtResource("2_i0msf")
+x = 33
+texture_path = "uid://mxim1umhwrwt"
+
+[sub_resource type="Resource" id="Resource_vfip8"]
+script = ExtResource("2_i0msf")
+x = 33
+y = 1
+texture_path = "uid://djq22shmjoche"
+
+[sub_resource type="Resource" id="Resource_mpfen"]
+script = ExtResource("2_i0msf")
+x = 33
+y = 2
+texture_path = "uid://c2krfbvwnyjsi"
+
+[sub_resource type="Resource" id="Resource_3blyw"]
+script = ExtResource("2_i0msf")
+x = 33
+y = 3
+texture_path = "uid://bd784bpufirgv"
+
+[sub_resource type="Resource" id="Resource_yq4uj"]
+script = ExtResource("2_i0msf")
+x = 33
+y = 4
+texture_path = "uid://bjotraucmbml6"
+
+[sub_resource type="Resource" id="Resource_1bip4"]
+script = ExtResource("2_i0msf")
+x = 34
+y = 1
+texture_path = "uid://dwnxqhqkdgwue"
+
+[sub_resource type="Resource" id="Resource_5jil6"]
+script = ExtResource("2_i0msf")
+x = 34
+y = 2
+texture_path = "uid://8g2asossv1fa"
+
+[sub_resource type="Resource" id="Resource_4qiu7"]
+script = ExtResource("2_i0msf")
+x = 34
+y = 3
+texture_path = "uid://bwit1bnn5yk0s"
+
+[sub_resource type="Resource" id="Resource_gfsdm"]
+script = ExtResource("2_i0msf")
+x = 34
+y = 4
+texture_path = "uid://dnmr57yspyhj4"
+
+[sub_resource type="Resource" id="Resource_x0foj"]
+script = ExtResource("2_i0msf")
+x = 35
+y = 2
+texture_path = "uid://dn4s2jhph2whx"
+
+[sub_resource type="Resource" id="Resource_rlc80"]
+script = ExtResource("2_i0msf")
+x = 35
+y = 3
+texture_path = "uid://13g0oibsbue8"
 
 [node name="WotwMap" type="Control" unique_id=1800147214]
 editor_description = "Children added to this node are automatically reparented to the in-game coordinate system."
@@ -206,6 +1162,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_337id")
+map_tiles = Array[ExtResource("2_i0msf")]([SubResource("Resource_quag2"), SubResource("Resource_nrfue"), SubResource("Resource_fvt4j"), SubResource("Resource_xj4mg"), SubResource("Resource_u1wel"), SubResource("Resource_mifqr"), SubResource("Resource_tx8dx"), SubResource("Resource_d7xcd"), SubResource("Resource_ri1ka"), SubResource("Resource_jj1no"), SubResource("Resource_sh5fo"), SubResource("Resource_77whi"), SubResource("Resource_juk1a"), SubResource("Resource_pp7p1"), SubResource("Resource_4dcge"), SubResource("Resource_3rh8i"), SubResource("Resource_d4yaq"), SubResource("Resource_5nu12"), SubResource("Resource_yrdwn"), SubResource("Resource_gpvc2"), SubResource("Resource_7qvff"), SubResource("Resource_6ko0o"), SubResource("Resource_xq7xu"), SubResource("Resource_f7wa4"), SubResource("Resource_xofyt"), SubResource("Resource_m63xh"), SubResource("Resource_adms8"), SubResource("Resource_4fdsr"), SubResource("Resource_me5nm"), SubResource("Resource_kbbfi"), SubResource("Resource_28vmt"), SubResource("Resource_2yd7t"), SubResource("Resource_lvllu"), SubResource("Resource_wtx1c"), SubResource("Resource_s00hj"), SubResource("Resource_xx7vl"), SubResource("Resource_u0oox"), SubResource("Resource_lx5wd"), SubResource("Resource_p7ib2"), SubResource("Resource_or8fs"), SubResource("Resource_7tu2y"), SubResource("Resource_fjdco"), SubResource("Resource_dgb2o"), SubResource("Resource_qptem"), SubResource("Resource_wp55r"), SubResource("Resource_esmuo"), SubResource("Resource_n55rw"), SubResource("Resource_xrhjd"), SubResource("Resource_jstn4"), SubResource("Resource_8audx"), SubResource("Resource_tgtli"), SubResource("Resource_2cjf0"), SubResource("Resource_r2awo"), SubResource("Resource_olgwn"), SubResource("Resource_p0l82"), SubResource("Resource_uo41c"), SubResource("Resource_0afcf"), SubResource("Resource_2hrkt"), SubResource("Resource_epw6c"), SubResource("Resource_4ec7b"), SubResource("Resource_dbm2p"), SubResource("Resource_ssxxo"), SubResource("Resource_bffyi"), SubResource("Resource_yh4la"), SubResource("Resource_wonpi"), SubResource("Resource_o7bf5"), SubResource("Resource_k7ule"), SubResource("Resource_bagxf"), SubResource("Resource_ip5wa"), SubResource("Resource_12uv4"), SubResource("Resource_bdn23"), SubResource("Resource_2jj1m"), SubResource("Resource_x005s"), SubResource("Resource_ehyme"), SubResource("Resource_7fvlh"), SubResource("Resource_ogstu"), SubResource("Resource_pep7i"), SubResource("Resource_fng07"), SubResource("Resource_i2kfv"), SubResource("Resource_cjtg5"), SubResource("Resource_7mc6n"), SubResource("Resource_ukot6"), SubResource("Resource_3n3v4"), SubResource("Resource_qcnj2"), SubResource("Resource_5qeoy"), SubResource("Resource_uiv5u"), SubResource("Resource_isgd8"), SubResource("Resource_14d55"), SubResource("Resource_4l442"), SubResource("Resource_tiisx"), SubResource("Resource_tdd26"), SubResource("Resource_rsaxv"), SubResource("Resource_6186y"), SubResource("Resource_rtexa"), SubResource("Resource_wfbrg"), SubResource("Resource_m06fe"), SubResource("Resource_2ck3g"), SubResource("Resource_3lbfx"), SubResource("Resource_n5i01"), SubResource("Resource_8je5r"), SubResource("Resource_owyw0"), SubResource("Resource_upjyh"), SubResource("Resource_p6qnn"), SubResource("Resource_tw1ww"), SubResource("Resource_vh77y"), SubResource("Resource_7njqa"), SubResource("Resource_7lcxc"), SubResource("Resource_gstu8"), SubResource("Resource_pgobs"), SubResource("Resource_a5bvq"), SubResource("Resource_ikihc"), SubResource("Resource_lir30"), SubResource("Resource_nw1bu"), SubResource("Resource_wru0o"), SubResource("Resource_dln0b"), SubResource("Resource_046wh"), SubResource("Resource_uqa7x"), SubResource("Resource_3uegn"), SubResource("Resource_h2cxa"), SubResource("Resource_7cmm3"), SubResource("Resource_jhwrl"), SubResource("Resource_n7x3s"), SubResource("Resource_w2ftl"), SubResource("Resource_wcwrj"), SubResource("Resource_grhii"), SubResource("Resource_1txwb"), SubResource("Resource_4be7l"), SubResource("Resource_5d5in"), SubResource("Resource_7qjv5"), SubResource("Resource_pdlur"), SubResource("Resource_n5itc"), SubResource("Resource_rqtbj"), SubResource("Resource_qxj7e"), SubResource("Resource_p65u3"), SubResource("Resource_xqx6k"), SubResource("Resource_36i64"), SubResource("Resource_2q6v5"), SubResource("Resource_30ebs"), SubResource("Resource_nldna"), SubResource("Resource_qbmux"), SubResource("Resource_ca0cy"), SubResource("Resource_nsqye"), SubResource("Resource_nnrn1"), SubResource("Resource_oj6j6"), SubResource("Resource_wc502"), SubResource("Resource_ssa43"), SubResource("Resource_txacx"), SubResource("Resource_ups0j"), SubResource("Resource_84mdr"), SubResource("Resource_g2ihn"), SubResource("Resource_gsn2t"), SubResource("Resource_wurs7"), SubResource("Resource_wl7q3"), SubResource("Resource_xlxq8"), SubResource("Resource_qa7sg"), SubResource("Resource_57d7w"), SubResource("Resource_h6w88"), SubResource("Resource_sp2lc"), SubResource("Resource_vtpys"), SubResource("Resource_q5l1m"), SubResource("Resource_kc4ni"), SubResource("Resource_ih2y7"), SubResource("Resource_agly3"), SubResource("Resource_1ahxg"), SubResource("Resource_64njy"), SubResource("Resource_hp6c6"), SubResource("Resource_eglna"), SubResource("Resource_26e7e"), SubResource("Resource_dq7mw"), SubResource("Resource_mp070"), SubResource("Resource_y2out"), SubResource("Resource_eot58"), SubResource("Resource_pgdqe"), SubResource("Resource_l5xxu"), SubResource("Resource_vkeay"), SubResource("Resource_jgif8"), SubResource("Resource_br4tg"), SubResource("Resource_hdaue"), SubResource("Resource_5kjmv"), SubResource("Resource_ylt5v"), SubResource("Resource_q7qmw"), SubResource("Resource_8n207"), SubResource("Resource_8jrqe"), SubResource("Resource_g10vu"), SubResource("Resource_vfip8"), SubResource("Resource_mpfen"), SubResource("Resource_3blyw"), SubResource("Resource_yq4uj"), SubResource("Resource_1bip4"), SubResource("Resource_5jil6"), SubResource("Resource_4qiu7"), SubResource("Resource_gfsdm"), SubResource("Resource_x0foj"), SubResource("Resource_rlc80")])
 
 [node name="Origin" type="Node2D" parent="." unique_id=740566307 groups=["MapOrigin"]]
 unique_name_in_owner = true
@@ -217,1173 +1174,10 @@ unique_name_in_owner = true
 editor_description = "The In-Game Origin represents the (0, 0) position of in-game coordinates. Everything inside this is in in-game coordinates."
 scale = Vector2(1, -1)
 
-[node name="Tiles" type="Node2D" parent="Origin/InGameOrigin" unique_id=1826790488]
+[node name="MapTilesContainer" type="Node2D" parent="Origin/InGameOrigin" unique_id=1826790488]
+unique_name_in_owner = true
 position = Vector2(-2015.261, -3513.571)
 scale = Vector2(0.245, -0.245)
-
-[node name="Tile-0-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1007053054]
-position = Vector2(0, 2048)
-texture = ExtResource("2_rlc80")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-0-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=233542978]
-position = Vector2(0, 2560)
-texture = ExtResource("3_i0msf")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-1-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=417358080]
-position = Vector2(512, 2048)
-texture = ExtResource("4_atkxf")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-1-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1815289980]
-position = Vector2(512, 2560)
-texture = ExtResource("5_hyfbk")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-2-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1403528955]
-position = Vector2(1024, 1536)
-texture = ExtResource("6_2wvrv")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-2-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=912202750]
-position = Vector2(1024, 2048)
-texture = ExtResource("7_bw8ug")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-2-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1651996575]
-position = Vector2(1024, 2560)
-texture = ExtResource("8_bg4ka")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-3-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=713623911]
-position = Vector2(1536, 1536)
-texture = ExtResource("9_0n7j7")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-3-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1443665619]
-position = Vector2(1536, 2048)
-texture = ExtResource("10_whlt8")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-3-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1607393229]
-position = Vector2(1536, 2560)
-texture = ExtResource("11_mc3sc")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-4-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=475898276]
-position = Vector2(2048, 2048)
-texture = ExtResource("12_didpk")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-4-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1777664122]
-position = Vector2(2048, 2560)
-texture = ExtResource("13_14tfk")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-5-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1410264244]
-position = Vector2(2560, 0)
-texture = ExtResource("14_2ifu5")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-5-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1174369870]
-position = Vector2(2560, 512)
-texture = ExtResource("15_ddedr")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-5-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1857583761]
-position = Vector2(2560, 1024)
-texture = ExtResource("16_k60if")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-5-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1676484014]
-position = Vector2(2560, 1536)
-texture = ExtResource("17_lhgbw")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-5-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2028392078]
-position = Vector2(2560, 2048)
-texture = ExtResource("18_qof0s")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-5-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=453283926]
-position = Vector2(2560, 2560)
-texture = ExtResource("19_yy508")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-6-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2123384031]
-position = Vector2(3072, 0)
-texture = ExtResource("20_5tvwb")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-6-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1559599788]
-position = Vector2(3072, 512)
-texture = ExtResource("21_hm2a3")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-6-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=77301818]
-position = Vector2(3072, 1024)
-texture = ExtResource("22_mf5ab")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-6-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1977881322]
-position = Vector2(3072, 1536)
-texture = ExtResource("23_pwaes")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-6-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1483171501]
-position = Vector2(3072, 2048)
-texture = ExtResource("24_utpsi")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-6-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2123854857]
-position = Vector2(3072, 2560)
-texture = ExtResource("25_4eo6t")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1486750452]
-position = Vector2(3584, 0)
-texture = ExtResource("26_5fug8")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=972547428]
-position = Vector2(3584, 512)
-texture = ExtResource("27_bdq3f")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2112655019]
-position = Vector2(3584, 1024)
-texture = ExtResource("28_jmr4w")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1972005810]
-position = Vector2(3584, 1536)
-texture = ExtResource("29_fttic")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=932251294]
-position = Vector2(3584, 2048)
-texture = ExtResource("30_2u0ko")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=832169217]
-position = Vector2(3584, 2560)
-texture = ExtResource("31_2yk1b")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=494481569]
-position = Vector2(3584, 3072)
-texture = ExtResource("32_j6hjc")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1493242553]
-position = Vector2(3584, 3584)
-texture = ExtResource("33_ayrkc")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-7-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=256927392]
-position = Vector2(3584, 4096)
-texture = ExtResource("34_uivc4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-8-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1603733835]
-position = Vector2(4096, 1024)
-texture = ExtResource("35_2hva1")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-8-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2011327182]
-position = Vector2(4096, 1536)
-texture = ExtResource("36_d40pw")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-8-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2002997706]
-position = Vector2(4096, 2048)
-texture = ExtResource("37_gfoqs")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-8-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=476713830]
-position = Vector2(4096, 2560)
-texture = ExtResource("38_s88ad")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-8-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=134194404]
-position = Vector2(4096, 3072)
-texture = ExtResource("39_er1e8")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-8-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1085431861]
-position = Vector2(4096, 3584)
-texture = ExtResource("40_6xxth")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-8-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=594713403]
-position = Vector2(4096, 4096)
-texture = ExtResource("41_mtrf6")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-9-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1231500906]
-position = Vector2(4608, 1024)
-texture = ExtResource("42_y68ov")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-9-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=245883531]
-position = Vector2(4608, 1536)
-texture = ExtResource("43_jbjir")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-9-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1118744867]
-position = Vector2(4608, 2048)
-texture = ExtResource("44_tcwxb")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-9-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1150878167]
-position = Vector2(4608, 2560)
-texture = ExtResource("45_ydp6y")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-9-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=547623755]
-position = Vector2(4608, 3072)
-texture = ExtResource("46_iause")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-9-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=409467370]
-position = Vector2(4608, 3584)
-texture = ExtResource("47_binap")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-9-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=821231771]
-position = Vector2(4608, 4096)
-texture = ExtResource("48_fw68v")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-10-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=916181270]
-position = Vector2(5120, 1024)
-texture = ExtResource("49_6bbo4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-10-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=171873880]
-position = Vector2(5120, 1536)
-texture = ExtResource("50_ap08i")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-10-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=997702710]
-position = Vector2(5120, 2048)
-texture = ExtResource("51_e58lg")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-10-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1008690572]
-position = Vector2(5120, 2560)
-texture = ExtResource("52_xk6w3")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-10-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1181488808]
-position = Vector2(5120, 3072)
-texture = ExtResource("53_skc32")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-10-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=77263339]
-position = Vector2(5120, 3584)
-texture = ExtResource("54_ykmc4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-10-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1238450498]
-position = Vector2(5120, 4096)
-texture = ExtResource("55_aur07")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-11-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1139726585]
-position = Vector2(5632, 1536)
-texture = ExtResource("56_d0orr")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-11-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=814476355]
-position = Vector2(5632, 2048)
-texture = ExtResource("57_og0n0")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-11-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1455535982]
-position = Vector2(5632, 2560)
-texture = ExtResource("58_2lkyy")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-11-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=917034402]
-position = Vector2(5632, 3072)
-texture = ExtResource("59_7dr74")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-11-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1807753085]
-position = Vector2(5632, 3584)
-texture = ExtResource("60_v86b1")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-11-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1893286102]
-position = Vector2(5632, 4096)
-texture = ExtResource("61_pp5fc")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-12-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1098737716]
-position = Vector2(6144, 1024)
-texture = ExtResource("62_sndd4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-12-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=580654512]
-position = Vector2(6144, 1536)
-texture = ExtResource("63_86i62")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-12-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1380056845]
-position = Vector2(6144, 2048)
-texture = ExtResource("64_8j5uv")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-12-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1159408605]
-position = Vector2(6144, 2560)
-texture = ExtResource("65_irp61")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-12-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1613050118]
-position = Vector2(6144, 3072)
-texture = ExtResource("66_76cc4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-12-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=83706859]
-position = Vector2(6144, 3584)
-texture = ExtResource("67_juwdc")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-12-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=94522628]
-position = Vector2(6144, 4096)
-texture = ExtResource("68_fbxly")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-13-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=13759093]
-position = Vector2(6656, 1024)
-texture = ExtResource("69_k2n5i")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-13-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=719032199]
-position = Vector2(6656, 1536)
-texture = ExtResource("70_c7ehc")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-13-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=958944753]
-position = Vector2(6656, 2048)
-texture = ExtResource("71_3xxx1")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-13-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1210177400]
-position = Vector2(6656, 2560)
-texture = ExtResource("72_owb6a")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-13-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1824607700]
-position = Vector2(6656, 3072)
-texture = ExtResource("73_2xcag")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-13-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1129907637]
-position = Vector2(6656, 3584)
-texture = ExtResource("74_w0wh6")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-13-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=767835078]
-position = Vector2(6656, 4096)
-texture = ExtResource("75_ckv1w")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-14-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=987043700]
-position = Vector2(7168, 1024)
-texture = ExtResource("76_n7l16")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-14-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2133165227]
-position = Vector2(7168, 1536)
-texture = ExtResource("77_a65dh")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-14-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1476005995]
-position = Vector2(7168, 2048)
-texture = ExtResource("78_dt832")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-14-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=932899153]
-position = Vector2(7168, 2560)
-texture = ExtResource("79_bbhpb")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-14-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=218468912]
-position = Vector2(7168, 3072)
-texture = ExtResource("80_8yjkt")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-14-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1717493985]
-position = Vector2(7168, 3584)
-texture = ExtResource("81_h6s3o")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-15-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1269627023]
-position = Vector2(7680, 512)
-texture = ExtResource("82_w884q")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-15-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1260456176]
-position = Vector2(7680, 1024)
-texture = ExtResource("83_xt6uj")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-15-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=729982786]
-position = Vector2(7680, 1536)
-texture = ExtResource("84_wf04y")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-15-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1975726909]
-position = Vector2(7680, 2048)
-texture = ExtResource("85_2cjni")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-15-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=644634809]
-position = Vector2(7680, 2560)
-texture = ExtResource("86_5i5k1")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-15-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=986797229]
-position = Vector2(7680, 3072)
-texture = ExtResource("87_atipf")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-15-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=960012076]
-position = Vector2(7680, 3584)
-texture = ExtResource("88_gvgfp")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-16-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2120301581]
-position = Vector2(8192, 512)
-texture = ExtResource("89_kermt")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-16-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=954812989]
-position = Vector2(8192, 1024)
-texture = ExtResource("90_b7suy")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-16-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=552754903]
-position = Vector2(8192, 1536)
-texture = ExtResource("91_1cmns")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-16-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1749469720]
-position = Vector2(8192, 2048)
-texture = ExtResource("92_x21wh")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-16-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1323394351]
-position = Vector2(8192, 2560)
-texture = ExtResource("93_l4f7a")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-16-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=618097969]
-position = Vector2(8192, 3072)
-texture = ExtResource("94_r5ghh")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-16-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1016744755]
-position = Vector2(8192, 3584)
-texture = ExtResource("95_rgeis")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-17-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=673203432]
-position = Vector2(8704, 2560)
-texture = ExtResource("96_o8ju8")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-17-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=217792553]
-position = Vector2(8704, 3072)
-texture = ExtResource("97_5t3pb")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-17-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1871183066]
-position = Vector2(8704, 3584)
-texture = ExtResource("98_dpgjg")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-17-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=352789267]
-position = Vector2(8704, 4096)
-texture = ExtResource("99_qff0x")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-18-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1569744983]
-position = Vector2(9216, 512)
-texture = ExtResource("100_bmtpg")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-18-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1008980704]
-position = Vector2(9216, 1024)
-texture = ExtResource("101_c6arc")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-18-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1810183851]
-position = Vector2(9216, 1536)
-texture = ExtResource("102_wuedu")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-18-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1578985597]
-position = Vector2(9216, 2560)
-texture = ExtResource("103_khsbj")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-18-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2018490910]
-position = Vector2(9216, 3072)
-texture = ExtResource("104_0qy4q")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-18-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=298235475]
-position = Vector2(9216, 3584)
-texture = ExtResource("105_5h3tb")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-18-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1406092890]
-position = Vector2(9216, 4096)
-texture = ExtResource("106_5i4us")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=936153624]
-position = Vector2(9728, 0)
-texture = ExtResource("107_2wuit")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=438759675]
-position = Vector2(9728, 512)
-texture = ExtResource("108_xl1wx")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=246958242]
-position = Vector2(9728, 1024)
-texture = ExtResource("109_8iqy1")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1851268614]
-position = Vector2(9728, 1536)
-texture = ExtResource("110_1msqp")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=373330581]
-position = Vector2(9728, 2048)
-texture = ExtResource("111_5lqs7")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1212124411]
-position = Vector2(9728, 2560)
-texture = ExtResource("112_06ka4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1945235403]
-position = Vector2(9728, 3072)
-texture = ExtResource("113_umrkh")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1506673627]
-position = Vector2(9728, 3584)
-texture = ExtResource("114_by3m5")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-19-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1392067977]
-position = Vector2(9728, 4096)
-texture = ExtResource("115_cwjnt")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1318629215]
-position = Vector2(10240, 0)
-texture = ExtResource("116_vt3fu")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1869311316]
-position = Vector2(10240, 512)
-texture = ExtResource("117_ebaur")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=821736610]
-position = Vector2(10240, 1024)
-texture = ExtResource("118_832de")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=396391642]
-position = Vector2(10240, 1536)
-texture = ExtResource("119_lcdqp")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=617363167]
-position = Vector2(10240, 2048)
-texture = ExtResource("120_hanii")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1502175154]
-position = Vector2(10240, 2560)
-texture = ExtResource("121_qlwfn")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=214881956]
-position = Vector2(10240, 3072)
-texture = ExtResource("122_kbvlw")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=317073450]
-position = Vector2(10240, 3584)
-texture = ExtResource("123_35g3r")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-20-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1267683460]
-position = Vector2(10240, 4096)
-texture = ExtResource("124_0iko7")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=248153639]
-position = Vector2(10752, 0)
-texture = ExtResource("125_pliww")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1653487687]
-position = Vector2(10752, 512)
-texture = ExtResource("126_foay3")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1245332252]
-position = Vector2(10752, 1024)
-texture = ExtResource("127_msg7v")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=937969472]
-position = Vector2(10752, 1536)
-texture = ExtResource("128_4xua8")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=710396072]
-position = Vector2(10752, 2048)
-texture = ExtResource("129_qv4an")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1250663229]
-position = Vector2(10752, 2560)
-texture = ExtResource("130_y2klg")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=220122804]
-position = Vector2(10752, 3072)
-texture = ExtResource("131_mm6q0")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1201436910]
-position = Vector2(10752, 3584)
-texture = ExtResource("132_5kag3")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-21-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=469426045]
-position = Vector2(10752, 4096)
-texture = ExtResource("133_mtrql")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-22-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1998564609]
-position = Vector2(11264, 0)
-texture = ExtResource("134_x3y7r")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-22-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1594122825]
-position = Vector2(11264, 512)
-texture = ExtResource("135_bod4h")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-22-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1324232370]
-position = Vector2(11264, 1536)
-texture = ExtResource("136_35dhx")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-22-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=995396726]
-position = Vector2(11264, 2048)
-texture = ExtResource("137_71u1w")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-22-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=104858161]
-position = Vector2(11264, 2560)
-texture = ExtResource("138_lkju0")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-22-6" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=721549756]
-position = Vector2(11264, 3072)
-texture = ExtResource("139_3ddpy")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-22-7" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1389865]
-position = Vector2(11264, 3584)
-texture = ExtResource("140_ul4te")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-22-8" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=887069328]
-position = Vector2(11264, 4096)
-texture = ExtResource("141_q0rc3")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-23-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=751394946]
-position = Vector2(11776, 1536)
-texture = ExtResource("142_gav4n")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-23-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=23486597]
-position = Vector2(11776, 2048)
-texture = ExtResource("143_ecvq1")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-23-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2090816511]
-position = Vector2(11776, 2560)
-texture = ExtResource("144_tpamj")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-24-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1135526811]
-position = Vector2(12288, 0)
-texture = ExtResource("145_wfpoa")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-24-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1400962138]
-position = Vector2(12288, 512)
-texture = ExtResource("146_62g0p")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-24-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1813306608]
-position = Vector2(12288, 1024)
-texture = ExtResource("147_kbdt4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-24-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1186263098]
-position = Vector2(12288, 1536)
-texture = ExtResource("148_fka4w")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-24-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1494733750]
-position = Vector2(12288, 2048)
-texture = ExtResource("149_4cl78")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-24-5" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2098475358]
-position = Vector2(12288, 2560)
-texture = ExtResource("150_myoro")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-25-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=537844755]
-position = Vector2(12800, 0)
-texture = ExtResource("151_qc2ar")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-25-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=682985144]
-position = Vector2(12800, 512)
-texture = ExtResource("152_64u8v")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-25-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=259268104]
-position = Vector2(12800, 1024)
-texture = ExtResource("153_7aaj4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-25-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1155993556]
-position = Vector2(12800, 1536)
-texture = ExtResource("154_st345")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-25-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1088765827]
-position = Vector2(12800, 2048)
-texture = ExtResource("155_63k3x")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-26-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1474560592]
-position = Vector2(13312, 0)
-texture = ExtResource("156_7jnmf")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-26-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=180130003]
-position = Vector2(13312, 512)
-texture = ExtResource("157_pv73p")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-26-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=925584160]
-position = Vector2(13312, 1024)
-texture = ExtResource("158_v1g3g")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-26-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2066340465]
-position = Vector2(13312, 1536)
-texture = ExtResource("159_j1li6")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-26-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=355777817]
-position = Vector2(13312, 2048)
-texture = ExtResource("160_x7pip")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-27-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2060647962]
-position = Vector2(13824, 512)
-texture = ExtResource("161_34uxu")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-27-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1153346336]
-position = Vector2(13824, 1024)
-texture = ExtResource("162_l8xsa")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-27-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1193993362]
-position = Vector2(13824, 1536)
-texture = ExtResource("163_0yi7e")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-27-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1941286910]
-position = Vector2(13824, 2048)
-texture = ExtResource("164_n7axc")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-28-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=808708264]
-position = Vector2(14336, 1024)
-texture = ExtResource("165_2kjuv")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-28-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=627333644]
-position = Vector2(14336, 1536)
-texture = ExtResource("166_hm1ei")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-28-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1162421693]
-position = Vector2(14336, 2048)
-texture = ExtResource("167_p5q21")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-29-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=920049570]
-position = Vector2(14848, 1024)
-texture = ExtResource("168_kassi")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-29-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1209326793]
-position = Vector2(14848, 1536)
-texture = ExtResource("169_jagur")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-29-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=743458799]
-position = Vector2(14848, 2048)
-texture = ExtResource("170_l2y0u")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-30-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1435636422]
-position = Vector2(15360, 512)
-texture = ExtResource("171_i4fao")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-30-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=748707967]
-position = Vector2(15360, 1024)
-texture = ExtResource("172_k1un6")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-30-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1864156115]
-position = Vector2(15360, 1536)
-texture = ExtResource("173_bshhq")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-30-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=115497405]
-position = Vector2(15360, 2048)
-texture = ExtResource("174_8lm0h")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-31-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1878290588]
-position = Vector2(15872, 0)
-texture = ExtResource("175_fv6iy")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-31-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1045967227]
-position = Vector2(15872, 512)
-texture = ExtResource("176_1bxqj")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-31-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=504008768]
-position = Vector2(15872, 1024)
-texture = ExtResource("177_8a0gr")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-31-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1525864298]
-position = Vector2(15872, 1536)
-texture = ExtResource("178_t7d0m")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-31-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=954928498]
-position = Vector2(15872, 2048)
-texture = ExtResource("179_m8kb2")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-32-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1061404876]
-position = Vector2(16384, 0)
-texture = ExtResource("180_dd42b")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-32-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=676736689]
-position = Vector2(16384, 512)
-texture = ExtResource("181_shr3o")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-32-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=776930584]
-position = Vector2(16384, 1024)
-texture = ExtResource("182_7qyap")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-32-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1908586423]
-position = Vector2(16384, 1536)
-texture = ExtResource("183_3ysh6")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-32-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1675007253]
-position = Vector2(16384, 2048)
-texture = ExtResource("184_n46s5")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-33-0" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2083936706]
-position = Vector2(16896, 0)
-texture = ExtResource("185_lk2ie")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-33-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=2049680979]
-position = Vector2(16896, 512)
-texture = ExtResource("186_r038v")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-33-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=365264668]
-position = Vector2(16896, 1024)
-texture = ExtResource("187_rlcmf")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-33-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1232256702]
-position = Vector2(16896, 1536)
-texture = ExtResource("188_wslbt")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-33-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=681366318]
-position = Vector2(16896, 2048)
-texture = ExtResource("189_wegsy")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-34-1" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1065998697]
-position = Vector2(17408, 512)
-texture = ExtResource("190_7xbtt")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-34-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1769248895]
-position = Vector2(17408, 1024)
-texture = ExtResource("191_3rq2k")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-34-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1930493086]
-position = Vector2(17408, 1536)
-texture = ExtResource("192_feenl")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-34-4" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=428092297]
-position = Vector2(17408, 2048)
-texture = ExtResource("193_jh5fx")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-35-2" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1668198242]
-position = Vector2(17920, 1024)
-texture = ExtResource("194_hsqj4")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="Tile-35-3" type="Sprite2D" parent="Origin/InGameOrigin/Tiles" unique_id=1050555903]
-position = Vector2(17920, 1536)
-texture = ExtResource("195_yvfx2")
-centered = false
-metadata/_edit_lock_ = true
 
 [node name="Slot" type="Node2D" parent="Origin/InGameOrigin" unique_id=620662087]
 unique_name_in_owner = true
