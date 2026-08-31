@@ -100,7 +100,6 @@ horizontal_alignment = 2
 
 [node name="ShortTrailsButton" type="CheckButton" parent="MarginContainer/VContainerBottom/HContainerControls/VContainerRight/HContainerShortTrails" unique_id=1970845512]
 layout_mode = 2
-button_pressed = true
 
 [node name="Container" type="PanelContainer" parent="MarginContainer/VContainerBottom" unique_id=1454925446]
 layout_mode = 2

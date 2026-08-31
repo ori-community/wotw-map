@@ -21,7 +21,7 @@ var slice_end_time: float = 0.0:
 		for line in segment_lines:
 			line.slice_end_time = value 
 		_update_player_position()
-var fade_out: bool = true:
+var fade_out: bool = false:
 	set(value):
 		fade_out = value
 		for line in segment_lines:

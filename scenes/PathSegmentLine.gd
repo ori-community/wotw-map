@@ -17,7 +17,7 @@ var segment: EventsStream.PathSegment = null:
 	set(value):
 		segment = value
 		_update_line()
-var max_length_time: float = 10.0:  ## Clip the segment to a max length in seconds
+var max_length_time: float = INF:  ## Clip the segment to a max length in seconds
 	set(value):
 		max_length_time = value
 		_update_line()

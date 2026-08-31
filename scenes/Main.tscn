@@ -110,6 +110,21 @@ offset_right = -24.0
 grow_horizontal = 0
 theme_override_constants/separation = 8
 
+[node name="CopyImageButton" type="Button" parent="Buttons" unique_id=1321402655]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+offset_transform_position = Vector2(-24, 24)
+offset_transform_visual_only = false
+focus_mode = 0
+theme = SubResource("Theme_o0kt2")
+theme_override_constants/h_separation = 8
+theme_override_constants/icon_max_width = 24
+theme_override_font_sizes/font_size = 24
+text = "Copy"
+icon = ExtResource("10_lhr70")
+
 [node name="MapButton" type="Button" parent="Buttons" unique_id=630239059]
 unique_name_in_owner = true
 layout_mode = 2
@@ -140,21 +155,6 @@ theme_override_font_sizes/font_size = 24
 text = "Stats"
 icon = ExtResource("12_mwfav")
 
-[node name="CopyImageButton" type="Button" parent="Buttons" unique_id=1321402655]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 0
-offset_transform_position = Vector2(-24, 24)
-offset_transform_visual_only = false
-focus_mode = 0
-theme = SubResource("Theme_o0kt2")
-theme_override_constants/h_separation = 8
-theme_override_constants/icon_max_width = 24
-theme_override_font_sizes/font_size = 24
-text = "Copy"
-icon = ExtResource("10_lhr70")
-
+[connection signal="pressed" from="Buttons/CopyImageButton" to="." method="_on_copy_image_button_pressed"]
 [connection signal="pressed" from="Buttons/MapButton" to="." method="_on_map_button_pressed"]
 [connection signal="pressed" from="Buttons/StatsButton" to="." method="_on_stats_button_pressed"]
-[connection signal="pressed" from="Buttons/CopyImageButton" to="." method="_on_copy_image_button_pressed"]
