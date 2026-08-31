@@ -17,7 +17,6 @@ const MAX_TIME_MARKER_COUNT: int = 6
 
 
 @export var icon_provider: IconProvider = preload("res://assets/wotw_icons.tres")
-@export var type: EventsStream.TimelineEntry.Type
 @export var lane_height_ability: float = 80.0
 @export var lane_height_custom: float = 50.0
 
@@ -47,7 +46,6 @@ var _timeline_max_x: float = 0.0
 
 func _ready() -> void:
 	_update_timeline()
-	
 	timeline_sync_container.offset_right = -lane_height_ability
 
 
@@ -89,7 +87,7 @@ func _update_layout() -> void:
 	var custom_y_end := _layout_entries_with_type(EventsStream.TimelineEntry.Type.Custom, lane_height_custom, abilities_y_end + 16.0)
 
 	custom_minimum_size.y = custom_y_end + 32.0  # 32px for time markers
-	_update_time_markers()
+	_update_time_markers.call_deferred()
 
 
 func _layout_entries_with_type(type: EventsStream.TimelineEntry.Type, lane_height: float, y_start: float) -> float:
