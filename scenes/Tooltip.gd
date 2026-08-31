@@ -9,6 +9,11 @@ func _enter_tree() -> void:
 	get_parent_control().mouse_exited.connect(_on_parent_mouse_exited)
 
 
+func _exit_tree() -> void:
+	get_parent_control().mouse_entered.disconnect(_on_parent_mouse_entered)
+	get_parent_control().mouse_exited.disconnect(_on_parent_mouse_exited)
+
+
 func _on_parent_mouse_entered() -> void:
 	show_tooltip()
 

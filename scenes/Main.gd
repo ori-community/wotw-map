@@ -7,7 +7,7 @@ enum Page {
 }
 
 
-@onready var scroll_container: ScrollContainer = %ScrollContainer
+@onready var page_container: MarginContainer = %PageContainer
 @onready var stats_button: Button = %StatsButton
 @onready var map_button: Button = %MapButton
 @onready var copy_image_button: Button = %CopyImageButton
@@ -26,6 +26,10 @@ var _timeline_synchronizer: TimelineSynchronizer = null:
 		if is_node_ready():
 			_update_page_timeline_synchronizer()
 var _page_node: Control = null
+
+var _stats_view: StatsView = null
+var _stats_view_scroll_container: ScrollContainer = null
+var _map_view: WotwMapView = null
 
 
 func _on_javascript_call(args: Array) -> void:
@@ -88,21 +92,26 @@ func _update_page_timeline_synchronizer() -> void:
 
 func _load_page() -> void:
 	if _page_node != null:
-		_page_node.queue_free()
+		_page_node.get_parent().remove_child(_page_node)
 		_page_node = null
 	
 	match _current_page:
 		Page.Stats:
-			var stats_view: StatsView = load("res://scenes/StatsView.tscn").instantiate()
-			stats_view.timeline_synchronizer = _timeline_synchronizer
-			_page_node = stats_view
+			if _stats_view == null:
+				_stats_view = load("res://scenes/StatsView.tscn").instantiate()
+				_stats_view.timeline_synchronizer = _timeline_synchronizer
+				_stats_view_scroll_container = ScrollContainer.new()
+				_stats_view_scroll_container.add_child(_stats_view)
+			
+			_page_node = _stats_view_scroll_container
 		Page.Map:
-			var map_view: WotwMapView = load("res://scenes/WotwMapView.tscn").instantiate()
-			map_view.timeline_synchronizer = _timeline_synchronizer
-			_page_node = map_view
+			if _map_view == null:
+				_map_view = load("res://scenes/WotwMapView.tscn").instantiate()
+				_map_view.timeline_synchronizer = _timeline_synchronizer
+			_page_node = _map_view
 	
 	if _page_node != null:
-		scroll_container.add_child(_page_node)
+		page_container.add_child(_page_node)
 
 
 func _on_copy_image_button_pressed() -> void:

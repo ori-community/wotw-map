@@ -54,7 +54,7 @@ func _update_stats_area_views() -> void:
 	for i in range(_stats_area_views.size()):
 		var view := _stats_area_views[i]
 
-		if view.is_inside_tree():
+		if view.get_parent() != null:
 			view.get_parent().remove_child(view)
 
 		if i < 6:
