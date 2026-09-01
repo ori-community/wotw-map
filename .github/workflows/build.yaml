@@ -12,6 +12,9 @@ permissions:
   id-token: write
   contents: read
 
+env:
+  SCCACHE_GHA_ENABLED: "true"
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
