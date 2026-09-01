@@ -44,12 +44,6 @@ jobs:
       - name: Enable sccache
         uses: mozilla-actions/sccache-action@v0.0.11
 
-      - name: Cache Godot binaries
-        uses: actions/cache@v5
-        with:
-          path: ./.build/godot/bin
-          key: godot-bin
-
       - name: Install build dependencies
         run: |
           sudo apt-get update
