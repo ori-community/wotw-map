@@ -38,6 +38,9 @@ jobs:
         run: |
           git clone --depth 1 --single-branch --branch 4.7.2-stable https://github.com/godotengine/godot.git .
 
+      - name: Enable sccache
+        uses: mozilla-actions/sccache-action@v0.0.11
+
       - name: Cache Godot binaries
         uses: actions/cache@v5
         with:
@@ -70,14 +73,14 @@ jobs:
 
       - name: Compile Godot WASM
         working-directory: ./.build/godot
-        run: scons progress=no platform=web target=template_release threads=no optimize=size_extra build_profile="$(realpath ../../compilation-profile.gdbuild)"
+        run: scons c_compiler_launcher=sccache cpp_compiler_launcher=sccache progress=no platform=web target=template_release threads=no optimize=size_extra build_profile="$(realpath ../../compilation-profile.gdbuild)"
 
       - name: Copy WASM
         run: cp -v ./.build/godot/bin/*.wasm pkg/dist/wotw-map.wasm
 
       - name: Compile Godot Editor
         working-directory: ./.build/godot
-        run: scons progress=no platform=linuxbsd target=editor production=yes lto=none
+        run: scons c_compiler_launcher=sccache cpp_compiler_launcher=sccache progress=no platform=linuxbsd target=editor production=yes lto=none
 
       - name: Export PCK
         run: |
