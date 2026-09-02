@@ -283,7 +283,6 @@
 		"ResourceImporter",
 		"ResourcePreloader",
 		"ResourceSaver",
-		"ResourceUID",
 		"RichTextEffect",
 		"RichTextLabel",
 		"SceneReplicationConfig",
